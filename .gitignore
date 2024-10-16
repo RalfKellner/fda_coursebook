@@ -1,0 +1,9 @@
+codes/
+.venv/
+data/
+notebooks/
+tutorials/
+generate_logo.ipynb
+.DS_Store
+tex/*
+!tex/fda.pdf

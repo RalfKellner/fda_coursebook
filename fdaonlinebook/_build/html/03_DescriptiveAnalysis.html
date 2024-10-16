@@ -1,0 +1,2093 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Descriptive analysis of data &#8212; Financial Data Analytics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03_DescriptiveAnalysis';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The analysis of dependent variables" href="04_SupervisedLearning.html" />
+    <link rel="prev" title="Access to data" href="02_DataAccess.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="00_Introduction.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Financial Data Analytics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00_Introduction.html">
+                    Financial Data Analytics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_PythonIntroduction.html">Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_DataAccess.html">Access to data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Descriptive analysis of data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_SupervisedLearning.html">The analysis of dependent variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_LinearRegression.html">The multiple linear regression model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Classification.html">Classification</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="07_ModellAccuracy.html">Generalization of functional relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_ModelComplexity.html">Model complexity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_Regularization.html">Regularization</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="10_DimensionalityReduction.html">Dimensionality reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Clustering.html">Clustering</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F03_DescriptiveAnalysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/03_DescriptiveAnalysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Descriptive analysis of data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-collection-and-data-collection">Data collection and data collection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-missing-data">Dealing with missing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-types-and-scales">Characteristic types and scales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-description-of-the-characteristics">Quantitative description of the characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphical-representation-of-data">Graphical representation of data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-distributions-of-characteristic-values">Univariate distributions of characteristic values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-of-correlations">Representation of correlations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-analysis-of-asset-returns">Descriptive analysis of asset returns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data processing</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="descriptive-analysis-of-data">
+<h1>Descriptive analysis of data<a class="headerlink" href="#descriptive-analysis-of-data" title="Link to this heading">#</a></h1>
+<p>Any good data analysis includes a descriptive examination of the data. This is usually done more at the beginning of an analysis to get a first impression about the characteristic values of the data and potential correlations. Descriptive analysis includes the interpretation of the distribution of individual characteristics and also their correlations. Suitable for this field of application are quantitative key figures from descriptive statistics and graphical representations. In this chapter we want to get a short overview of common ratios and graphs and discuss which conclusions can be drawn from them.</p>
+<section id="data-collection-and-data-collection">
+<h2>Data collection and data collection<a class="headerlink" href="#data-collection-and-data-collection" title="Link to this heading">#</a></h2>
+<p>Every data analysis is preceded by the collection of data. The goal of the analysis is to identify relations that are as generally valid as possible. For example, we might be interested in what factors influence the rental price of rental housing in Germany. The relevant unit of our example would be apartments. If we were able to collect data on all apartments, we would have an overview of the population. In this example, this would obviously require a lot of effort or would even be impossible if some of the property owners were not willing to share the data with us. Furthermore, the question arises, which characteristics should be measured besides the rental price, which potentially have an influence on it.</p>
+<p>The only remaining solution is to draw a sample of units (in this case apartments) and to query as many meaningful characteristic values per unit as possible. If we already obtain the sample from third parties, we usually have to perform the analysis with what is accessible and decide at a later stage whether we consider the different characteristics to be sufficient for the knowledge gain of the ananlysis.</p>
+<p>A sample should be representative and random, but not arbitrary. In most cases, it makes the most sense if each unit is drawn with the same probability of being sampled. Without going into more detail about the statistical background, it can be stated that the findings from the analyses of the sample only allow conclusions to be drawn about general relationships if the sample roughly reflects the relationships of the data in the population. Nevertheless, slight differences in the results of the sample are certain to occur due to the randomness of the sampling and the associated incompleteness relative to the population as a whole. Quantifying this difference is a central part of statistics, but not the central focus of this course. Nevertheless, the above arguments are intended to raise awareness of the need for caution in handling the results of data analysis.</p>
+</section>
+<section id="dealing-with-missing-data">
+<h2>Dealing with missing data<a class="headerlink" href="#dealing-with-missing-data" title="Link to this heading">#</a></h2>
+<p>In many data sets there are often missing values, this is usually indicated by abbreviations like “NA, NAN, na, nan”. We want to keep it simple when dealing with missing values in this course, so we focus on the rather simple existing solutions. The two simplest options are either to delete the row (i.e., an observation which usually corresponds to the expressions of a statistical unit) in which there is at least one missing value. This makes sense if the whole data set is not reduced too much. If there are frequent missing values for one characteristic in particular, you can also consider deleting only this column, i.e. all values of a characteristic. Alternatively, missing values can be replaced by values that are as representative as possible. However, this should not be done too lightly, since in this way a distortion of reality is introduced in the analysis. Nevertheless, it may be the better solution if the data basis is too limited by other means.</p>
+</section>
+<section id="characteristic-types-and-scales">
+<h2>Characteristic types and scales<a class="headerlink" href="#characteristic-types-and-scales" title="Link to this heading">#</a></h2>
+<p>Often data sets are a collection of characteristic realizations of different variables of units. One distinguishes with characteristics whether these are discrete (with finitely countable or infinitely countable many possible realizations) or continuous (all realizations in an interval are possible). In addition, the scale level of a characteristic is important for the data analysis. The following scale levels are distinguished:</p>
+<ul class="simple">
+<li><p>nominal: categories, without meaningful series</p></li>
+<li><p>ordinal: possible ordering, no meaningful interpretation of the intervals</p></li>
+<li><p>carindal or metric: possible ordering and interpretation of distances, but partly without meaningful zero point (interval scale vs. ratio scale).</p></li>
+</ul>
+<p>In the lower cell, for example, we see a dataset of students with a possible analysis between the relationship between exam performance (G3) and other characteristics. For example, the variable “sex” refers to gender and is categorical, here it is abbreviated by “F” for female and “M” as male. In order to be able to analyze the characteristics of this variable later, it is useful to transform the categories into numerical values. Nevertheless, even after coding, mathematical calculations like addition do not make sense in terms of content. “Fedu” and “Medu” are clearly ordinal according to the variable description. For example, the age “age” is metric.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># import original data</span>
+<span class="n">df_math</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/student/student-mat.csv&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+
+<span class="c1"># variable descriptions</span>
+<span class="c1"># sex - student&#39;s sex (binary: &quot;F&quot; - female or &quot;M&quot; - male)</span>
+<span class="c1"># age - student&#39;s age (numeric: from 15 to 22)</span>
+<span class="c1"># Medu - mother&#39;s education (numeric: 0 - none,  1 - primary education (4th grade), 2 – 5th to 9th grade, 3 – secondary education or 4 – higher education)</span>
+<span class="c1"># Fedu - father&#39;s education (numeric: 0 - none,  1 - primary education (4th grade), 2 – 5th to 9th grade, 3 – secondary education or 4 – higher education)</span>
+<span class="c1"># studytime - weekly study time (numeric: 1 - &lt;2 hours, 2 - 2 to 5 hours, 3 - 5 to 10 hours, or 4 - &gt;10 hours)</span>
+<span class="c1"># freetime - free time after school (numeric: from 1 - very low to 5 - very high)</span>
+<span class="c1"># absences - number of school absences (numeric: from 0 to 93)</span>
+<span class="c1"># G3 - final grade (numeric: from 0 to 20, output target)</span>
+<span class="n">df_math</span> <span class="o">=</span> <span class="n">df_math</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;Medu&quot;</span><span class="p">,</span> <span class="s2">&quot;Fedu&quot;</span><span class="p">,</span> <span class="s2">&quot;studytime&quot;</span><span class="p">,</span> <span class="s2">&quot;freetime&quot;</span><span class="p">,</span> <span class="s2">&quot;absences&quot;</span><span class="p">,</span> <span class="s2">&quot;G3&quot;</span><span class="p">]]</span>
+<span class="n">df_math</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sex</th>
+      <th>age</th>
+      <th>Medu</th>
+      <th>Fedu</th>
+      <th>studytime</th>
+      <th>freetime</th>
+      <th>absences</th>
+      <th>G3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>F</td>
+      <td>18</td>
+      <td>4</td>
+      <td>4</td>
+      <td>2</td>
+      <td>3</td>
+      <td>6</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>F</td>
+      <td>17</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>F</td>
+      <td>15</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>10</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>F</td>
+      <td>15</td>
+      <td>4</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>F</td>
+      <td>16</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># numerical transformation of the variable sex</span>
+<span class="n">df_math</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;num_sex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_math</span><span class="o">.</span><span class="n">sex</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">})</span>
+<span class="n">df_math</span><span class="p">[</span><span class="s2">&quot;num_sex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_math</span><span class="p">[</span><span class="s2">&quot;num_sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df_math</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s2">&quot;num_sex&quot;</span><span class="p">:</span> <span class="s2">&quot;int32&quot;</span><span class="p">})</span>
+<span class="n">df_math</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;sex&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">df_math</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>Medu</th>
+      <th>Fedu</th>
+      <th>studytime</th>
+      <th>freetime</th>
+      <th>absences</th>
+      <th>G3</th>
+      <th>num_sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4</td>
+      <td>4</td>
+      <td>2</td>
+      <td>3</td>
+      <td>6</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>17</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>15</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>10</td>
+      <td>10</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>15</td>
+      <td>4</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>15</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>16</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>10</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="quantitative-description-of-the-characteristics">
+<h2>Quantitative description of the characteristics<a class="headerlink" href="#quantitative-description-of-the-characteristics" title="Link to this heading">#</a></h2>
+<p>In order to obtain an initial overview of the individual characteristic values, it is useful to take a closer look at their distributions. This can be done using descriptive statistics and suitable graphics. Common ratios are the arithmetic mean, the median, minima, maxima, quantiles, the standard deviation, skewness and kurtosis. To repeat, a few definitions.</p>
+<p>For a number of <span class="math notranslate nohighlight">\(n\)</span> observations of a characteristic <span class="math notranslate nohighlight">\(x_1, ..., x_n\)</span>, the arithmetic mean is defined by:</p>
+<div class="math notranslate nohighlight">
+\[
+\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
+\]</div>
+<p>Given an ordered list of characteristic values <span class="math notranslate nohighlight">\(x_{(1)}, ..., x_{(n)}\)</span>, the median is defined by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+x_{med} = 
+\begin{cases}
+ x_{\left( \frac{n+1}{2} \right)} &amp; \text{if } n \text{ is not even}\\
+ \frac{1}{2} \left(x_{(\frac{n}{2})} + x_{(\frac{n}{2}+1)} \right) &amp; \text{if } n \text{ is even}
+\end{cases}
+\end{split}\]</div>
+<p>The <span class="math notranslate nohighlight">\(p\)</span> quantile of a characteristic is the value for which a proportion <span class="math notranslate nohighlight">\(p\)</span> of all observations is less than or equal to and at least one proportion <span class="math notranslate nohighlight">\(1-p\)</span> is greater than or equal to. Minimum and maximum is the smallest and largest of all values, respectively. To be able to examine the variation of the expressions, the empirical standard deviation is usually used. The variance is the mean square deviation of the values from the mean.</p>
+<div class="math notranslate nohighlight">
+\[
+s^2 = \frac{1}{n} \sum_{i=1}^n \left( x_i - \bar{x} \right)^2
+\]</div>
+<p>The empirical standard deviation is the root of the empirical variance, <span class="math notranslate nohighlight">\(s = \sqrt{s^2}\)</span>. To analyze the skewness of the distribution empirically, the moment coefficient of skewness is often used:</p>
+<div class="math notranslate nohighlight">
+\[
+g_m = \frac{\frac{1}{n} \sum_{i - 1}^n \left( x_i - \bar{x} \right)^3}{s^3}
+\]</div>
+<p>A negative value indicates a left-skewed distribution, a positive value a right-skewed distribution. A value of <span class="math notranslate nohighlight">\(0\)</span> or close to <span class="math notranslate nohighlight">\(0\)</span> indicates a symmetric distribution.</p>
+<p>The kurtosis of the distribution is often assessed with the Fisher kurtosis measure:</p>
+<div class="math notranslate nohighlight">
+\[
+\gamma = \frac{\frac{1}{n} \sum_{i - 1}^n \left( x_i - \bar{x} \right)^4}{s^4} - 3
+\]</div>
+<p>Note that for the last measure, the value of <span class="math notranslate nohighlight">\(3\)</span> is subtracted to compare the kurtosis with that of a normal distribution. A value greater than <span class="math notranslate nohighlight">\(0\)</span> is called a leptokurtic distribution, and a value less than <span class="math notranslate nohighlight">\(0\)</span> is called a platokurtic distribution. Some statistical programs do not pull the value of <span class="math notranslate nohighlight">\(3\)</span> by default, this usually needs to be checked to be sure.</p>
+<p>When we work with pandas DataFrames, it is relatively easy to determine these descriptive measures. On the one hand there is the <em>describe</em> function, which outputs the number of observations, mean, standard deviation, minimum, maximum, median as well as the 25% and 75% quantile. Furthermore, there are the <em>skew</em> and the <em>kurtosis</em> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_math</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>Medu</th>
+      <th>Fedu</th>
+      <th>studytime</th>
+      <th>freetime</th>
+      <th>absences</th>
+      <th>G3</th>
+      <th>num_sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>395.000000</td>
+      <td>395.000000</td>
+      <td>395.000000</td>
+      <td>395.000000</td>
+      <td>395.000000</td>
+      <td>395.000000</td>
+      <td>395.000000</td>
+      <td>395.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>16.696203</td>
+      <td>2.749367</td>
+      <td>2.521519</td>
+      <td>2.035443</td>
+      <td>3.235443</td>
+      <td>5.708861</td>
+      <td>10.415190</td>
+      <td>0.526582</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.276043</td>
+      <td>1.094735</td>
+      <td>1.088201</td>
+      <td>0.839240</td>
+      <td>0.998862</td>
+      <td>8.003096</td>
+      <td>4.581443</td>
+      <td>0.499926</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>15.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>16.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>8.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>17.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>4.000000</td>
+      <td>11.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>18.000000</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+      <td>8.000000</td>
+      <td>14.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>22.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>75.000000</td>
+      <td>20.000000</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_math</span><span class="o">.</span><span class="n">skew</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age          0.466270
+Medu        -0.318381
+Fedu        -0.031672
+studytime    0.632142
+freetime    -0.163351
+absences     3.671579
+G3          -0.732672
+num_sex     -0.106886
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_math</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age          -0.001222
+Medu         -1.090014
+Fedu         -1.198539
+studytime    -0.014432
+freetime     -0.301807
+absences     21.719150
+G3            0.403421
+num_sex      -1.998721
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="graphical-representation-of-data">
+<h2>Graphical representation of data<a class="headerlink" href="#graphical-representation-of-data" title="Link to this heading">#</a></h2>
+<p>There are many ways to visualize data. However, to get the most insightful information from the visualizations requires experience and expertise. Let’s start with some basic graph types. The choice of the appropriate graph is again partly related to the scale of a feature. In order to obtain an overview of the distribution of characteristic values, barplots are suitable for nominally or ordinally scaled characteristics and histograms for metrically scaled characteristics.</p>
+<section id="univariate-distributions-of-characteristic-values">
+<h3>Univariate distributions of characteristic values<a class="headerlink" href="#univariate-distributions-of-characteristic-values" title="Link to this heading">#</a></h3>
+<p>In the lower cell, we see barplots for the categorical and ordinal characteristics. In the barplots, the characteristic expressions are plotted on the x-axis and the absolute frequencies are plotted on the y-axis. We can see from these plots that most of the distributions of the characteristic values are not symmetrical and that, especially in the case of “studytime” and “freetime”, one category occurs significantly more often than all other categories in the values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="n">non_metric_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Medu&quot;</span><span class="p">,</span> <span class="s2">&quot;Fedu&quot;</span><span class="p">,</span> <span class="s2">&quot;studytime&quot;</span><span class="p">,</span> <span class="s2">&quot;freetime&quot;</span><span class="p">,</span> <span class="s2">&quot;num_sex&quot;</span><span class="p">]</span>
+
+<span class="n">fig_non_metric</span><span class="p">,</span> <span class="n">axs_non_metric</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">non_m_var</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">non_metric_vars</span><span class="p">):</span>
+    <span class="n">nobs_per_cat</span> <span class="o">=</span> <span class="n">df_math</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">non_m_var</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+    <span class="n">axs_non_metric</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">nobs_per_cat</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">nobs_per_cat</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">axs_non_metric</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">non_m_var</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/dda52d7c627f54b4a1d737949f475d2a699cd8188e4522bc738a705d648089f0.png" src="_images/dda52d7c627f54b4a1d737949f475d2a699cd8188e4522bc738a705d648089f0.png" />
+</div>
+</div>
+<p>In the next cell we see the histograms of the metric variables. In a histogram, the frequencies of the expressions within defined intervals are counted. Instead of fixed interval limits, a number of internals (bins) is often specified, and the interval limits are determined accordingly over the range of all characteristic expressions. As an alternative to the absolute number of characteristic values within an interval, the empirical density values are sometimes plotted on the y-axis. In this case, the frequencies are normalized in such a way that the area below the histogram results in the value <span class="math notranslate nohighlight">\(1\)</span>. The latter is preferred especially when the empirical distribution is to be compared with density functions of theoretical distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="n">metric_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;absences&quot;</span><span class="p">,</span> <span class="s2">&quot;G3&quot;</span><span class="p">]</span>
+
+<span class="n">fig_metric</span><span class="p">,</span> <span class="n">axs_metric</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">m_var</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">metric_vars</span><span class="p">):</span>
+    <span class="n">axs_metric</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_math</span><span class="p">[</span><span class="n">m_var</span><span class="p">],</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">axs_metric</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">m_var</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2862c8f204232bde2e226966f2193cba904743a8b9b385706ddba304c9cce828.png" src="_images/2862c8f204232bde2e226966f2193cba904743a8b9b385706ddba304c9cce828.png" />
+</div>
+</div>
+<p>Another way to get a graphical impression of the distributions is to use boxplots, which can be used for non-metric as well as for metric variables. Compared to barplots and histograms, boxplots are better suited to get an impression of extreme values and their accumulation. The next cell visualizes the boxplots of all features in the dataset. In the standard shown in the lower cell, the lower edge of the box corresponds to the 25% and the upper edge of the box corresponds to the 75% quantile, the dash in the middle symbolizes the median. The outer dashes are distances equal to <span class="math notranslate nohighlight">\(1.5\)</span> times the interquartile range. As more extreme expressions are represented by single dots. With the help of the boxplots in the example, it is easy to see, for example, that there are significantly more isolated high values for absence than for the other characteristics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boxplots</span> <span class="o">=</span> <span class="n">df_math</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e591554a5771372a0889344f047f22054ef427f0c700c5d892a91d58ed64bac6.png" src="_images/e591554a5771372a0889344f047f22054ef427f0c700c5d892a91d58ed64bac6.png" />
+</div>
+</div>
+</section>
+<section id="representation-of-correlations">
+<h3>Representation of correlations<a class="headerlink" href="#representation-of-correlations" title="Link to this heading">#</a></h3>
+<p>Very often, correlations between the characteristic values of individual variables are also of great importance for data analysis. In the first step, scatterplots can be used to visualize pairwise correlations between variables. However, these usually only provide insights in the case of continuous variables. For example, in the cell below we see a scatterplot between the absence and the final note. This seems to show a correlation. Next to it is a scatterplot between study time and free time. Since both variables are discrete in this data set, one can only see from this view which combinations of values occur, which is not very informative. As a small “workaround” for such cases, it would be possible to display the size of the points of the graph proportional to the frequency of the pairwise combinations. You can view this graph in the third plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">df_math</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;absences&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;G3&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">df_math</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;freetime&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;studytime&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">count_study_free</span> <span class="o">=</span> <span class="n">df_math</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;freetime&quot;</span><span class="p">,</span> <span class="s2">&quot;studytime&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="n">x_levels</span> <span class="o">=</span> <span class="n">count_study_free</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">y_levels</span> <span class="o">=</span> <span class="n">count_study_free</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_levels</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">y_levels</span><span class="p">:</span>
+        <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">count_study_free</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;#1f77b4&quot;</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;freetime&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;studytime&quot;</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;without frequency information&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;with frequency information&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d5fde0d8a9ff3e1e36359f057e1bb282e527781aee08818c7c2c8bc10771a181.png" src="_images/d5fde0d8a9ff3e1e36359f057e1bb282e527781aee08818c7c2c8bc10771a181.png" />
+</div>
+</div>
+<p>The possibility to visualize all pairwise dependencies of a data set exists by using heatmaps of the correlation matrix of a data set. Again, when calculating the correlations, it is important to consider the scales of the features. As long as a characteristic is at least ordinally scaled, Spearman’s correlation coefficient (rank correlation) can be used. In our example, we therefore exclude the variable of gender. In a heatmap, colors and numbers make all pairwise dependencies clear relatively quickly. An example can be found in the following cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="n">corr_mat</span> <span class="o">=</span> <span class="n">df_math</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;num_sex&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;spearman&quot;</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">corr_mat</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_mat</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">corr_mat</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0866e6314026ea71d416964f259ec9a7d21ab5433469107b07f069ffb68ba472.png" src="_images/0866e6314026ea71d416964f259ec9a7d21ab5433469107b07f069ffb68ba472.png" />
+</div>
+</div>
+<p>Finally, we consider an example of correlation analysis when we are interested in a target variable and the possible influence of individual independent characteristics that are not continuously scaled. It is convenient here to generate histograms according to the categories of the independent variables. For example, in the graph in the next cell, we again see in histogram form the final exam scores, but this time separated by individuals with high and lower learning time. Such graphs can also be generated for characteristics with multiple expressions. If the histograms of the characteristic of interest are similar for different categories of another characteristic, it can be assumed rather less of an influence of the characteristic on the target variable. The more different the distributions in dependence of the category, the stronger is potentially the influence of the characteristic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_math</span><span class="p">[</span><span class="s2">&quot;G3&quot;</span><span class="p">][</span><span class="n">df_math</span><span class="o">.</span><span class="n">studytime</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;studytime &lt;= 2&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_math</span><span class="p">[</span><span class="s2">&quot;G3&quot;</span><span class="p">][</span><span class="n">df_math</span><span class="o">.</span><span class="n">studytime</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;studytime &gt; 2&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Final test results&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7ae41ac7e2baacebab631f7060eacbae08245cbf7968fcf5e8d6cbc19c50aa35.png" src="_images/7ae41ac7e2baacebab631f7060eacbae08245cbf7968fcf5e8d6cbc19c50aa35.png" />
+</div>
+</div>
+<p>Here we end the excerpt from the possibilities of graphical description of data. At this point it should be noted that the generation of insightful graphs is a lifelong learning process, since good graphical visualizations strongly depend on the respective data set.</p>
+</section>
+</section>
+<section id="descriptive-analysis-of-asset-returns">
+<h2>Descriptive analysis of asset returns<a class="headerlink" href="#descriptive-analysis-of-asset-returns" title="Link to this heading">#</a></h2>
+<p>As this course has an emphasis on financial markets, we are going to conduct some useful descriptive analysis for asset returns. In our example we are going to take a look et equity returns. Let us define the stock price of a company at time <span class="math notranslate nohighlight">\(t\)</span> as <span class="math notranslate nohighlight">\(s_t\)</span> and its relative price change between two time steps (the discrete return) as:</p>
+<div class="math notranslate nohighlight">
+\[
+r_t = \frac{s_t - s_{t-1}}{s_{t-1}} =  \frac{s_t}{s_{t-1}} - 1
+\]</div>
+<p>Another way how returns are often calculated are log-returns which we denote as <span class="math notranslate nohighlight">\(z_t\)</span>. They are defined by:</p>
+<div class="math notranslate nohighlight">
+\[
+z_t = \ln \left( \frac{s_t}{s_{t-1}} \right) = \ln \left(s_t\right) - \ln \left(s_{t-1}\right)
+\]</div>
+<p>For the moment, just keep in mind that discrete and log-returns are very similar if the value change of the corresponding price is not too large and the both have different mathematical properties which can be of advantage for different applications. The mathematical relationship between both return definitions is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+z_t = \ln \left(1 + r_t\right) \\
+r_t = e^{z_t} - 1
+\end{split}\]</div>
+<p>Furthermore, if we want to aggregate discrete returns over <span class="math notranslate nohighlight">\(h\)</span> periods, we can do so by calculating</p>
+<div class="math notranslate nohighlight">
+\[r_t(h) = \prod_{i = t-h+1}^t \left(1 + r_i\right) - 1\]</div>
+<p>for discrete returns, and:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{split}
+z_t(h) &amp; = \ln \left(1+ r_t(h)\right) = \\
+&amp; =  \ln \left(\left(1 + r_{t-h+1}\right) \cdot ... \cdot \left(1 + r_{t}\right) \right) = \\
+&amp; = \ln \left(1 + r_{t-h+1}\right) + ... +\ln \left(1 + r_{t}\right) = \\
+&amp; = z_{t-h+1} + ... + z_t = \\
+&amp; = \sum_{i = t-h+1}^t z_i
+\end{split}
+\end{split}\]</div>
+<p>for log-returns. Asset returns are essential to analyze the value (and its development) of assets such as stock prices. The analysis of returns instead of the asset price itself is done due to reasons of comparability of assets with different price levels and a statistical concept called (weak) stationarity. Without going into details, this characteristic makes sure that conclusions which are drawn with a certain data sample from a time period can be used for other time periods. For instance, if we estimate the expected return for Apple’s stock price we can use data from the last two years and use this estimate for the next twelve month.</p>
+<p>In the cells below, we examine daily and monthly returns over the past five years for ten companies from the US and Germany. The descriptive statistics of daily data reveal a few common characteristics for daily returns. The average return of every company is close to zero and the excess kurtosis is greater than zero for all companies which indicates that returns distributions have heavy tails. The latter points to leptocurtic probability distributions that have higher probability masses in the tails of the distribution than a normal distribution. As a consequence, more extreme events occur more often than under a process sampled from a normal distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># import data</span>
+<span class="n">ticker_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/ten_stocks_US_GER.csv&quot;</span><span class="p">)</span>
+<span class="n">ticker_data</span> <span class="o">=</span> <span class="n">ticker_data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ticker_data</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Date&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># determine daily and monthly returns</span>
+<span class="n">discrete_daily_returns</span> <span class="o">=</span> <span class="n">ticker_data</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="n">fill_method</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>
+<span class="n">log_daily_returns</span> <span class="o">=</span> <span class="n">discrete_daily_returns</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">)</span>
+<span class="n">log_monthly_returns</span> <span class="o">=</span> <span class="n">log_daily_returns</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;ME&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">discrete_monthly_returns</span> <span class="o">=</span> <span class="n">log_monthly_returns</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">)</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span>
+
+<span class="c1"># daily descriptive statistics</span>
+<span class="n">daily_descriptive_statistics</span> <span class="o">=</span> <span class="n">discrete_daily_returns</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">percentiles</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
+<span class="n">daily_descriptive_statistics</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;skewness&quot;</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">discrete_daily_returns</span><span class="o">.</span><span class="n">skew</span><span class="p">()</span>
+<span class="n">daily_descriptive_statistics</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;ex. kurtosis&quot;</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">discrete_daily_returns</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">()</span>
+<span class="n">daily_descriptive_statistics</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AAPL</th>
+      <th>AMZN</th>
+      <th>BMW.DE</th>
+      <th>DBK.DE</th>
+      <th>F</th>
+      <th>MCD</th>
+      <th>MS</th>
+      <th>MUV2.DE</th>
+      <th>SAP.DE</th>
+      <th>SIE.DE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1223.000000</td>
+      <td>1223.000000</td>
+      <td>1257.000000</td>
+      <td>1257.000000</td>
+      <td>1223.000000</td>
+      <td>1223.000000</td>
+      <td>1223.000000</td>
+      <td>1257.000000</td>
+      <td>1257.000000</td>
+      <td>1257.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.001554</td>
+      <td>0.000821</td>
+      <td>0.000525</td>
+      <td>0.000939</td>
+      <td>0.000763</td>
+      <td>0.000480</td>
+      <td>0.001205</td>
+      <td>0.000939</td>
+      <td>0.000700</td>
+      <td>0.000810</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.019954</td>
+      <td>0.022413</td>
+      <td>0.019412</td>
+      <td>0.025758</td>
+      <td>0.028031</td>
+      <td>0.014867</td>
+      <td>0.021985</td>
+      <td>0.018001</td>
+      <td>0.017260</td>
+      <td>0.019398</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-0.128647</td>
+      <td>-0.140494</td>
+      <td>-0.129714</td>
+      <td>-0.184360</td>
+      <td>-0.183614</td>
+      <td>-0.158754</td>
+      <td>-0.156000</td>
+      <td>-0.177419</td>
+      <td>-0.219375</td>
+      <td>-0.126960</td>
+    </tr>
+    <tr>
+      <th>5%</th>
+      <td>-0.029969</td>
+      <td>-0.032922</td>
+      <td>-0.029830</td>
+      <td>-0.037917</td>
+      <td>-0.039149</td>
+      <td>-0.018117</td>
+      <td>-0.030124</td>
+      <td>-0.023710</td>
+      <td>-0.025986</td>
+      <td>-0.029105</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.001511</td>
+      <td>0.000711</td>
+      <td>0.000550</td>
+      <td>0.001120</td>
+      <td>0.000000</td>
+      <td>0.000548</td>
+      <td>0.001289</td>
+      <td>0.000796</td>
+      <td>0.000443</td>
+      <td>0.000600</td>
+    </tr>
+    <tr>
+      <th>95%</th>
+      <td>0.030410</td>
+      <td>0.035738</td>
+      <td>0.028988</td>
+      <td>0.039052</td>
+      <td>0.044576</td>
+      <td>0.019653</td>
+      <td>0.030648</td>
+      <td>0.023560</td>
+      <td>0.024614</td>
+      <td>0.028594</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>0.119808</td>
+      <td>0.135359</td>
+      <td>0.144724</td>
+      <td>0.128993</td>
+      <td>0.234414</td>
+      <td>0.181254</td>
+      <td>0.197701</td>
+      <td>0.201749</td>
+      <td>0.102344</td>
+      <td>0.115594</td>
+    </tr>
+    <tr>
+      <th>skewness</th>
+      <td>0.110834</td>
+      <td>0.065964</td>
+      <td>-0.218681</td>
+      <td>-0.383373</td>
+      <td>0.158507</td>
+      <td>0.446955</td>
+      <td>0.532250</td>
+      <td>0.653855</td>
+      <td>-1.488945</td>
+      <td>0.027285</td>
+    </tr>
+    <tr>
+      <th>ex. kurtosis</th>
+      <td>5.353408</td>
+      <td>4.338751</td>
+      <td>7.784073</td>
+      <td>6.317493</td>
+      <td>7.184865</td>
+      <td>33.950452</td>
+      <td>14.880085</td>
+      <td>24.438809</td>
+      <td>23.912405</td>
+      <td>5.327983</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Taking a look at the boxplots below visualizes findings from the descriptive statistics. Keep in mind that many observations are beyond the whiskers whose length is <span class="math notranslate nohighlight">\(1.5\)</span> times the inter quartile range. This emphasizes the frequent occurrence of rather extreme realizations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">discrete_daily_returns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cc18662029355a47ab7bd3b762b049f6f8d510f62c090baa626e7896b33f5d16.png" src="_images/cc18662029355a47ab7bd3b762b049f6f8d510f62c090baa626e7896b33f5d16.png" />
+</div>
+</div>
+<p>Another important characteristic of equity returns is their positive correlation. This is why we examine the heatmap of correlations below. Overall correlations are positive for each pair and within countries the highest correlation values can be measures. Note that we exhibit Spearman correlation which is a rank based correlation measure and more robust to outliers and non-linear relationships.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="n">corr_mat_daily</span> <span class="o">=</span> <span class="n">discrete_daily_returns</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;spearman&quot;</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">corr_mat_daily</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_mat_daily</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">corr_mat_daily</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d8f56efdce3e4aa2b58ddc6dbf8cb88d98374676e86c8ed912da2fdc3e1de1fa.png" src="_images/d8f56efdce3e4aa2b58ddc6dbf8cb88d98374676e86c8ed912da2fdc3e1de1fa.png" />
+</div>
+</div>
+<p>Revisiting these statistics and visualizations for monthly data reveals some differences. Taking a look at the descriptive statistics below, we observe estimated mean values which are different from zero and mostly positive. Excess kurtosis values are smaller and even negative for Apple. This indicates that less frequent returns which measure the price development over a longer period are less extreme.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthly_descriptive_statistics</span> <span class="o">=</span> <span class="n">discrete_monthly_returns</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">percentiles</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
+<span class="n">monthly_descriptive_statistics</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;skewness&quot;</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">discrete_monthly_returns</span><span class="o">.</span><span class="n">skew</span><span class="p">()</span>
+<span class="n">monthly_descriptive_statistics</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;ex. kurtosis&quot;</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">discrete_monthly_returns</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">()</span>
+<span class="n">monthly_descriptive_statistics</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AAPL</th>
+      <th>AMZN</th>
+      <th>BMW.DE</th>
+      <th>DBK.DE</th>
+      <th>F</th>
+      <th>MCD</th>
+      <th>MS</th>
+      <th>MUV2.DE</th>
+      <th>SAP.DE</th>
+      <th>SIE.DE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.030781</td>
+      <td>0.015473</td>
+      <td>0.010403</td>
+      <td>0.017266</td>
+      <td>0.015652</td>
+      <td>0.008991</td>
+      <td>0.023417</td>
+      <td>0.018481</td>
+      <td>0.014537</td>
+      <td>0.016161</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.082299</td>
+      <td>0.090750</td>
+      <td>0.084699</td>
+      <td>0.097734</td>
+      <td>0.128367</td>
+      <td>0.056462</td>
+      <td>0.088850</td>
+      <td>0.068227</td>
+      <td>0.078415</td>
+      <td>0.082024</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-0.122273</td>
+      <td>-0.237525</td>
+      <td>-0.200492</td>
+      <td>-0.242417</td>
+      <td>-0.306034</td>
+      <td>-0.148427</td>
+      <td>-0.244948</td>
+      <td>-0.201994</td>
+      <td>-0.310862</td>
+      <td>-0.207040</td>
+    </tr>
+    <tr>
+      <th>5%</th>
+      <td>-0.098189</td>
+      <td>-0.098726</td>
+      <td>-0.091959</td>
+      <td>-0.165660</td>
+      <td>-0.202735</td>
+      <td>-0.082886</td>
+      <td>-0.122254</td>
+      <td>-0.103848</td>
+      <td>-0.083006</td>
+      <td>-0.103884</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.032097</td>
+      <td>0.023555</td>
+      <td>-0.008130</td>
+      <td>0.022203</td>
+      <td>0.026490</td>
+      <td>-0.002030</td>
+      <td>0.033145</td>
+      <td>0.025467</td>
+      <td>0.018882</td>
+      <td>0.007388</td>
+    </tr>
+    <tr>
+      <th>95%</th>
+      <td>0.147386</td>
+      <td>0.155482</td>
+      <td>0.135132</td>
+      <td>0.179583</td>
+      <td>0.206215</td>
+      <td>0.095953</td>
+      <td>0.128253</td>
+      <td>0.117102</td>
+      <td>0.141962</td>
+      <td>0.132908</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>0.216570</td>
+      <td>0.268900</td>
+      <td>0.244717</td>
+      <td>0.263406</td>
+      <td>0.333998</td>
+      <td>0.181676</td>
+      <td>0.276871</td>
+      <td>0.163347</td>
+      <td>0.161079</td>
+      <td>0.232394</td>
+    </tr>
+    <tr>
+      <th>skewness</th>
+      <td>-0.005709</td>
+      <td>0.290685</td>
+      <td>0.401919</td>
+      <td>-0.172014</td>
+      <td>-0.052618</td>
+      <td>0.340224</td>
+      <td>-0.236518</td>
+      <td>-0.616868</td>
+      <td>-0.985978</td>
+      <td>0.118767</td>
+    </tr>
+    <tr>
+      <th>ex. kurtosis</th>
+      <td>-0.863567</td>
+      <td>0.977825</td>
+      <td>0.561502</td>
+      <td>0.809262</td>
+      <td>0.319879</td>
+      <td>1.157348</td>
+      <td>0.931355</td>
+      <td>0.996696</td>
+      <td>3.677885</td>
+      <td>1.041643</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The boxplots confirm this observation as only a few observations are beyond the whiskers. Note that average returns being mostly positive is very likely related to the rather booming environment on equity markets over the past five years.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">discrete_monthly_returns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/68a1fd8c53563a2d1d5f1fe9797cf57c7c64611ba3bde7b4022faf7059f0e148.png" src="_images/68a1fd8c53563a2d1d5f1fe9797cf57c7c64611ba3bde7b4022faf7059f0e148.png" />
+</div>
+</div>
+<p>Correlation between monthly data remains at high levels. The only difference is that monthly correlations are also high between countries, e.g., Apple - Siemens or Apple - SAP.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="n">corr_mat_monthly</span> <span class="o">=</span> <span class="n">discrete_monthly_returns</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;spearman&quot;</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">corr_mat_monthly</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_mat_monthly</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">corr_mat_monthly</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/86fbbe88a621ab8a3213800a279039dacb2e73dd2e95ab6c6226c7c84ca699cc.png" src="_images/86fbbe88a621ab8a3213800a279039dacb2e73dd2e95ab6c6226c7c84ca699cc.png" />
+</div>
+</div>
+<p>When analyzing financial market data, we often collect data over a series of time steps with sequentiel ordering - time series data. Questions often arise which relate to the development over time which is why descriptive analyes should include the time dimension as well. To examine the behavior for certain metrics such as the arithmetic mean or the empirical standard deviation over time, we may use the recent history of observations and update these estimates as soon as new data points are added. This can be achieved by means of a so called rolling window which always uses the past <span class="math notranslate nohighlight">\(n_w\)</span> data points to determine the metric of interest. Alternatively, one can use an exponentially weighted metric which gives more weight to more recent observations. For instance, estimation of the expected value <span class="math notranslate nohighlight">\(x\)</span> at <span class="math notranslate nohighlight">\(t\)</span> using the rolling window approach would be done by:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mu}_t = \frac{1}{n_w} \sum_{t' = t - n_w}^{t} x_{t'}
+\]</div>
+<p>In it’s easiest version, the exponentially weighted estimation uses a weighting parameter <span class="math notranslate nohighlight">\(\alpha\)</span> for recent observations and a recursive definition. For instance the expected value can be estimated by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\mu}_1 = x_1 \\
+\hat{\mu}_t = \left(1 - \alpha\right) \hat{\mu}_{t-1} + \alpha x_t
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(0 &lt; \alpha \leq 1 \)</span> is set by the user and needs to be specified by the user. The higher its value, the more sensible the estimate reacts towards recent observations. This idea can also be applied to the estimation of the variance or correlation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># import data</span>
+<span class="n">ticker_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/spy_dax.csv&quot;</span><span class="p">)</span>
+<span class="n">ticker_data</span> <span class="o">=</span> <span class="n">ticker_data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ticker_data</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Date&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># determine daily and monthly returns</span>
+<span class="n">discrete_daily_returns</span> <span class="o">=</span> <span class="n">ticker_data</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="n">fill_method</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>
+<span class="n">log_daily_returns</span> <span class="o">=</span> <span class="n">discrete_daily_returns</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">)</span>
+<span class="n">log_monthly_returns</span> <span class="o">=</span> <span class="n">log_daily_returns</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;ME&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">discrete_monthly_returns</span> <span class="o">=</span> <span class="n">log_monthly_returns</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">)</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below we observe the time-varying estimation for the monthly mean (<span class="math notranslate nohighlight">\(\alpha = 0.2\)</span>) of an ETF for the S&amp;P 500 and the DAX index. We observe a cyclical pattern for both regions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">discrete_monthly_returns</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">adjust</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ylabel</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$\hat{\mu}_t$ (monthly)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ada5b71dd122a8c605929eb84e2c4c0e52bc0dccdb4446cc7567f846c3ce3e31.png" src="_images/ada5b71dd122a8c605929eb84e2c4c0e52bc0dccdb4446cc7567f846c3ce3e31.png" />
+</div>
+</div>
+<p>More persistent is the time-varying nature of variance and standard deviation of asset returns. The graph below shows two periods with higher volatilities for both ETFs in the past five years.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">discrete_monthly_returns</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">adjust</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ylabel</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$\hat{\sigma}_t$ (monthly)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c6551fcbbf2e325a500130bced9a79567cada8339dd934348c7a49f9fbf0b286.png" src="_images/c6551fcbbf2e325a500130bced9a79567cada8339dd934348c7a49f9fbf0b286.png" />
+</div>
+</div>
+<p>The observations from above indicate dependencies over time. This is often examined by auto-covariance and auto-correlation, respectively. Autocorrelation describes the linear relationship of successive values. The auto-covariance of a variable can be estimated by means of:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\gamma}(h) = \frac{1}{T} \sum_{t = 1}^{T-h} \left(x_t - \bar{x}\right)\left(x_{t-h}  - \bar{x}\right)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(h\)</span> describes the time interval of successive observations and <span class="math notranslate nohighlight">\(T\)</span> the number of observations over time. If you compare this formula with the estimator of the covariance of two variables, you will see that the auto-covariance determines the correlation with the own values at <span class="math notranslate nohighlight">\(h\)</span> time intervals. The normalized form of the auto-covariance is the auto-correlation, which is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\rho}(h) = \frac{\hat{\gamma}(h)}{\hat{\gamma}(0)}
+\]</div>
+<p>This value is in the interval <span class="math notranslate nohighlight">\([-1, 1]\)</span> and can be interpreted in an analogous way to the Bravais-Pearson correlation. If a non-zero auto-correlation is measured, it is useful to model current data points using past data.</p>
+<p>In the cells below, we observe the return series and absolute return series for the S&amp;P 500 and DAX ETF together with the estimated autocorrealations. We observe small auto-correlation between certain day lags for returns and larger values for absolute returns. The implication is that today’s price developments have little predictive power for future movements, however, volatile and more calm times seem to persist, once they started.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="c1"># import data</span>
+<span class="n">ticker_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/spy_dax.csv&quot;</span><span class="p">)</span>
+<span class="n">ticker_data</span> <span class="o">=</span> <span class="n">ticker_data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ticker_data</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Date&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># determine daily and monthly returns</span>
+<span class="n">discrete_daily_returns</span> <span class="o">=</span> <span class="n">ticker_data</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="n">fill_method</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>
+<span class="n">log_daily_returns</span> <span class="o">=</span> <span class="n">discrete_daily_returns</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">)</span>
+<span class="n">log_monthly_returns</span> <span class="o">=</span> <span class="n">log_daily_returns</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;ME&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">discrete_monthly_returns</span> <span class="o">=</span> <span class="n">log_monthly_returns</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">)</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">discrete_daily_returns</span><span class="p">[</span><span class="s2">&quot;SPY&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;SPY&quot;</span><span class="p">,</span> <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$r_t$&quot;</span><span class="p">)</span>
+<span class="n">discrete_daily_returns</span><span class="p">[</span><span class="s2">&quot;SPY&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;SPY&quot;</span><span class="p">,</span> <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$|r_t|$&quot;</span><span class="p">)</span>
+<span class="n">discrete_daily_returns</span><span class="p">[</span><span class="s2">&quot;DAX&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;DAX&quot;</span><span class="p">,</span> <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$r_t$&quot;</span><span class="p">)</span>
+<span class="n">discrete_daily_returns</span><span class="p">[</span><span class="s2">&quot;DAX&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;DAX&quot;</span><span class="p">,</span> <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$|r_t|$&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/890349dc629111864053f84fcb2740a9b56c78bb547328f26ddaa761140605a2.png" src="_images/890349dc629111864053f84fcb2740a9b56c78bb547328f26ddaa761140605a2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;SPY&quot;</span><span class="p">,</span> <span class="s2">&quot;DAX&quot;</span><span class="p">]):</span>
+    <span class="n">plot_acf</span><span class="p">(</span><span class="n">discrete_daily_returns</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">plot_acf</span><span class="p">(</span><span class="n">discrete_daily_returns</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>  
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;lags&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;autocorrelation $r_t$&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;lags&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;autocorrelation $|r_t|$&quot;</span><span class="p">)</span>
+
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c1e54100333303e59130adcaa2c342dae8ec25251ec5daff2ade1f60bf4dfd58.png" src="_images/c1e54100333303e59130adcaa2c342dae8ec25251ec5daff2ade1f60bf4dfd58.png" />
+</div>
+</div>
+</section>
+<section id="data-processing">
+<h2>Data processing<a class="headerlink" href="#data-processing" title="Link to this heading">#</a></h2>
+<p>One last aspect which is not directly linked to descriptive analyses, however, is usually done after it, is processing of data before we utilize it for further model based analyses. Some data points need to be prepared in order to train models of data analysis with these data. The most relevant aspects here are the handling of categorical data and the normalization of quantitative characteristic values. For nominal and ordinal characteristics, it can happen that these are passed in the data set as non-numerical values, e.g. “male”, “female” or “bad”, “neutral”, “good”. For ordinal characteristics, it is useful to assign numbers to the categories according to the oridinal order, e.g. “bad” -&gt; 1, “neutral” -&gt; 2, “good” -&gt; 3. By the way, it is not mandatory that the numbers 1,2,3 are used, as long as a reasonable logic is used for the order, the numbers can be chosen arbitrarily. If a characteristic is nominally scaled, a one-hot encoding is often used. The respective applicable category is marked as “hot” by a 1, while the remaining categories are 0’s. More precisely, the one-hot encoding must generate as many new variables as there are categories. For example, with two categories, the first category would be represented by the vector <span class="math notranslate nohighlight">\(\begin{pmatrix} 1 &amp; 0 \end{pmatrix}^T\)</span> and the second category by the vector <span class="math notranslate nohighlight">\(\begin{pmatrix} 0 &amp; 1 \end{pmatrix}^T\)</span>, for example, if there are three categories, the first category would be represented by the vector <span class="math notranslate nohighlight">\(\begin{pmatrix} 1 &amp; 0 &amp; 0 \end{pmatrix}^T\)</span>, the second category by the vector <span class="math notranslate nohighlight">\(\begin{pmatrix} 0 &amp; 1 &amp; 0 \end{pmatrix}^T\)</span>, and the third category by the vector <span class="math notranslate nohighlight">\(\begin{pmatrix} 0 &amp; 0 &amp; 1 \end{pmatrix}^T\)</span>. This type of coding can also be used for ordinal characteristics, but the ordinal information is initially lost. Alternatively, dummy coding is used in statistics, where one category is set as the standard and the remaining characteristics are coded by <span class="math notranslate nohighlight">\(K-1\)</span> 1-0 variables.</p>
+<p>For numerical characteristics, it can often be useful and sometimes necessary to bring the values to a comparable range of values. This facilitates comparability of influence strength during analysis and is necessary for some algorithms to prevent numerical problems when training the models. For this purpose, different types of standardization can be chosen. Two common options are standardization:</p>
+<div class="math notranslate nohighlight">
+\[
+z = \frac{x - \bar{x}}{s}
+\]</div>
+<p>and the min-max scaling:</p>
+<div class="math notranslate nohighlight">
+\[
+z = \frac{x - \min(x)}{\max(x) - \min(x)}
+\]</div>
+<p>In the cells below, we generate a sample dataset with the characteristics “gender”, “assessment” and “score”. The <em>info</em> method of the pandas DataFrame shows us that the first two variables are categorical features, contained in text format in the dataset. This is signaled by pandas by the type “object”. The type “float64” describes a floating point number, which corresponds to a comma separator, so we can assume a numeric value. In the first step, the characteristic “gender” is analyzed for the number of different expressions and then one-hot-encoded. Subsequently, numbers are assigned to the categories of the variable “assessment” in ascending order. Finally, the variable “score” is standardized and min-max scaled. The effect of the different scaling can best be visualized by comparing the histograms or boxplots of these variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">gender</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;male&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">250</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;female&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">250</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">gender</span><span class="p">)</span>
+<span class="n">assessment</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bad&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">150</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;neural&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">200</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;good&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">150</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">assessment</span><span class="p">)</span>
+<span class="n">numerical</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;gender&quot;</span><span class="p">:</span> <span class="n">gender</span><span class="p">,</span> <span class="s2">&quot;assessment&quot;</span><span class="p">:</span> <span class="n">assessment</span><span class="p">,</span> <span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="n">numerical</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 500 entries, 0 to 499
+Data columns (total 3 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   gender      500 non-null    object 
+ 1   assessment  500 non-null    object 
+ 2   score       500 non-null    float64
+dtypes: float64(1), object(2)
+memory usage: 11.8+ KB
+None
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gender</th>
+      <th>assessment</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>female</td>
+      <td>neural</td>
+      <td>-1.653232</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>female</td>
+      <td>bad</td>
+      <td>1.766336</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>female</td>
+      <td>good</td>
+      <td>4.169746</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>female</td>
+      <td>neural</td>
+      <td>0.293372</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>female</td>
+      <td>neural</td>
+      <td>1.826984</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+
+
+<span class="n">one_hot_encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The variable gender has the following unique values:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;female&quot;</span><span class="p">,</span> <span class="s2">&quot;male&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">one_hot_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;gender&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The variable gender has the following unique values:
+[&#39;female&#39; &#39;male&#39;]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>assessment</th>
+      <th>score</th>
+      <th>female</th>
+      <th>male</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>neural</td>
+      <td>-1.653232</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>bad</td>
+      <td>1.766336</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>good</td>
+      <td>4.169746</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>neural</td>
+      <td>0.293372</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>neural</td>
+      <td>1.826984</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The variable assessment has the following unique values:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">assessment</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="s2">&quot;neural&quot;</span><span class="p">,</span> <span class="s2">&quot;good&quot;</span><span class="p">],</span> <span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">],</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;assessment&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;assessment&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The variable assessment has the following unique values:
+[&#39;neural&#39; &#39;bad&#39; &#39;good&#39;]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>assessment</th>
+      <th>score</th>
+      <th>female</th>
+      <th>male</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>-1.653232</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1.766336</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>4.169746</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>0.293372</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>1.826984</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">MinMaxScaler</span>
+
+<span class="n">standard_scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">minmax_scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;standard_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">standard_scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;minmax_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">minmax_scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>assessment</th>
+      <th>score</th>
+      <th>female</th>
+      <th>male</th>
+      <th>standard_score</th>
+      <th>minmax_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>-1.653232</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>-1.626421</td>
+      <td>0.222284</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1.766336</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>-0.025216</td>
+      <td>0.501927</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>4.169746</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.100175</td>
+      <td>0.698472</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>0.293372</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>-0.714928</td>
+      <td>0.381472</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>1.826984</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.003182</td>
+      <td>0.506887</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">score</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">standard_score</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">minmax_score</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;score&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;standard_score&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;minmax_score&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ecbf6440271758ec993f37ee6e97155dc9b2fc5a639300b59d841d0879451541.png" src="_images/ecbf6440271758ec993f37ee6e97155dc9b2fc5a639300b59d841d0879451541.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="s2">&quot;standard_score&quot;</span><span class="p">,</span> <span class="s2">&quot;minmax_score&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b37d4397f4598909558264aaac7966f70bca506de5df68ce1943576ef991722a.png" src="_images/b37d4397f4598909558264aaac7966f70bca506de5df68ce1943576ef991722a.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_DataAccess.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Access to data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_SupervisedLearning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The analysis of dependent variables</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-collection-and-data-collection">Data collection and data collection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-missing-data">Dealing with missing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-types-and-scales">Characteristic types and scales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-description-of-the-characteristics">Quantitative description of the characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphical-representation-of-data">Graphical representation of data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-distributions-of-characteristic-values">Univariate distributions of characteristic values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-of-correlations">Representation of correlations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-analysis-of-asset-returns">Descriptive analysis of asset returns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data processing</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Dr. Ralf Kellner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
