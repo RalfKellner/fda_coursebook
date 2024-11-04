@@ -395,6 +395,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-regressions">Time-series regressions</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-sectional-regressions-of-asset-return">Cross sectional regressions of asset return</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
             </nav>
@@ -455,7 +456,7 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_p x_p + \epsilon =  \bolds
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/722f3ef255076d5a5ebf6228a188d8bea09fb4a3c32e5dee558590543d7bdc72.png" src="_images/722f3ef255076d5a5ebf6228a188d8bea09fb4a3c32e5dee558590543d7bdc72.png" />
+<img alt="_images/af39571560ba531de19546a624af767a58f08bbba2757e2b6d3752e345656bab.png" src="_images/af39571560ba531de19546a624af767a58f08bbba2757e2b6d3752e345656bab.png" />
 </div>
 </div>
 <p>It should be noted that the regression model can also be used to represent non-linear relationships if the variables are transformed in a non-linear way. For example, if we suspect a more quadratic relationship between the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, we can include <span class="math notranslate nohighlight">\(x^2\)</span> in the model. The effect on the functional form of the model can be observed in the next cell. This approach is the polynomial regression, where of course higher polynomials can be included as a function. Here, however, we already deviate from the traditional linear regression model. The polynomial regression is one of several alternatives to the linear regression model, which creates more flexibility by increasing the complexity of the model. However, this is also often associated with challenges that will be discussed later in the course.</p>
@@ -481,7 +482,7 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_p x_p + \epsilon =  \bolds
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/13487485fdd10222c15bec963814758434637513c89c2fe38a9a630a87280e10.png" src="_images/13487485fdd10222c15bec963814758434637513c89c2fe38a9a630a87280e10.png" />
+<img alt="_images/a16b9fda12f68ee2cca7a154516f0519aa292b8c572ed10e395a1a57a7eb3763.png" src="_images/a16b9fda12f68ee2cca7a154516f0519aa292b8c572ed10e395a1a57a7eb3763.png" />
 </div>
 </div>
 <section id="training-the-linear-regression-model">
@@ -726,7 +727,7 @@ P\left(x_u \leq x \leq x_u\right) = \int_{x_l}^{x_u} f(x) dx
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f3b4fd663158d225da2211759169c882f20d323d094a2a2f380ee5c78ee4eaf7.png" src="_images/f3b4fd663158d225da2211759169c882f20d323d094a2a2f380ee5c78ee4eaf7.png" />
+<img alt="_images/b3ef3956fa373869bec3de4d0c290596cd28bf024e1b103738a7ac943b43a2bd.png" src="_images/b3ef3956fa373869bec3de4d0c290596cd28bf024e1b103738a7ac943b43a2bd.png" />
 </div>
 </div>
 <p>To simulate data according to a regression model, we need some fixed observations for the independent variables. We simulate them below, however, keep them fixed to replicate the real life behavior that originally all values for <span class="math notranslate nohighlight">\(X\)</span> are assumed to be fixed.</p>
@@ -817,9 +818,9 @@ P\left(x_u \leq x \leq x_u\right) = \int_{x_l}^{x_u} f(x) dx
 \mathbf{\beta} = 
 \begin{pmatrix}
 5 \\
-2 \\
+4 \\
 -3 \\
-4
+0
 \end{pmatrix}, \sigma_{\epsilon} = 1
 \end{split}\]</div>
 <p>For each observation, we calculate <span class="math notranslate nohighlight">\(\boldsymbol{\beta}^T \boldsymbol{x}\)</span>, draw a random standard normally distributed random number and add both values to simulate an obsevation for <span class="math notranslate nohighlight">\(y\)</span>. The cell below simulates data like this and creates a pairplot. The first line exhibits the pairwise realtion between the target variable <span class="math notranslate nohighlight">\(y\)</span> and the independent variables <span class="math notranslate nohighlight">\(x_1, x_2, x_3\)</span>. Note, that data changes every time you click the play button next to the cell as data is simulation is refreshed. Also take a look and execute the next cell as well. It estimates the parameters of the model for the simulated data. It is important to understand that these estimates differ from the true values (which in reality we never know). The reason for that is the random part of the data. As the random part is different for every data sample (because it is random), parameter estimates for every data sample will be different.</p>
@@ -860,8 +861,8 @@ P\left(x_u \leq x \leq x_u\right) = \int_{x_l}^{x_u} f(x) dx
 Dep. Variable:                      y   R-squared:                       0.961
 Model:                            OLS   Adj. R-squared:                  0.960
 Method:                 Least Squares   F-statistic:                     8088.
-Date:                Tue, 29 Oct 2024   Prob (F-statistic):               0.00
-Time:                        20:07:27   Log-Likelihood:                -1444.0
+Date:                Mon, 04 Nov 2024   Prob (F-statistic):               0.00
+Time:                        10:01:11   Log-Likelihood:                -1444.0
 No. Observations:                1000   AIC:                             2896.
 Df Residuals:                     996   BIC:                             2916.
 Df Model:                           3                                         
@@ -886,7 +887,18 @@ Notes:
 </div>
 </div>
 </div>
-<p>To demonstrate the variability of estimated regression coefficients (parameters), we repeatedly, create new randomly simulated datasets, estimate the parameters of the model and store their values. If we do this for 1,000 times below, we can plot the histograms of parameter estimates for the beta parameters. As you can see, parameter estimates are often close to the true values from the simulation, but, for a few sample, can also deviate to a large extent. For instance, even though, there is no relation between <span class="math notranslate nohighlight">\(x_3\)</span> and <span class="math notranslate nohighlight">\(y\)</span> because <span class="math notranslate nohighlight">\(\beta_3 = 0\)</span>, a view samples create estimates, e.g., <span class="math notranslate nohighlight">\(\hat{\beta}_3 \leq -0.05\)</span> or <span class="math notranslate nohighlight">\(\hat{\beta}_3 \geq 0.05\)</span> which might indicate a moderate impact between <span class="math notranslate nohighlight">\(x_3\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. The standard deviation of these estimates are denoted as the standard error in this context. Let us denote it by <span class="math notranslate nohighlight">\(\sigma_{err}\)</span> If you take a look in the cell above, you can see the column “std err” right next to the column “coef”, the “t” column are <span class="math notranslate nohighlight">\(t\)</span> statistics under the assumption <span class="math notranslate nohighlight">\(\beta_j = 0\)</span>. I.e.,</p>
+<p>To demonstrate the variability of estimated regression coefficients (parameters), we repeatedly, create new randomly simulated datasets, estimate the parameters of the model and store their values. If we do this for 1,000 times below, we can plot the histograms of parameter estimates for the beta parameters. As you can see, parameter estimates are often close to the true values from the simulation, but, for a few sample, can also deviate to a large extent. For instance, even though, there is no relation between <span class="math notranslate nohighlight">\(x_3\)</span> and <span class="math notranslate nohighlight">\(y\)</span> because <span class="math notranslate nohighlight">\(\beta_3 = 0\)</span>, a view samples create estimates, e.g., <span class="math notranslate nohighlight">\(\hat{\beta}_3 \leq -0.05\)</span> or <span class="math notranslate nohighlight">\(\hat{\beta}_3 \geq 0.05\)</span> which might indicate a moderate impact between <span class="math notranslate nohighlight">\(x_3\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. The standard deviation of these estimates are denoted as the standard error in this context. Let us denote it by <span class="math notranslate nohighlight">\(\sigma_{err}\)</span> If you take a look in the cell above, you can see the column “std err” right next to the column “coef”, the “t” column are <span class="math notranslate nohighlight">\(t\)</span> statistics under the assumption:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{H}_0:  \beta_j = 0 \\
+\text{H}_1:  \beta_j \neq 0 \\
+\end{split}\]</div>
+<p>This is the default hypothesis for every <span class="math notranslate nohighlight">\(\beta\)</span> estimate in a regression output as shown above. If the hypothesis can be rejected, we infer that the corresponding variable has an effect which is statistically different from zero. In general, the <span class="math notranslate nohighlight">\(t\)</span> value is calculated by:</p>
+<div class="math notranslate nohighlight">
+\[
+t = \frac{\hat{\beta} - \beta^{H_0}}{\sigma_{err}}
+\]</div>
+<p>However, as <span class="math notranslate nohighlight">\(\beta^{H_0} = 0\)</span> by default, for the regression output it becomes:</p>
 <div class="math notranslate nohighlight">
 \[
 t = \frac{\hat{\beta}}{\sigma_{err}}
@@ -949,8 +961,8 @@ t = \frac{\hat{\beta}}{\sigma_{err}}
 Dep. Variable:                  sales   R-squared:                       0.897
 Model:                            OLS   Adj. R-squared:                  0.896
 Method:                 Least Squares   F-statistic:                     570.3
-Date:                Tue, 29 Oct 2024   Prob (F-statistic):           1.58e-96
-Time:                        20:07:28   Log-Likelihood:                -386.18
+Date:                Mon, 04 Nov 2024   Prob (F-statistic):           1.58e-96
+Time:                        10:01:12   Log-Likelihood:                -386.18
 No. Observations:                 200   AIC:                             780.4
 Df Residuals:                     196   BIC:                             793.6
 Df Model:                           3                                         
@@ -1161,8 +1173,8 @@ R_{\text{adj}}^2 = 1 - \left( \frac{(1 - R^2) \cdot (n - 1)}{n - p} \right)
 Dep. Variable:                  sales   R-squared:                       0.897
 Model:                            OLS   Adj. R-squared:                  0.896
 Method:                 Least Squares   F-statistic:                     570.3
-Date:                Tue, 29 Oct 2024   Prob (F-statistic):           1.58e-96
-Time:                        20:07:28   Log-Likelihood:                -386.18
+Date:                Mon, 04 Nov 2024   Prob (F-statistic):           1.58e-96
+Time:                        10:01:12   Log-Likelihood:                -386.18
 No. Observations:                 200   AIC:                             780.4
 Df Residuals:                     196   BIC:                             793.6
 Df Model:                           3                                         
@@ -1309,8 +1321,8 @@ y = \beta_0 + \beta_1 x_{\text{TV}} + \left(\beta_2 + \beta_3 x_{\text{TV}} \rig
 Dep. Variable:                  sales   R-squared:                       0.968
 Model:                            OLS   Adj. R-squared:                  0.967
 Method:                 Least Squares   F-statistic:                     1963.
-Date:                Tue, 29 Oct 2024   Prob (F-statistic):          6.68e-146
-Time:                        20:07:28   Log-Likelihood:                -270.14
+Date:                Mon, 04 Nov 2024   Prob (F-statistic):          6.68e-146
+Time:                        10:01:12   Log-Likelihood:                -270.14
 No. Observations:                 200   AIC:                             548.3
 Df Residuals:                     196   BIC:                             561.5
 Df Model:                           3                                         
@@ -1351,7 +1363,7 @@ y = \boldsymbol{\beta}^T \boldsymbol{x}
 \]</div>
 <p>any further. By the regression line only the conditional expected value for <span class="math notranslate nohighlight">\(y\)</span> is determined. Conditional on the information of the independent variables <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>, what value do we expect for <span class="math notranslate nohighlight">\(y\)</span>. However, in the traditional regression model, the assumption is often still made that <span class="math notranslate nohighlight">\(\epsilon\)</span> is normally distributed <span class="math notranslate nohighlight">\(\epsilon \sim N(0; \sigma^2)\)</span>. It follows that <span class="math notranslate nohighlight">\(y\)</span> is also normally distributed, <span class="math notranslate nohighlight">\(y \sim N(\boldsymbol{\beta}^T \boldsymbol{x} ; \sigma^2)\)</span>. Thus, through the model, not only can the expected value be estimated, but we can also perform calculations for other parts of the distribution. For example, given values of the independent variables, we can determine the probability of falling below or exceeding a given value for <span class="math notranslate nohighlight">\(y\)</span>. These estimates are only accurate if the normal distribution assumption is not violated. For this purpose, the Jarque-Bera test with the null hypothesis of a normal distribution is often shown in the output of the model. In our example, this assumption would be rejected (using a common significance level such as <span class="math notranslate nohighlight">\(0.01\)</span> or <span class="math notranslate nohighlight">\(0.05\)</span>). In principle, this is less problematic for the estimation of the parameters, but no statements should be made based on the normal distribution. The assumption of normal distribution is made relatively often in the literature for various models, although in reality it often has to be discarded for empirical data. Its nevertheless frequent use often has something to do with the mathematically pleasing properties of the normal distribution.</p>
 <p><strong>Homoskedasticity</strong></p>
-<p>The property of homoscedasticity arises from the assumption that the variance of all residuals is equal <span class="math notranslate nohighlight">\(\epsilon \sim N(0; \sigma^2)\)</span>, if this is not true, individual observations <span class="math notranslate nohighlight">\(i\)</span> exhibit different variances <span class="math notranslate nohighlight">\(\sigma_i^2\)</span>. In the cell below, you can see an example of simulated data whose variance increases with the independent variable. The corresponding residual plot is particularly meaningful here, as it gives a good graphical indication that the variances of the predictions vary in different ways. The good news is that the estimated parameters of the regression line can be further trusted since they are consistently unbiased, but attention should be paid to statistical inference in the presence of heteroscedasticity. The standard errors of the estimators tend to be underestimated, which can lead to erroneous inferences. Options for dealing with heteroskedasticity include adjusting the standard errors or adjusted estimation procedures such as the weighted least squares approach, in which the observations of the loss function are weighted inversely proportional to their variance.</p>
+<p>The property of homoscedasticity arises from the assumption that the variance of all residuals is equal <span class="math notranslate nohighlight">\(\epsilon \sim N(0; \sigma^2)\)</span>, if this is not true, individual observations <span class="math notranslate nohighlight">\(i\)</span> exhibit different variances <span class="math notranslate nohighlight">\(\sigma_i^2\)</span>. In the cell below, you can see an example of simulated data whose variance increases with the independent variable. The corresponding residual plot is particularly meaningful here, as it gives a good graphical indication that the variances of the predictions vary in different ways. The good news is that the estimated parameters of the regression line can be further trusted since they are consistently unbiased, but attention should be paid to statistical inference in the presence of heteroscedasticity. The standard errors of the estimators tend to be underestimated, which can lead to erroneous inferences. Options for dealing with heteroskedasticity include adjusting the standard errors or adjusted estimation procedures such as the weighted least squares approach. One may use different approaches to identify potential heteroskedasticity. A good way is to examine the residual plot. If you want you can add statistical tests like the Breusch-Pagan or White test. Given, heteroscedasticity, a difference in the standard errors will result.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1361,11 +1373,12 @@ y = \boldsymbol{\beta}^T \boldsymbol{x}
 
 
 <span class="c1"># simulate data</span>
-<span class="n">beta_0</span><span class="p">,</span> <span class="n">beta_1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span>
+<span class="n">beta_0</span><span class="p">,</span> <span class="n">beta_1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.05</span>
 <span class="n">sigma_c</span> <span class="o">=</span> <span class="mf">1.</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
     <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">beta_0</span> <span class="o">+</span> <span class="n">beta_1</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">()</span> <span class="o">*</span> <span class="n">sigma_c</span> <span class="o">*</span> <span class="mf">0.003</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
 
@@ -1393,21 +1406,102 @@ y = \boldsymbol{\beta}^T \boldsymbol{x}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/71dff7ee8d607f58edabe563ddb53a08381261f09a9601cc8f06b16393d75512.png" src="_images/71dff7ee8d607f58edabe563ddb53a08381261f09a9601cc8f06b16393d75512.png" />
+<img alt="_images/24f4ffe2aaff1ecd701d76ac5fc74d38e95d9e6c15a95708bbff1e81677f6f88.png" src="_images/24f4ffe2aaff1ecd701d76ac5fc74d38e95d9e6c15a95708bbff1e81677f6f88.png" />
+</div>
+</div>
+<p>First, take a look at the model output below, if we do not correct standard errors for heteroscedasticity. Especially, take a look at the standard error for <span class="math notranslate nohighlight">\(\hat{\beta}_1 = 0.014\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span>
+    <span class="n">formula</span><span class="o">=</span><span class="s2">&quot;y ~ x&quot;</span><span class="p">,</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">df</span>
+<span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> <span class="c1">#, </span>
+
+<span class="c1">#</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.152
+Model:                            OLS   Adj. R-squared:                  0.141
+Method:                 Least Squares   F-statistic:                     14.02
+Date:                Mon, 04 Nov 2024   Prob (F-statistic):           0.000344
+Time:                        10:01:12   Log-Likelihood:                 42.582
+No. Observations:                  80   AIC:                            -81.16
+Df Residuals:                      78   BIC:                            -76.40
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      0.9804      0.044     22.046      0.000       0.892       1.069
+x              0.0522      0.014      3.744      0.000       0.024       0.080
+==============================================================================
+Omnibus:                       22.196   Durbin-Watson:                   2.166
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               56.686
+Skew:                          -0.857   Prob(JB):                     4.91e-13
+Kurtosis:                       6.750   Cond. No.                         9.58
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, watch at the output and the same standard error, if we include a correction for heteroscedasticity. The standard error increases from <span class="math notranslate nohighlight">\(0.014\)</span> to <span class="math notranslate nohighlight">\(0.018\)</span>, this reduces the <span class="math notranslate nohighlight">\(t\)</span> statistic which increases the p-value. In the example, one still would infer a significant impact of the independent variable, however, in reality, correcting for heteroscedasticity can lead to different inferences on the data. Note, that we do not discuss, how corrections are made, however, the potential impact should be clear to you.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span>
+    <span class="n">formula</span><span class="o">=</span><span class="s2">&quot;y ~ x&quot;</span><span class="p">,</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">df</span>
+<span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cov_type</span> <span class="o">=</span> <span class="s2">&quot;HC3&quot;</span><span class="p">)</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.152
+Model:                            OLS   Adj. R-squared:                  0.141
+Method:                 Least Squares   F-statistic:                     8.693
+Date:                Mon, 04 Nov 2024   Prob (F-statistic):            0.00421
+Time:                        10:01:12   Log-Likelihood:                 42.582
+No. Observations:                  80   AIC:                            -81.16
+Df Residuals:                      78   BIC:                            -76.40
+Df Model:                           1                                         
+Covariance Type:                  HC3                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      0.9804      0.040     24.560      0.000       0.902       1.059
+x              0.0522      0.018      2.948      0.003       0.017       0.087
+==============================================================================
+Omnibus:                       22.196   Durbin-Watson:                   2.166
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               56.686
+Skew:                          -0.857   Prob(JB):                     4.91e-13
+Kurtosis:                       6.750   Cond. No.                         9.58
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+</pre></div>
+</div>
 </div>
 </div>
 <p><strong>Independent error terms</strong>.</p>
-<p>The assumption of independent error terms implies that there are no systematic relationships between the residuals <span class="math notranslate nohighlight">\(\epsilon\)</span> of the individual observations. This assumption is often not met for time series data or clustered data. Similar to the presence of heteroskedasticity, the consequences primarily affect statistical inference, while the estimators of the regression lines remain asymptotically unbiased. Dealing with this can be done by adjusting the standard errors or by including adjusted models for the error terms. In economics, data are often available as time series. Here, non-zero autocorrelation can often be observed. Autocorrelation describes the linear relationship of successive values. The auto-covariance of a variable can be estimated by means of:</p>
-<div class="math notranslate nohighlight">
-\[
-\hat{\gamma}(h) = \frac{1}{T} \sum_{t = 1}^{T-h} \left(x_t - \bar{x}\right)\left(x_{t-h}  - \bar{x}\right)
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(h\)</span> describes the time interval of successive observations and <span class="math notranslate nohighlight">\(T\)</span> the number of observations over time. If you compare this formula with the estimator of the covariance of two variables, you will see that the auto-covariance determines the correlation with the own values at <span class="math notranslate nohighlight">\(h\)</span> time intervals. The normalized form of the auto-covariance is the auto-correlation, which is given by:</p>
-<div class="math notranslate nohighlight">
-\[
-\hat{\rho}(h) = \frac{\hat{\gamma}(h)}{\hat{\gamma}(0)}
-\]</div>
-<p>This value is in the interval <span class="math notranslate nohighlight">\([-1, 1]\)</span> and can be interpreted in an analogous way to the Bravais-Pearson correlation. If a non-zero auto-correlation is measured, it is useful to model current data points using past data.</p>
+<p>The assumption of independent error terms implies that there are no systematic relationships between the residuals <span class="math notranslate nohighlight">\(\epsilon\)</span> of the individual observations. This assumption is often not met for time series data or clustered data. Similar to the presence of heteroskedasticity, the consequences primarily affect statistical inference, while the estimators of the regression lines remain asymptotically unbiased. Dealing with this can be done by adjusting the standard errors (in analogy to the proceeding above for heteroscedasticity) or by including adjusted models for the error terms.</p>
 <p><strong>Multicollinearity</strong></p>
 <p>Finally, it can become problematic for the estimation of the linear regression model if independent variables show (high) dependencies. Intuitively, it becomes difficult to identify the individual influences of these variables separately in this way. In the extreme case of perfect linear dependence, mathematical problems also arise that make estimation impossible. It is therefore always a good idea to look at the correlations of the independent variables in the first step. In the cell below you can see the correlation matrix for our example data set. In this case, the correlation between the two most important variables is relatively low, which is why the aspect of multicollinearity is not relevant for this data set. If high correlations are found, a first simple help could be to remove one of the highly correlated variables from the model. Methodologically, the variance-inflation factor can be used to quantify how pronounced multicollinearity is for the existing data set.</p>
 <div class="cell docutils container">
@@ -1570,8 +1664,8 @@ r_{t, j} = r_{t, f} + \beta_j \left(r_{t, m} - r_{t, f} \right) + \epsilon_{t, j
 Dep. Variable:                      y   R-squared:                       0.479
 Model:                            OLS   Adj. R-squared:                  0.478
 Method:                 Least Squares   F-statistic:                     421.1
-Date:                Tue, 29 Oct 2024   Prob (F-statistic):           7.69e-67
-Time:                        20:07:29   Log-Likelihood:                 1424.1
+Date:                Mon, 04 Nov 2024   Prob (F-statistic):           7.69e-67
+Time:                        10:01:13   Log-Likelihood:                 1424.1
 No. Observations:                 460   AIC:                            -2844.
 Df Residuals:                     458   BIC:                            -2836.
 Df Model:                           1                                         
@@ -1714,6 +1808,317 @@ Notes:
 </div>
 </section>
 </section>
+<section id="cross-sectional-regressions-of-asset-return">
+<h2>Cross sectional regressions of asset return<a class="headerlink" href="#cross-sectional-regressions-of-asset-return" title="Link to this heading">#</a></h2>
+<p>The addition of a SMB and BTM factor to the time-series regression is related to findings which stem from cross sectional regressions in the previous literature. These cross sectional regressions aim to identify which firm variables impact asset returns risk premiums. The foundation of empirical studies in this context are regression of the form:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{r}_{j, t + 1} = \alpha_i + \beta_{t}^{f_1} f_{j1, t} + \beta_{t}^{f_2} f_{j2, t} + ... + \beta_{t}^{f_p} f_{jp, t} + \epsilon_{j, t}
+\]</div>
+<p>The main differences are that the regression <span class="math notranslate nohighlight">\(\beta\)</span>-s are time specific and the factor observations are all at the same point in time. The former can be identified by the <span class="math notranslate nohighlight">\(t\)</span> in the index of each <span class="math notranslate nohighlight">\(\beta\)</span>. To keep the notation simple, let us take a look at a specific example. For a month <span class="math notranslate nohighlight">\(t+1\)</span>, we regress the excess return of each company <span class="math notranslate nohighlight">\(j\)</span> on three variables at time <span class="math notranslate nohighlight">\(t\)</span>, i.e., the log-market-cap (<span class="math notranslate nohighlight">\(Size_t\)</span>), the book-to-market-value (<span class="math notranslate nohighlight">\(BTM_t\)</span>) and the six month momentum of each company (<span class="math notranslate nohighlight">\(MoM_t\)</span>). The latter is simply the percentage change in the stock price over the past six month. The regression is:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{r}_{j, t + 1} = \alpha_i + \beta_{t}^{Size} Size_{j, t} + \beta_{t}^{BTM} BTM_{j, t} + \beta_{t}^{MoM} MoM_{j, t} + \epsilon_{j, t}
+\]</div>
+<p>The data sample for our analysis includes US stock listed companies from major stock market indices. The sample includes monthly observations with the number of firm observations per month being approximately between <span class="math notranslate nohighlight">\(2,200\)</span> and <span class="math notranslate nohighlight">\(2,600\)</span>. Overall this data sample includes <span class="math notranslate nohighlight">\(619,110\)</span> observations in the time period between 2002 and 2024. The table below gives a descriptive overview of all observations over time after each variable has been winsorized at the <span class="math notranslate nohighlight">\(0.01\)</span> and <span class="math notranslate nohighlight">\(0.99\)</span> level.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df_regression</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/fama_macbeth_cross_sectional_data.csv&quot;</span><span class="p">)</span>
+<span class="n">df_regression</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_regression</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">])</span>
+<span class="n">df_regression</span> <span class="o">=</span> <span class="n">df_regression</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span>
+<span class="n">df_regression</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">percentiles</span><span class="o">=</span><span class="p">[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">])</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ex_rt_shifted</th>
+      <th>mom_6</th>
+      <th>Size</th>
+      <th>BTM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mean</th>
+      <td>0.010432</td>
+      <td>0.063295</td>
+      <td>21.294131</td>
+      <td>0.626844</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.132852</td>
+      <td>0.373159</td>
+      <td>1.777521</td>
+      <td>0.891342</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-0.737878</td>
+      <td>-0.938606</td>
+      <td>15.637645</td>
+      <td>0.005471</td>
+    </tr>
+    <tr>
+      <th>1%</th>
+      <td>-0.329080</td>
+      <td>-0.675947</td>
+      <td>17.199075</td>
+      <td>0.025466</td>
+    </tr>
+    <tr>
+      <th>5%</th>
+      <td>-0.194492</td>
+      <td>-0.451923</td>
+      <td>18.412886</td>
+      <td>0.071814</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.007096</td>
+      <td>0.033692</td>
+      <td>21.231659</td>
+      <td>0.424327</td>
+    </tr>
+    <tr>
+      <th>95%</th>
+      <td>0.223833</td>
+      <td>0.652071</td>
+      <td>24.389604</td>
+      <td>1.672808</td>
+    </tr>
+    <tr>
+      <th>99%</th>
+      <td>0.416073</td>
+      <td>1.330314</td>
+      <td>25.570209</td>
+      <td>4.407628</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.443653</td>
+      <td>5.544949</td>
+      <td>26.527139</td>
+      <td>24.933013</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If we conduct the cross sectional regression in our data sample, the following results can be observed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+
+<span class="n">dt</span><span class="p">,</span> <span class="n">df_tmp</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">df_regression</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="s2">&quot;Date&quot;</span><span class="p">)))</span>
+
+<span class="n">one_month_regression</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span>
+    <span class="n">formula</span><span class="o">=</span><span class="s2">&quot;ex_rt_shifted ~ mom_6 + Size + BTM&quot;</span><span class="p">,</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">df_tmp</span>
+<span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">one_month_regression</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:          ex_rt_shifted   R-squared:                       0.005
+Model:                            OLS   Adj. R-squared:                  0.004
+Method:                 Least Squares   F-statistic:                     4.015
+Date:                Mon, 04 Nov 2024   Prob (F-statistic):            0.00733
+Time:                        10:01:17   Log-Likelihood:                 1370.8
+No. Observations:                2300   AIC:                            -2734.
+Df Residuals:                    2296   BIC:                            -2711.
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     -0.0049      0.035     -0.142      0.887      -0.073       0.063
+mom_6          0.0086      0.010      0.897      0.370      -0.010       0.027
+Size           0.0003      0.002      0.173      0.863      -0.003       0.004
+BTM            0.0111      0.003      3.372      0.001       0.005       0.018
+==============================================================================
+Omnibus:                      162.121   Durbin-Watson:                   1.961
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              406.211
+Skew:                           0.406   Prob(JB):                     6.20e-89
+Kurtosis:                       4.892   Cond. No.                         256.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In our example the <span class="math notranslate nohighlight">\(BTM\)</span> variable is the only one which seems to have an impact that is statistically different from zero. However for our data set, we have 265 monthly data samples. For each of these monthly samples, the cross sectional regression from above is repeated. Due to the statistical uncertainy and general aspects of hypothesis test, the estimated regression parameters for an individual month are not conclusive regarding the general question if one of the variables has a significant impact on the next month’s stock return. This is why for every month <span class="math notranslate nohighlight">\(t = 1, ..., T\)</span>, the cross sectional regression is conducted. Over time, the average effect of a variable can be determined by:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\beta}^{f_i} = \frac{1}{T} \sum_{t = 1}^T \hat{\beta}_{t}^{f_i}
+\]</div>
+<p>Under the assumption of normality or given a large number of time steps (such that the central limit theorem implies normality), <span class="math notranslate nohighlight">\(\hat{\beta}_j\)</span> is a normally distributed random variable with variance:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\sigma}_{\hat{\beta}_{j}}^2 = \frac{1}{T(T-1)} \sum_{t = 1}^T \left( \hat{\beta}_{t}^{f_i} - \hat{\beta}^{f_i} \right)^2
+\]</div>
+<p>Thus, the corresponding t-statistic is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+t_{\hat{\beta^{f_i}}} = \frac{\hat{\beta}^{f_i}}{\sigma_{\hat{\beta}^{f_i}}}
+\]</div>
+<p>The p-value can be determined by: <span class="math notranslate nohighlight">\(P\left(T \geq |t_{\hat{\beta^{f_i}}}| \right) \cdot 2\)</span>. However, in most of these studies, the t-value itself is interpreted. Usually, absolute values higher than <span class="math notranslate nohighlight">\(1.65\)</span> are an indication of for the value being different from zero. If this is the case, the inference is that the corresponding variable has a significant impact on a company’s (future) returns. Investors demand higher return for more risk. For instance, an empirical finding is a so called size-premium which is identified by <span class="math notranslate nohighlight">\(\hat{\beta}^{Size} &lt; 0\)</span> and signaling that larger (smaller) companies have a smaller (larger) expected return. An economic explanation for this premium may have its origin that smaller companies are less liquid, have higher bankruptcy, etc.</p>
+<p>Now, let us take a look at the results for our data set, below we observe estimated model parameters over time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="n">risk_premiums</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df_regression</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="s2">&quot;Date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">df_tmp</span><span class="p">:</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span>
+            <span class="n">formula</span><span class="o">=</span><span class="s2">&quot;ex_rt_shifted ~ mom_6 + Size + BTM&quot;</span><span class="p">,</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">df_tmp</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">params</span>  
+    <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+
+
+<span class="n">risk_premiums</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">subplots</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/801b83870950a3ae5e3aba9f9d13857a86c081802f42fbffde765c9680da9c07.png" src="_images/801b83870950a3ae5e3aba9f9d13857a86c081802f42fbffde765c9680da9c07.png" />
+</div>
+</div>
+<p>If we calculate t-statistics with and without the correction of heteroscedasticity and auto-correlation, the following results can be observed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">price_of_risk</span> <span class="o">=</span> <span class="p">(</span><span class="n">risk_premiums</span>
+  <span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;factor&quot;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;estimate&quot;</span><span class="p">)</span>
+  <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;factor&quot;</span><span class="p">)[</span><span class="s2">&quot;estimate&quot;</span><span class="p">]</span>
+  <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+      <span class="s2">&quot;risk_premium&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="o">*</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+      <span class="s2">&quot;t_statistic&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">/</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="p">})</span>
+  <span class="p">)</span>
+  <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+  <span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;factor&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;level_1&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;estimate&quot;</span><span class="p">)</span>
+  <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">price_of_risk_newey_west</span> <span class="o">=</span> <span class="p">(</span><span class="n">risk_premiums</span>
+  <span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;factor&quot;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;estimate&quot;</span><span class="p">)</span>
+  <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;factor&quot;</span><span class="p">)</span>
+  <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span>
+      <span class="n">x</span><span class="p">[</span><span class="s2">&quot;estimate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">/</span> 
+        <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">&quot;estimate ~ 1&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cov_type</span><span class="o">=</span><span class="s2">&quot;HAC&quot;</span><span class="p">,</span> <span class="n">cov_kwds</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;maxlags&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">})</span><span class="o">.</span><span class="n">bse</span>
+    <span class="p">),</span> <span class="n">include_groups</span> <span class="o">=</span> <span class="kc">False</span>
+  <span class="p">)</span>
+  <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+  <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Intercept&quot;</span><span class="p">:</span> <span class="s2">&quot;t_statistic_newey_west&quot;</span><span class="p">})</span>
+<span class="p">)</span>
+
+<span class="p">(</span><span class="n">price_of_risk</span>
+  <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">price_of_risk_newey_west</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;factor&quot;</span><span class="p">)</span>
+  <span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>factor</th>
+      <th>risk_premium</th>
+      <th>t_statistic</th>
+      <th>t_statistic_newey_west</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BTM</td>
+      <td>0.022</td>
+      <td>0.231</td>
+      <td>0.169</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Intercept</td>
+      <td>2.050</td>
+      <td>1.535</td>
+      <td>1.223</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Size</td>
+      <td>-0.061</td>
+      <td>-1.176</td>
+      <td>-0.900</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>mom_6</td>
+      <td>0.389</td>
+      <td>1.099</td>
+      <td>1.189</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This means that, we would not find any of the variables to have a significant impact on the asset return. However, signs of each variable is in line with empirical findings in the literature, i.e.:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\hat{\beta}^{Size} &lt; 0\)</span>: Smaller companies have higher expected returns</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{\beta}^{BTM} &gt; 0\)</span>: Values with higher book-to-market returns have higher expected returns</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{\beta}^{Mom} &gt; 0\)</span>: Companies with a positive momentum have higher expected returns</p></li>
+</ul>
+<p>The reason for the effects not being statistically different from zero may also be linked to the relative short time period which causes the number of months and estimates to be relatively small. If you are interested in this topic a great online book is available <a class="reference external" href="https://www.tidy-finance.org/python/">here</a>.</p>
+</section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>Even though the linear regression model probably makes highly simplifying assumptions for reality in many cases, didactically it is a very good introduction to dependent variable modeling. We have looked at and discussed many details in more detail in this chapter, which we do retain for the upcoming models. However, it is true that many basic ideas, such as the mental distinction of the model and the estimation of the conditional expected value, exist in the same way for other and sometimes much more complex models. The most important aspects of this chapter for this course are:</p>
@@ -1799,6 +2204,7 @@ Notes:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-regressions">Time-series regressions</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-sectional-regressions-of-asset-return">Cross sectional regressions of asset return</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
   </nav></div>
