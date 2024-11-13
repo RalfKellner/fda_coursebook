@@ -7,4 +7,3 @@ generate_logo.ipynb
 .DS_Store
 tex/*
 !tex/fda.pdf
-!notebooks/2024/volatility_variation.py
