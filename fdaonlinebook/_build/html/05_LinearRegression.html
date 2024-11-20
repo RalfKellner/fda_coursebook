@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -66,6 +69,7 @@
     <link rel="prev" title="The analysis of dependent variables" href="04_SupervisedLearning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -81,19 +85,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -101,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,8 +101,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -126,7 +118,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,15 +149,11 @@
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -344,24 +333,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -456,7 +437,7 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_p x_p + \epsilon =  \bolds
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5b8d67dceb397fc4bb8d7873c115b250a050788d8a2e25c9df4e98e4eb6c719f.png" src="_images/5b8d67dceb397fc4bb8d7873c115b250a050788d8a2e25c9df4e98e4eb6c719f.png" />
+<img alt="_images/51a405b324794468545abffefa149bedb6cbb3f2d122626d5ce781a0272be4e0.png" src="_images/51a405b324794468545abffefa149bedb6cbb3f2d122626d5ce781a0272be4e0.png" />
 </div>
 </div>
 <p>It should be noted that the regression model can also be used to represent non-linear relationships if the variables are transformed in a non-linear way. For example, if we suspect a more quadratic relationship between the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, we can include <span class="math notranslate nohighlight">\(x^2\)</span> in the model. The effect on the functional form of the model can be observed in the next cell. This approach is the polynomial regression, where of course higher polynomials can be included as a function. Here, however, we already deviate from the traditional linear regression model. The polynomial regression is one of several alternatives to the linear regression model, which creates more flexibility by increasing the complexity of the model. However, this is also often associated with challenges that will be discussed later in the course.</p>
@@ -482,7 +463,7 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_p x_p + \epsilon =  \bolds
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/607b4e45d011700658645e4dfe54484321f16da68602602592cb84b474a89059.png" src="_images/607b4e45d011700658645e4dfe54484321f16da68602602592cb84b474a89059.png" />
+<img alt="_images/2bab725f0a550c15f33144ee10b3999ac7cbb75395d6aa66131c22811e2c8700.png" src="_images/2bab725f0a550c15f33144ee10b3999ac7cbb75395d6aa66131c22811e2c8700.png" />
 </div>
 </div>
 <section id="training-the-linear-regression-model">
@@ -727,7 +708,7 @@ P\left(x_u \leq x \leq x_u\right) = \int_{x_l}^{x_u} f(x) dx
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cb8bdd6c7f97d3d6ff54ecb4877381c0f6136020544932272f53ae0b6084110b.png" src="_images/cb8bdd6c7f97d3d6ff54ecb4877381c0f6136020544932272f53ae0b6084110b.png" />
+<img alt="_images/8c2fff67fe870dd28a6fdc33718c2460e7430407b76c0e1467dd3bbacb9083b9.png" src="_images/8c2fff67fe870dd28a6fdc33718c2460e7430407b76c0e1467dd3bbacb9083b9.png" />
 </div>
 </div>
 <p>To simulate data according to a regression model, we need some fixed observations for the independent variables. We simulate them below, however, keep them fixed to replicate the real life behavior that originally all values for <span class="math notranslate nohighlight">\(X\)</span> are assumed to be fixed.</p>
@@ -861,8 +842,8 @@ P\left(x_u \leq x \leq x_u\right) = \int_{x_l}^{x_u} f(x) dx
 Dep. Variable:                      y   R-squared:                       0.961
 Model:                            OLS   Adj. R-squared:                  0.960
 Method:                 Least Squares   F-statistic:                     8088.
-Date:                Wed, 13 Nov 2024   Prob (F-statistic):               0.00
-Time:                        11:55:59   Log-Likelihood:                -1444.0
+Date:                Wed, 20 Nov 2024   Prob (F-statistic):               0.00
+Time:                        09:39:43   Log-Likelihood:                -1444.0
 No. Observations:                1000   AIC:                             2896.
 Df Residuals:                     996   BIC:                             2916.
 Df Model:                           3                                         
@@ -961,8 +942,8 @@ t = \frac{\hat{\beta}}{\sigma_{err}}
 Dep. Variable:                  sales   R-squared:                       0.897
 Model:                            OLS   Adj. R-squared:                  0.896
 Method:                 Least Squares   F-statistic:                     570.3
-Date:                Wed, 13 Nov 2024   Prob (F-statistic):           1.58e-96
-Time:                        11:56:00   Log-Likelihood:                -386.18
+Date:                Wed, 20 Nov 2024   Prob (F-statistic):           1.58e-96
+Time:                        09:39:44   Log-Likelihood:                -386.18
 No. Observations:                 200   AIC:                             780.4
 Df Residuals:                     196   BIC:                             793.6
 Df Model:                           3                                         
@@ -1173,8 +1154,8 @@ R_{\text{adj}}^2 = 1 - \left( \frac{(1 - R^2) \cdot (n - 1)}{n - p} \right)
 Dep. Variable:                  sales   R-squared:                       0.897
 Model:                            OLS   Adj. R-squared:                  0.896
 Method:                 Least Squares   F-statistic:                     570.3
-Date:                Wed, 13 Nov 2024   Prob (F-statistic):           1.58e-96
-Time:                        11:56:00   Log-Likelihood:                -386.18
+Date:                Wed, 20 Nov 2024   Prob (F-statistic):           1.58e-96
+Time:                        09:39:44   Log-Likelihood:                -386.18
 No. Observations:                 200   AIC:                             780.4
 Df Residuals:                     196   BIC:                             793.6
 Df Model:                           3                                         
@@ -1253,13 +1234,13 @@ Notes:
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable names: [&#39;TV&#39;, &#39;radio&#39;, &#39;newspaper&#39;]
 R^2 values for univariate regressions:
-[0.6119, 0.332, 0.0521]
+[np.float64(0.6119), np.float64(0.332), np.float64(0.0521)]
 Variable with the highest R^2 value: TV
 Continue with the selection of the next variable:
 
 Remaining variable names: [&#39;radio&#39;, &#39;newspaper&#39;]
 R^2 values for regressions:
-[0.8972, 0.6458]
+[np.float64(0.8972), np.float64(0.6458)]
 Variable with the highest R^2 improvement: radio
 </pre></div>
 </div>
@@ -1321,8 +1302,8 @@ y = \beta_0 + \beta_1 x_{\text{TV}} + \left(\beta_2 + \beta_3 x_{\text{TV}} \rig
 Dep. Variable:                  sales   R-squared:                       0.968
 Model:                            OLS   Adj. R-squared:                  0.967
 Method:                 Least Squares   F-statistic:                     1963.
-Date:                Wed, 13 Nov 2024   Prob (F-statistic):          6.68e-146
-Time:                        11:56:00   Log-Likelihood:                -270.14
+Date:                Wed, 20 Nov 2024   Prob (F-statistic):          6.68e-146
+Time:                        09:39:44   Log-Likelihood:                -270.14
 No. Observations:                 200   AIC:                             548.3
 Df Residuals:                     196   BIC:                             561.5
 Df Model:                           3                                         
@@ -1431,8 +1412,8 @@ y = \boldsymbol{\beta}^T \boldsymbol{x}
 Dep. Variable:                      y   R-squared:                       0.152
 Model:                            OLS   Adj. R-squared:                  0.141
 Method:                 Least Squares   F-statistic:                     14.02
-Date:                Wed, 13 Nov 2024   Prob (F-statistic):           0.000344
-Time:                        11:56:00   Log-Likelihood:                 42.582
+Date:                Wed, 20 Nov 2024   Prob (F-statistic):           0.000344
+Time:                        09:39:44   Log-Likelihood:                 42.582
 No. Observations:                  80   AIC:                            -81.16
 Df Residuals:                      78   BIC:                            -76.40
 Df Model:                           1                                         
@@ -1476,8 +1457,8 @@ Notes:
 Dep. Variable:                      y   R-squared:                       0.152
 Model:                            OLS   Adj. R-squared:                  0.141
 Method:                 Least Squares   F-statistic:                     8.693
-Date:                Wed, 13 Nov 2024   Prob (F-statistic):            0.00421
-Time:                        11:56:00   Log-Likelihood:                 42.582
+Date:                Wed, 20 Nov 2024   Prob (F-statistic):            0.00421
+Time:                        09:39:44   Log-Likelihood:                 42.582
 No. Observations:                  80   AIC:                            -81.16
 Df Residuals:                      78   BIC:                            -76.40
 Df Model:                           1                                         
@@ -1664,8 +1645,8 @@ r_{t, j} = r_{t, f} + \beta_j \left(r_{t, m} - r_{t, f} \right) + \epsilon_{t, j
 Dep. Variable:                      y   R-squared:                       0.479
 Model:                            OLS   Adj. R-squared:                  0.478
 Method:                 Least Squares   F-statistic:                     421.1
-Date:                Wed, 13 Nov 2024   Prob (F-statistic):           7.69e-67
-Time:                        11:56:01   Log-Likelihood:                 1424.1
+Date:                Wed, 20 Nov 2024   Prob (F-statistic):           7.69e-67
+Time:                        09:39:45   Log-Likelihood:                 1424.1
 No. Observations:                 460   AIC:                            -2844.
 Df Residuals:                     458   BIC:                            -2836.
 Df Model:                           1                                         
@@ -1941,8 +1922,8 @@ Notes:
 Dep. Variable:          ex_rt_shifted   R-squared:                       0.005
 Model:                            OLS   Adj. R-squared:                  0.004
 Method:                 Least Squares   F-statistic:                     4.015
-Date:                Wed, 13 Nov 2024   Prob (F-statistic):            0.00733
-Time:                        11:56:05   Log-Likelihood:                 1370.8
+Date:                Wed, 20 Nov 2024   Prob (F-statistic):            0.00733
+Time:                        09:39:49   Log-Likelihood:                 1370.8
 No. Observations:                2300   AIC:                            -2734.
 Df Residuals:                    2296   BIC:                            -2711.
 Df Model:                           3                                         
@@ -2179,7 +2160,8 @@ t_{\hat{\beta^{f_i}}} = \frac{\hat{\beta}^{f_i}}{\sigma_{\hat{\beta}^{f_i}}}
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -2248,8 +2230,8 @@ By Prof. Dr. Ralf Kellner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>
