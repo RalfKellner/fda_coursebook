@@ -173,7 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="06_Classification.html">Classification</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="07_ModellAccuracy.html">Generalization of functional relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_ModellAccuracy.html">Evaluation of trained models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_ModelComplexity.html">Model complexity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_Regularization.html">Regularization</a></li>
 
@@ -437,7 +437,7 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_p x_p + \epsilon =  \bolds
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2070182e831d6cf28343a3a939ccaaf06c9c2040facf7387056254675245f528.png" src="_images/2070182e831d6cf28343a3a939ccaaf06c9c2040facf7387056254675245f528.png" />
+<img alt="_images/2d223c77c8ab9506d7a9d455985d85adea3a5d93357fad144bb8bfa6e62f2a26.png" src="_images/2d223c77c8ab9506d7a9d455985d85adea3a5d93357fad144bb8bfa6e62f2a26.png" />
 </div>
 </div>
 <p>It should be noted that the regression model can also be used to represent non-linear relationships if the variables are transformed in a non-linear way. For example, if we suspect a more quadratic relationship between the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, we can include <span class="math notranslate nohighlight">\(x^2\)</span> in the model. The effect on the functional form of the model can be observed in the next cell. This approach is the polynomial regression, where of course higher polynomials can be included as a function. Here, however, we already deviate from the traditional linear regression model. The polynomial regression is one of several alternatives to the linear regression model, which creates more flexibility by increasing the complexity of the model. However, this is also often associated with challenges that will be discussed later in the course.</p>
@@ -463,7 +463,7 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_p x_p + \epsilon =  \bolds
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/725f870ae4d15770ba9bebdbbc17a45850857d65b6382cf1e10d936faa1bf7b7.png" src="_images/725f870ae4d15770ba9bebdbbc17a45850857d65b6382cf1e10d936faa1bf7b7.png" />
+<img alt="_images/a7c20b72764736176d854c52a0715d6e6e32ec9813dc1678e1ee57ab2e86bcf5.png" src="_images/a7c20b72764736176d854c52a0715d6e6e32ec9813dc1678e1ee57ab2e86bcf5.png" />
 </div>
 </div>
 <section id="training-the-linear-regression-model">
@@ -708,7 +708,7 @@ P\left(x_u \leq x \leq x_u\right) = \int_{x_l}^{x_u} f(x) dx
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3c1d1b9447fd878a058aede3383bb25610a99efa1b85274b80016483eac0df75.png" src="_images/3c1d1b9447fd878a058aede3383bb25610a99efa1b85274b80016483eac0df75.png" />
+<img alt="_images/97681260b34900a0ae25621401ad3db04dd758f50b077da2dbf989b74bd85426.png" src="_images/97681260b34900a0ae25621401ad3db04dd758f50b077da2dbf989b74bd85426.png" />
 </div>
 </div>
 <p>To simulate data according to a regression model, we need some fixed observations for the independent variables. We simulate them below, however, keep them fixed to replicate the real life behavior that originally all values for <span class="math notranslate nohighlight">\(X\)</span> are assumed to be fixed.</p>
@@ -842,8 +842,8 @@ P\left(x_u \leq x \leq x_u\right) = \int_{x_l}^{x_u} f(x) dx
 Dep. Variable:                      y   R-squared:                       0.961
 Model:                            OLS   Adj. R-squared:                  0.960
 Method:                 Least Squares   F-statistic:                     8088.
-Date:                Wed, 20 Nov 2024   Prob (F-statistic):               0.00
-Time:                        14:49:52   Log-Likelihood:                -1444.0
+Date:                Wed, 27 Nov 2024   Prob (F-statistic):               0.00
+Time:                        11:03:30   Log-Likelihood:                -1444.0
 No. Observations:                1000   AIC:                             2896.
 Df Residuals:                     996   BIC:                             2916.
 Df Model:                           3                                         
@@ -942,8 +942,8 @@ t = \frac{\hat{\beta}}{\sigma_{err}}
 Dep. Variable:                  sales   R-squared:                       0.897
 Model:                            OLS   Adj. R-squared:                  0.896
 Method:                 Least Squares   F-statistic:                     570.3
-Date:                Wed, 20 Nov 2024   Prob (F-statistic):           1.58e-96
-Time:                        14:49:53   Log-Likelihood:                -386.18
+Date:                Wed, 27 Nov 2024   Prob (F-statistic):           1.58e-96
+Time:                        11:03:31   Log-Likelihood:                -386.18
 No. Observations:                 200   AIC:                             780.4
 Df Residuals:                     196   BIC:                             793.6
 Df Model:                           3                                         
@@ -1154,8 +1154,8 @@ R_{\text{adj}}^2 = 1 - \left( \frac{(1 - R^2) \cdot (n - 1)}{n - p} \right)
 Dep. Variable:                  sales   R-squared:                       0.897
 Model:                            OLS   Adj. R-squared:                  0.896
 Method:                 Least Squares   F-statistic:                     570.3
-Date:                Wed, 20 Nov 2024   Prob (F-statistic):           1.58e-96
-Time:                        14:49:53   Log-Likelihood:                -386.18
+Date:                Wed, 27 Nov 2024   Prob (F-statistic):           1.58e-96
+Time:                        11:03:31   Log-Likelihood:                -386.18
 No. Observations:                 200   AIC:                             780.4
 Df Residuals:                     196   BIC:                             793.6
 Df Model:                           3                                         
@@ -1302,8 +1302,8 @@ y = \beta_0 + \beta_1 x_{\text{TV}} + \left(\beta_2 + \beta_3 x_{\text{TV}} \rig
 Dep. Variable:                  sales   R-squared:                       0.968
 Model:                            OLS   Adj. R-squared:                  0.967
 Method:                 Least Squares   F-statistic:                     1963.
-Date:                Wed, 20 Nov 2024   Prob (F-statistic):          6.68e-146
-Time:                        14:49:53   Log-Likelihood:                -270.14
+Date:                Wed, 27 Nov 2024   Prob (F-statistic):          6.68e-146
+Time:                        11:03:31   Log-Likelihood:                -270.14
 No. Observations:                 200   AIC:                             548.3
 Df Residuals:                     196   BIC:                             561.5
 Df Model:                           3                                         
@@ -1412,8 +1412,8 @@ y = \boldsymbol{\beta}^T \boldsymbol{x}
 Dep. Variable:                      y   R-squared:                       0.152
 Model:                            OLS   Adj. R-squared:                  0.141
 Method:                 Least Squares   F-statistic:                     14.02
-Date:                Wed, 20 Nov 2024   Prob (F-statistic):           0.000344
-Time:                        14:49:53   Log-Likelihood:                 42.582
+Date:                Wed, 27 Nov 2024   Prob (F-statistic):           0.000344
+Time:                        11:03:31   Log-Likelihood:                 42.582
 No. Observations:                  80   AIC:                            -81.16
 Df Residuals:                      78   BIC:                            -76.40
 Df Model:                           1                                         
@@ -1457,8 +1457,8 @@ Notes:
 Dep. Variable:                      y   R-squared:                       0.152
 Model:                            OLS   Adj. R-squared:                  0.141
 Method:                 Least Squares   F-statistic:                     8.693
-Date:                Wed, 20 Nov 2024   Prob (F-statistic):            0.00421
-Time:                        14:49:53   Log-Likelihood:                 42.582
+Date:                Wed, 27 Nov 2024   Prob (F-statistic):            0.00421
+Time:                        11:03:31   Log-Likelihood:                 42.582
 No. Observations:                  80   AIC:                            -81.16
 Df Residuals:                      78   BIC:                            -76.40
 Df Model:                           1                                         
@@ -1645,8 +1645,8 @@ r_{t, j} = r_{t, f} + \beta_j \left(r_{t, m} - r_{t, f} \right) + \epsilon_{t, j
 Dep. Variable:                      y   R-squared:                       0.479
 Model:                            OLS   Adj. R-squared:                  0.478
 Method:                 Least Squares   F-statistic:                     421.1
-Date:                Wed, 20 Nov 2024   Prob (F-statistic):           7.69e-67
-Time:                        14:49:54   Log-Likelihood:                 1424.1
+Date:                Wed, 27 Nov 2024   Prob (F-statistic):           7.69e-67
+Time:                        11:03:32   Log-Likelihood:                 1424.1
 No. Observations:                 460   AIC:                            -2844.
 Df Residuals:                     458   BIC:                            -2836.
 Df Model:                           1                                         
@@ -1922,8 +1922,8 @@ Notes:
 Dep. Variable:          ex_rt_shifted   R-squared:                       0.005
 Model:                            OLS   Adj. R-squared:                  0.004
 Method:                 Least Squares   F-statistic:                     4.015
-Date:                Wed, 20 Nov 2024   Prob (F-statistic):            0.00733
-Time:                        14:49:58   Log-Likelihood:                 1370.8
+Date:                Wed, 27 Nov 2024   Prob (F-statistic):            0.00733
+Time:                        11:03:36   Log-Likelihood:                 1370.8
 No. Observations:                2300   AIC:                            -2734.
 Df Residuals:                    2296   BIC:                            -2711.
 Df Model:                           3                                         

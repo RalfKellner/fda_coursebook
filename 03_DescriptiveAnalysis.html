@@ -173,7 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="06_Classification.html">Classification</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="07_ModellAccuracy.html">Generalization of functional relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_ModellAccuracy.html">Evaluation of trained models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_ModelComplexity.html">Model complexity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_Regularization.html">Regularization</a></li>
 
@@ -1623,32 +1623,32 @@ None
     <tr>
       <th>0</th>
       <td>male</td>
-      <td>good</td>
-      <td>1.462393</td>
+      <td>neural</td>
+      <td>-0.534290</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>female</td>
-      <td>good</td>
-      <td>2.580569</td>
+      <td>male</td>
+      <td>neural</td>
+      <td>0.908830</td>
     </tr>
     <tr>
       <th>2</th>
       <td>male</td>
-      <td>neural</td>
-      <td>0.563949</td>
+      <td>bad</td>
+      <td>2.068428</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>male</td>
-      <td>bad</td>
-      <td>-2.781594</td>
+      <td>female</td>
+      <td>neural</td>
+      <td>-0.194670</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>male</td>
+      <td>female</td>
       <td>neural</td>
-      <td>5.386936</td>
+      <td>2.638308</td>
     </tr>
   </tbody>
 </table>
@@ -1702,38 +1702,38 @@ None
   <tbody>
     <tr>
       <th>0</th>
-      <td>good</td>
-      <td>1.462393</td>
+      <td>neural</td>
+      <td>-0.534290</td>
       <td>0.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>good</td>
-      <td>2.580569</td>
-      <td>1.0</td>
+      <td>neural</td>
+      <td>0.908830</td>
       <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>neural</td>
-      <td>0.563949</td>
+      <td>bad</td>
+      <td>2.068428</td>
       <td>0.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>bad</td>
-      <td>-2.781594</td>
-      <td>0.0</td>
+      <td>neural</td>
+      <td>-0.194670</td>
       <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>neural</td>
-      <td>5.386936</td>
-      <td>0.0</td>
+      <td>2.638308</td>
       <td>1.0</td>
+      <td>0.0</td>
     </tr>
   </tbody>
 </table>
@@ -1752,7 +1752,7 @@ None
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The variable assessment has the following unique values:
-[&#39;good&#39; &#39;neural&#39; &#39;bad&#39;]
+[&#39;neural&#39; &#39;bad&#39; &#39;good&#39;]
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1782,38 +1782,38 @@ None
   <tbody>
     <tr>
       <th>0</th>
-      <td>3</td>
-      <td>1.462393</td>
+      <td>2</td>
+      <td>-0.534290</td>
       <td>0.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>3</td>
-      <td>2.580569</td>
-      <td>1.0</td>
+      <td>2</td>
+      <td>0.908830</td>
       <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
-      <td>0.563949</td>
+      <td>1</td>
+      <td>2.068428</td>
       <td>0.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1</td>
-      <td>-2.781594</td>
-      <td>0.0</td>
+      <td>2</td>
+      <td>-0.194670</td>
       <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>2</td>
-      <td>5.386936</td>
-      <td>0.0</td>
+      <td>2.638308</td>
       <td>1.0</td>
+      <td>0.0</td>
     </tr>
   </tbody>
 </table>
@@ -1862,48 +1862,48 @@ None
   <tbody>
     <tr>
       <th>0</th>
-      <td>3</td>
-      <td>1.462393</td>
+      <td>2</td>
+      <td>-0.534290</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>-0.293854</td>
-      <td>0.555146</td>
+      <td>-1.208486</td>
+      <td>0.258566</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>3</td>
-      <td>2.580569</td>
-      <td>1.0</td>
+      <td>2</td>
+      <td>0.908830</td>
       <td>0.0</td>
-      <td>0.269699</td>
-      <td>0.640448</td>
+      <td>1.0</td>
+      <td>-0.505004</td>
+      <td>0.371751</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
-      <td>0.563949</td>
+      <td>1</td>
+      <td>2.068428</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>-0.746665</td>
-      <td>0.486607</td>
+      <td>0.060270</td>
+      <td>0.462699</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1</td>
-      <td>-2.781594</td>
-      <td>0.0</td>
+      <td>2</td>
+      <td>-0.194670</td>
       <td>1.0</td>
-      <td>-2.432797</td>
-      <td>0.231387</td>
+      <td>0.0</td>
+      <td>-1.042930</td>
+      <td>0.285203</td>
     </tr>
     <tr>
       <th>4</th>
       <td>2</td>
-      <td>5.386936</td>
-      <td>0.0</td>
+      <td>2.638308</td>
       <td>1.0</td>
-      <td>1.684090</td>
-      <td>0.854535</td>
+      <td>0.0</td>
+      <td>0.338071</td>
+      <td>0.507395</td>
     </tr>
   </tbody>
 </table>
@@ -1925,7 +1925,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/75d6b88a65c577b2a696fff24e88c2191ff1c93afcabec1b24225acd5884667a.png" src="_images/75d6b88a65c577b2a696fff24e88c2191ff1c93afcabec1b24225acd5884667a.png" />
+<img alt="_images/cab7424c2ddc06f3250f59f064eb83c4d666d397d108c0b1dc05f6ea9a373981.png" src="_images/cab7424c2ddc06f3250f59f064eb83c4d666d397d108c0b1dc05f6ea9a373981.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1936,7 +1936,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0a5d04cc58582e9f755d2624f321ca0aa59e5f5a6b507e6cf4b0bc041adb84b1.png" src="_images/0a5d04cc58582e9f755d2624f321ca0aa59e5f5a6b507e6cf4b0bc041adb84b1.png" />
+<img alt="_images/6b3c8d88db8b3ffd0a67f24229b49688604f850a84343d059430772a5a93862c.png" src="_images/6b3c8d88db8b3ffd0a67f24229b49688604f850a84343d059430772a5a93862c.png" />
 </div>
 </div>
 </section>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Generalization of functional relationships &#8212; Financial Data Analytics</title>
+    <title>Evaluation of trained models &#8212; Financial Data Analytics</title>
   
   
   
@@ -173,7 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="06_Classification.html">Classification</a></li>
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Generalization of functional relationships</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Evaluation of trained models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_ModelComplexity.html">Model complexity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_Regularization.html">Regularization</a></li>
 
@@ -356,7 +356,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Generalization of functional relationships</h1>
+    <h1>Evaluation of trained models</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -367,7 +367,9 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-split-of-the-data">Simple split of the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-reduction-of-test-evaluation-by-multiple-splits">Variance reduction of test evaluation by multiple splits</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-fold-cross-validation">K-fold cross validation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#california-house-prices-demonstration">California house prices demonstration</a></li>
 </ul>
             </nav>
         </div>
@@ -379,16 +381,20 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="generalization-of-functional-relationships">
-<h1>Generalization of functional relationships<a class="headerlink" href="#generalization-of-functional-relationships" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="evaluation-of-trained-models">
+<h1>Evaluation of trained models<a class="headerlink" href="#evaluation-of-trained-models" title="Link to this heading">#</a></h1>
 <p>In the last chapters we have learned about models that can be used for quantitative and categorical forecasting problems. The goal of modeling is always to represent the actual relationship between the independent variables <span class="math notranslate nohighlight">\(x_1, ..., x_p\)</span> and a dependent variable <span class="math notranslate nohighlight">\(y\)</span> as well as possible. So far, we have always used the entire dataset to train the models and have learned various metrics that can be used to determine the goodness of the models for the training data. Unfortunately, however, high model goodness for the training data does not necessarily result in high model goodness for new and unseen test data. If this is not successful, it cannot be assumed that a model represents the generally existing relationship between independent and dependent variables. Accordingly, it is important to always evaluate a model for new data not used in training the model. However, data is not available in arbitrary quantities, so usually a portion of the training data is used to evaluate out-of-sample performance rather than to estimate model parameters. In the following, we use the terms training and test error to refer to the goodness of a model for training and test data.</p>
 <section id="simple-split-of-the-data">
 <h2>Simple split of the data<a class="headerlink" href="#simple-split-of-the-data" title="Link to this heading">#</a></h2>
-<p>The simplest way to estimate the test error is to randomly split the entire data set and designate a portion to train the model and determine the training error, while determining the test error using the estimated model for the test data. In the next cell, we return to the Advertising data set from the linear regression chapter and randomly split the data into training and test data. Initially, we do this in equal proportions. The training data set is used to estimate the parameters of the linear regression model, and then we calculate the mean square error (MSE) of the training and test data. To get a sense of the variation in estimating the test error, we perform this procedure <span class="math notranslate nohighlight">\(100\)</span> times. The graph below shows the histograms of the MSE of the training and test data sets. First, we notice that there is a slightly higher mean MSE in the test data set than in the training data set (vertical line). In addition, we also see that the variation of the MSE in the test data set is relatively high. This is problematic if we imagine that we would base our assessment of the model only on a random partitioning of the data. With the multiple splitting approach presented below, we do not have this problem, but the approach shown is critical for another reason. In our example, we split the data evenly, which results in only half of the data being able to be used to train the model. This increases the variance of the predictions from the model. In addition, more complex models require more data to learn more complex relationships. If we reduce the amount of test data, this also increases the variation of the test error, but the resulting disadvantage can be reduced by using the multiple draw procedure as presented below. Only one small problem remains. If we randomly split the data each time, the estimated average test error will vary. Therefore, cross-validation, and especially k-fold cross-validation, is often preferred to the procedure shown here.</p>
+<p>The simplest way to estimate the test error is to randomly split the entire data set and designate a portion to train the model and determine the training error, while determining the test error using the estimated model for the test data. In the next cell, we return to the Advertising data set from the linear regression chapter and randomly split the data into training and test data. Initially, we do this in equal proportions. The training data set is used to estimate the parameters of the linear regression model, and then we calculate the mean square error (MSE) of the training and test data. To get a sense of the variation in estimating the test error, we perform this procedure <span class="math notranslate nohighlight">\(100\)</span> times. The graph below shows the histograms of the MSE of the training and test data sets. First, we notice that there is a slightly higher mean MSE in the test data set than in the training data set (vertical line). In addition, we also see that the variation of the MSE in the test data set is relatively high. This is problematic if we imagine that we would base our assessment of the model only on a single random partitioning of the data.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note: There are several packages in Python, some of which can be used for the same purpose as estimating statistical models. For example, various regression models can be estimated with both the statsmodels and scikit-learn packages. While the statsmodels package has a more traditional statistical background and accordingly many metrics are output for statistical inference, the scikit-learn package often has useful routines from the machine learning domain. We always use packages that are best suited for the methods presented.</p>
 </div>
+</section>
+<section id="variance-reduction-of-test-evaluation-by-multiple-splits">
+<h2>Variance reduction of test evaluation by multiple splits<a class="headerlink" href="#variance-reduction-of-test-evaluation-by-multiple-splits" title="Link to this heading">#</a></h2>
+<p>If we would use the evaluation results of multiple splits of the data into training and test data, we average performance metrics for the test data of every split. By this means, we overcome the problem of high variation of single split evaluation due to the variance reduction effect of averaging. Note that the performance metric is an estimator that is a random variable. Let us denote it by <span class="math notranslate nohighlight">\(x\)</span>, i.e. in our example <span class="math notranslate nohighlight">\(x\)</span> is the mean squared error of the test data. The random variable has standard deviation <span class="math notranslate nohighlight">\(\sigma_x\)</span>. If observations in the data are independent and identically distributed so is <span class="math notranslate nohighlight">\(x\)</span> and it can be shown that the average mean squared error <span class="math notranslate nohighlight">\(\bar{x}\)</span> has standard deviation <span class="math notranslate nohighlight">\(\sigma_{\bar{x}} = \frac{\sigma_x}{\sqrt{m}}\)</span> with <span class="math notranslate nohighlight">\(m\)</span> being the number of time we split the data into training and test data. Thus, the variation of the performance metric <span class="math notranslate nohighlight">\(x\)</span> is reduced by a factor of <span class="math notranslate nohighlight">\(\sqrt{m}\)</span>. This variance reduction may not be as large if the observations in the data set are not independent from each other, however, usually remain to a certain extent.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -405,7 +411,8 @@
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">draws</span><span class="p">):</span>
 
     <span class="n">train_df</span> <span class="o">=</span> <span class="n">advertising_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span> <span class="o">=</span> <span class="mf">0.50</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">test_df</span> <span class="o">=</span> <span class="n">advertising_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">advertising_df</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">idx</span> <span class="ow">in</span> <span class="n">train_df</span><span class="o">.</span><span class="n">index</span><span class="p">)],</span> <span class="p">:]</span>
+    <span class="n">test_index</span> <span class="o">=</span> <span class="n">advertising_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">train_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">test_df</span> <span class="o">=</span> <span class="n">advertising_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_index</span><span class="p">,</span> <span class="p">:]</span>
 
     <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;sales&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="n">test_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;sales&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">sales</span><span class="p">,</span> <span class="n">test_df</span><span class="o">.</span><span class="n">sales</span>
@@ -432,13 +439,18 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/da08efcbaecb6e8325b6998cfc768074935b750540f9a05fb1730c8674e7a883.png" src="_images/da08efcbaecb6e8325b6998cfc768074935b750540f9a05fb1730c8674e7a883.png" />
+<img alt="_images/544f24c6fc26b45c2fcbab98635a495696706fad5ea3ef2b0736a5158d1b6a29.png" src="_images/544f24c6fc26b45c2fcbab98635a495696706fad5ea3ef2b0736a5158d1b6a29.png" />
 </div>
 </div>
 </section>
 <section id="k-fold-cross-validation">
 <h2>K-fold cross validation<a class="headerlink" href="#k-fold-cross-validation" title="Link to this heading">#</a></h2>
-<p>In K-fold cross validation, the data set is split into <span class="math notranslate nohighlight">\(k\)</span> equal parts. Then, one of the parts is used as a test data set at a time, while the remaining data is used to train the model. This process is performed <span class="math notranslate nohighlight">\(k\)</span> times by iterating over all the parts (folds). The graph below visualizes this form of data partitioning.</p>
+<p>Two things may be done different in comparison to the multiple splitting approach in reality.</p>
+<ol class="arabic simple">
+<li><p>The fraction of data which is used to train the model is usually larger than the one for test data. The reason for this lies in the need for large data to train more complex and powerful machine learning algorithms.</p></li>
+<li><p>The number of splits usually must be kept relatively low due to computational issues. Given a large dataset and a more complex algorithm, training the model may be computational intensive and it is not feasible to train the model many times.</p></li>
+</ol>
+<p>A popular approach to conduct validation by multiple splits of the data and still keep the number of splits at a reasonable level is K-fold cross validation. In K-fold cross validation, the data set is split into <span class="math notranslate nohighlight">\(k\)</span> equal parts. Then, one of the parts is used as a test data set at a time, while the remaining data is used to train the model. This process is performed <span class="math notranslate nohighlight">\(k\)</span> times by iterating over all the parts (folds). The graph below visualizes this form of data partitioning. It is also possible to mix the data before splitting it into equal parts, however, K-fold cross validation usually uses test data splits that are non-overlapping over different splits.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
@@ -595,7 +607,230 @@ CV_{(k)} = \frac{1}{k} \sum_k MSE_k
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b1812809c44c34cdc82abe5d9558576a7da613b006320e9ef58cfafd70b133b0.png" src="_images/b1812809c44c34cdc82abe5d9558576a7da613b006320e9ef58cfafd70b133b0.png" />
+<img alt="_images/5b5b829d15669215ee24d399eb04b70f3766515dfaf62c181201e035f75fa562.png" src="_images/5b5b829d15669215ee24d399eb04b70f3766515dfaf62c181201e035f75fa562.png" />
+</div>
+</div>
+</section>
+<section id="california-house-prices-demonstration">
+<h2>California house prices demonstration<a class="headerlink" href="#california-house-prices-demonstration" title="Link to this heading">#</a></h2>
+<p>A popular toy dataset is the California Housing dataset which can be download using the sklearn package. Among with other feature variables, it contains median house values in geographic regions of California. The data is imported below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MedInc</th>
+      <th>HouseAge</th>
+      <th>AveRooms</th>
+      <th>AveBedrms</th>
+      <th>Population</th>
+      <th>AveOccup</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>MedHouseVal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8.3252</td>
+      <td>41.0</td>
+      <td>6.984127</td>
+      <td>1.023810</td>
+      <td>322.0</td>
+      <td>2.555556</td>
+      <td>37.88</td>
+      <td>-122.23</td>
+      <td>4.526</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8.3014</td>
+      <td>21.0</td>
+      <td>6.238137</td>
+      <td>0.971880</td>
+      <td>2401.0</td>
+      <td>2.109842</td>
+      <td>37.86</td>
+      <td>-122.22</td>
+      <td>3.585</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7.2574</td>
+      <td>52.0</td>
+      <td>8.288136</td>
+      <td>1.073446</td>
+      <td>496.0</td>
+      <td>2.802260</td>
+      <td>37.85</td>
+      <td>-122.24</td>
+      <td>3.521</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.6431</td>
+      <td>52.0</td>
+      <td>5.817352</td>
+      <td>1.073059</td>
+      <td>558.0</td>
+      <td>2.547945</td>
+      <td>37.85</td>
+      <td>-122.25</td>
+      <td>3.413</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.8462</td>
+      <td>52.0</td>
+      <td>6.281853</td>
+      <td>1.081081</td>
+      <td>565.0</td>
+      <td>2.181467</td>
+      <td>37.85</td>
+      <td>-122.25</td>
+      <td>3.422</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>As the plot below visualizes, house prices seem to be related to their geographic location.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">house_prices</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Latitude&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Longitude&quot;</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;MedHouseVal&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5e36e23adf61f9a2a0c0a96cd465ed6bbc7a540983f60679c920436cf45b5d6d.png" src="_images/5e36e23adf61f9a2a0c0a96cd465ed6bbc7a540983f60679c920436cf45b5d6d.png" />
+</div>
+</div>
+<p>Let us take a look what happens if we use a 5-fold split of the data, estimate a linear regression model and evaluate its performance by using the coefficient of determination <span class="math notranslate nohighlight">\(R^2\)</span> for the test data. Two things can be observed from the output below. First, values of <span class="math notranslate nohighlight">\(R^2\)</span> vary a lot regarding the performance for each split. Together with the plots for each split, we may identify the reason for this behavior. Without mixing the data, the training and test samples are note well spread over California, but rather are centered in certain regions. Due to the impact of the geographic region on house prices, this may prevent the model from learning to predict reasonable house prices for all geographic regions. Still, given this drawback, the average value of <span class="math notranslate nohighlight">\(R^2\)</span> gives a more realistic assessment regarding the models performance in comparison for split 2 (too bad) or split 5 (too good).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">n_splits</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span> <span class="o">=</span> <span class="n">n_splits</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">n_splits</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">n_splits</span> <span class="o">*</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">r2_values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="p">(</span><span class="n">train_idx</span><span class="p">,</span> <span class="n">test_idx</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
+    <span class="n">df_train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">train_idx</span><span class="p">]</span>
+    <span class="n">df_test</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_idx</span><span class="p">]</span>
+
+    <span class="n">linear_moodel</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+    <span class="n">linear_moodel</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_train</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;MedHouseVal&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="n">df_train</span><span class="p">[</span><span class="s2">&quot;MedHouseVal&quot;</span><span class="p">])</span>
+    <span class="n">y_hat</span> <span class="o">=</span> <span class="n">linear_moodel</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_test</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;MedHouseVal&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">df_test</span><span class="p">[</span><span class="s2">&quot;MedHouseVal&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">)</span>
+    <span class="n">r2_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;R2 score for split number </span><span class="si">{</span><span class="n">ii</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+    <span class="n">df_train</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Latitude&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Longitude&quot;</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;MedHouseVal&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">df_test</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Latitude&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Longitude&quot;</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;MedHouseVal&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average R2 score over all splits: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r2_values</span><span class="p">),</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2 score for split number 1:
+0.5487
+R2 score for split number 2:
+0.4682
+R2 score for split number 3:
+0.5508
+R2 score for split number 4:
+0.537
+R2 score for split number 5:
+0.6605
+Average R2 score over all splits: 0.553
+</pre></div>
+</div>
+<img alt="_images/0d634753d4f081a2c48bd8da0d5ce05a047d13378c00f128bbd949f59454331c.png" src="_images/0d634753d4f081a2c48bd8da0d5ce05a047d13378c00f128bbd949f59454331c.png" />
+</div>
+</div>
+<p>The observations from above highlight a situation in which it might be advantageous to mix the data before splitting it. By mixing it, we break the spatial dependence and give the model to learn to predict house prices in any geographic region. Thus, mixing the data should increase the average performance and reduce variation between the splits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">n_splits</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span> <span class="o">=</span> <span class="n">n_splits</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">n_splits</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">n_splits</span> <span class="o">*</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">r2_values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="p">(</span><span class="n">train_idx</span><span class="p">,</span> <span class="n">test_idx</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
+    <span class="n">df_train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">train_idx</span><span class="p">]</span>
+    <span class="n">df_test</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_idx</span><span class="p">]</span>
+
+    <span class="n">linear_moodel</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+    <span class="n">linear_moodel</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_train</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;MedHouseVal&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="n">df_train</span><span class="p">[</span><span class="s2">&quot;MedHouseVal&quot;</span><span class="p">])</span>
+    <span class="n">y_hat</span> <span class="o">=</span> <span class="n">linear_moodel</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_test</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;MedHouseVal&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">df_test</span><span class="p">[</span><span class="s2">&quot;MedHouseVal&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">)</span>
+    <span class="n">r2_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;R2 score for split number </span><span class="si">{</span><span class="n">ii</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+    <span class="n">df_train</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Latitude&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Longitude&quot;</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;MedHouseVal&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">df_test</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Latitude&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Longitude&quot;</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;MedHouseVal&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average R2 score over all splits: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r2_values</span><span class="p">),</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2 score for split number 1:
+0.5758
+R2 score for split number 2:
+0.6137
+R2 score for split number 3:
+0.6086
+R2 score for split number 4:
+0.6213
+R2 score for split number 5:
+0.5875
+Average R2 score over all splits: 0.6014
+</pre></div>
+</div>
+<img alt="_images/ba5e6cce68805769aaaaacdabe1d6aa4f4cf625174ec9c7c9c7d2320b567952d.png" src="_images/ba5e6cce68805769aaaaacdabe1d6aa4f4cf625174ec9c7c9c7d2320b567952d.png" />
 </div>
 </div>
 </section>
@@ -667,7 +902,9 @@ CV_{(k)} = \frac{1}{k} \sum_k MSE_k
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-split-of-the-data">Simple split of the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-reduction-of-test-evaluation-by-multiple-splits">Variance reduction of test evaluation by multiple splits</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-fold-cross-validation">K-fold cross validation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#california-house-prices-demonstration">California house prices demonstration</a></li>
 </ul>
   </nav></div>
 
