@@ -368,6 +368,7 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-flexible-models-polynomial-regression">More Flexible Models - Polynomial Regression</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-variance-trade-off">Bias-Variance Trade-Off</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infecting-expected-return-estimates-with-bias-by-shrinkage">Infecting expected return estimates with bias by shrinkage</a></li>
 </ul>
             </nav>
         </div>
@@ -504,6 +505,70 @@ y = \cos(1.5 \pi x) + \epsilon
 <img alt="_images/260f4c57302140b7c0ab3b31700e4aaec8edd9d4f283e8508d09dc4409361325.png" src="_images/260f4c57302140b7c0ab3b31700e4aaec8edd9d4f283e8508d09dc4409361325.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/returns_shrinkage_predictions.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="s2">&quot;Date&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># shrinkage factor</span>
+<span class="n">window_size</span> <span class="o">=</span> <span class="mi">252</span>  <span class="c1"># Training window size</span>
+<span class="n">evaluation_period</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># Evaluation window size</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">means_over_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">shrinkage_means_over_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">ssd_means_over_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">ssd_shrinkage_means_over_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">start</span> <span class="o">+</span> <span class="n">window_size</span> <span class="o">+</span> <span class="n">evaluation_period</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="c1"># Define the training window</span>
+    <span class="n">train_window</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">start</span> <span class="o">+</span> <span class="n">window_size</span><span class="p">]</span>
+    <span class="c1"># estimate the means</span>
+    <span class="n">means</span> <span class="o">=</span> <span class="n">train_window</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">global_mean</span><span class="o">=</span> <span class="n">train_window</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">shrinkage_means</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">means</span>   <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">global_mean</span>
+
+    <span class="n">means_over_time</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">means</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">shrinkage_means_over_time</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">shrinkage_means</span><span class="o">.</span><span class="n">values</span>
+    
+    <span class="c1"># Define the evaluation window</span>
+    <span class="n">eval_window</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">start</span> <span class="o">+</span> <span class="n">window_size</span><span class="p">:</span><span class="n">start</span> <span class="o">+</span> <span class="n">window_size</span> <span class="o">+</span> <span class="n">evaluation_period</span><span class="p">]</span>
+
+    <span class="n">ssd_means</span> <span class="o">=</span> <span class="p">((</span><span class="n">eval_window</span> <span class="o">-</span> <span class="n">means</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">ssd_shrinkage_means</span> <span class="o">=</span> <span class="p">((</span><span class="n">eval_window</span> <span class="o">-</span> <span class="n">shrinkage_means</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    
+    <span class="n">ssd_means_over_time</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">ssd_means</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">ssd_shrinkage_means_over_time</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">ssd_shrinkage_means</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">start</span> <span class="o">+=</span> <span class="n">evaluation_period</span>
+    <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">ssd_means_over_time</span> <span class="o">=</span> <span class="n">ssd_means_over_time</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">ssd_shrinkage_means_over_time</span> <span class="o">=</span> <span class="n">ssd_shrinkage_means_over_time</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ticker</span> <span class="o">=</span> <span class="s2">&quot;AAPL&quot;</span>
+<span class="n">means_over_time</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">ticker</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;no shrinkage&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">)</span>
+<span class="n">shrinkage_means_over_time</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">ticker</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;shrinkage&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2"> - distribution of expected returns over time&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/bb875481b605ad9b3b2c6605b513279ccd1f3042e312c8d6dae4bd9ddbe6d5e9.png" src="_images/bb875481b605ad9b3b2c6605b513279ccd1f3042e312c8d6dae4bd9ddbe6d5e9.png" />
+</div>
+</div>
 </section>
 <section id="bias-variance-trade-off">
 <h2>Bias-Variance Trade-Off<a class="headerlink" href="#bias-variance-trade-off" title="Link to this heading">#</a></h2>
@@ -521,6 +586,126 @@ E \left(y - \hat{f} \left( \boldsymbol{x} \right) \right)^2 = Var\left(\hat{f} \
 <li><p>the systematic deviation of the estimated model and the true relationship, the <span class="math notranslate nohighlight">\(bias\)</span>: <span class="math notranslate nohighlight">\(E \left(\hat{f} \left( \boldsymbol{x} \right) - f \left( \boldsymbol{x} \right) \right)\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> deviation due model misspecification</p></li>
 </ul>
 <p>Since we do not know the true relationship <span class="math notranslate nohighlight">\(f \left( \boldsymbol{x} \right) \)</span> in reality, it is usually also not possible to determine these components individually. Nevertheless, it is important to understand the aforementioned causes of divergence between realization and prediction, since bias and variance of a model can be affected by complexity. Complex models often tend to have a smaller bias, but introduce a higher variance. Accordingly, this must be taken into account when selecting a model in order to ultimately select and train a model that keeps both sources of error as low as possible.</p>
+</section>
+<section id="infecting-expected-return-estimates-with-bias-by-shrinkage">
+<h2>Infecting expected return estimates with bias by shrinkage<a class="headerlink" href="#infecting-expected-return-estimates-with-bias-by-shrinkage" title="Link to this heading">#</a></h2>
+<p>While the bias variance discussion from above is rather theoretical, these considerations can have a great impact on real life outcomes such as portfolio optimization. As an example, we do not even use a parametric model, however, we predict the expected return of individual stock returns from companies.</p>
+<p>Let <span class="math notranslate nohighlight">\(r_{t, i}\)</span> denote the asset return for company <span class="math notranslate nohighlight">\(i\)</span> at time <span class="math notranslate nohighlight">\(t\)</span>. An important input for portfolio optimization is the expected return for each company <span class="math notranslate nohighlight">\(\hat{\mu}_i\)</span>. A common estimator is the average of past return observations. If we are at time <span class="math notranslate nohighlight">\(t\)</span> and use the past <span class="math notranslate nohighlight">\(n\)</span> time steps, the estimator is:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mu}_i = \frac{1}{n} \sum_{t' = t-n}^t r_{t', i}
+\]</div>
+<p>The literature often finds that this estimator is plagued by statistical uncertainty and exhibits high variation. Especially for optimal portfolio positions, this can be troublesome. Large variation of an estimator means that estimated expected returns are often more far away from the true expected value. For a portfolio with <span class="math notranslate nohighlight">\(p\)</span> companies, the company weights and their expected returns are:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+\mathbf{w} = 
+\begin{pmatrix}
+w_1 \\
+w_2 \\
+\vdots \\
+w_p
+\end{pmatrix} \end{split}\\\begin{split}\mathbf{\mu} = 
+\begin{pmatrix}
+\mu_1 \\
+\mu_2 \\
+\vdots \\
+\mu_p
+\end{pmatrix}
+\end{split}\end{aligned}\end{align} \]</div>
+<p>The portfolios expected return is calculated by:</p>
+<div class="math notranslate nohighlight">
+\[
+\mu_{pf} = \mathbf{w}^T \mathbf{\mu} = w_1 \mu_1 + w_2 \mu_2 + ... + w_p \mu_p 
+\]</div>
+<p>The problem is that in reality, we need to replace the expected values with their estimates:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mu}_{pf} = \mathbf{w}^T \mathbf{\hat{\mu}} = w_1 \hat{\mu}_1 + w_2 \hat{\mu}_2 + ... + w_p \hat{\mu}_p 
+\]</div>
+<p>Profit maximization usually give higher weights with higher expected values. If estimates have high variation, there will be estimates which are by far higher than the true expected value. These companies will receive a higher weight and the portfolio in the future will gain returns below expectation.</p>
+<p>To overcome reduce the variation of mean estimator in this context, one can use shrinkage. One approach is to estimate the global mean:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mu} = \frac{1}{n p} \sum_{i=1}^p \sum_{t' = t-n}^t r_{t', i}
+\]</div>
+<p>and replace the company specific estimator by:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mu}_i^{s} = \alpha \hat{\mu}_i + \left(1 - \alpha \right) \hat{\mu}
+\]</div>
+<p>By this means, the individual estimator is moved towards the global estimator. In other words, we build an estimate based on the individual past returns and the average returns over all companies.</p>
+<p>The graph below shows the distribution of values for <span class="math notranslate nohighlight">\(\hat{\mu}_i \)</span> and <span class="math notranslate nohighlight">\(\hat{\mu}_i^{s}\)</span> for Apple. The estimates are build based upon a rolling window approach. The data includes daily returns for 69 companies over the past ten years. We always use the past 252 days to estimate the mean values and move forward 20 days. The figure exhibits that shrinkage mean estimates for Apple do not vary as much as the traditional mean estimator. At this point the illustration stops. In a next step, we could compare the actual performance of portfolios whose optimal weights are determined by both approaches. However, portfolio optimization is not in the scope of this course.</p>
+<p>Please also note that this aligns with the discussion in the beginning of this chapter which is related to the classical situation where predictions are build by models <span class="math notranslate nohighlight">\(f\)</span> using information from other variables <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.</p>
+<p>Regarding the expected return example, the model is:</p>
+<div class="math notranslate nohighlight">
+\[
+r_{t, i} = \mu_{i} + \epsilon_{t, i}
+\]</div>
+<p>In this context <span class="math notranslate nohighlight">\(\hat{\mu}_i\)</span> is a prediction model which is not in need of any parameters and only uses past information of the target variable to build its time-invariant predictions for the future. The shrinkage estimator is a model with one parameter <span class="math notranslate nohighlight">\(\alpha\)</span> that we did not optimize and which uses past information from the target variable and past realizations from other companies to build its time-invariant predictions for the future.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/returns_shrinkage_predictions.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="s2">&quot;Date&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># shrinkage factor</span>
+<span class="n">window_size</span> <span class="o">=</span> <span class="mi">252</span>  <span class="c1"># Training window size</span>
+<span class="n">evaluation_period</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># Evaluation window size</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">means_over_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">shrinkage_means_over_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">ssd_means_over_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">ssd_shrinkage_means_over_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">start</span> <span class="o">+</span> <span class="n">window_size</span> <span class="o">+</span> <span class="n">evaluation_period</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="c1"># Define the training window</span>
+    <span class="n">train_window</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">start</span> <span class="o">+</span> <span class="n">window_size</span><span class="p">]</span>
+    <span class="c1"># estimate the means</span>
+    <span class="n">means</span> <span class="o">=</span> <span class="n">train_window</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">global_mean</span><span class="o">=</span> <span class="n">train_window</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">shrinkage_means</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">means</span>   <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">global_mean</span>
+
+    <span class="n">means_over_time</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">means</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">shrinkage_means_over_time</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">shrinkage_means</span><span class="o">.</span><span class="n">values</span>
+    
+    <span class="c1"># Define the evaluation window</span>
+    <span class="n">eval_window</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">start</span> <span class="o">+</span> <span class="n">window_size</span><span class="p">:</span><span class="n">start</span> <span class="o">+</span> <span class="n">window_size</span> <span class="o">+</span> <span class="n">evaluation_period</span><span class="p">]</span>
+
+    <span class="n">ssd_means</span> <span class="o">=</span> <span class="p">((</span><span class="n">eval_window</span> <span class="o">-</span> <span class="n">means</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">ssd_shrinkage_means</span> <span class="o">=</span> <span class="p">((</span><span class="n">eval_window</span> <span class="o">-</span> <span class="n">shrinkage_means</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    
+    <span class="n">ssd_means_over_time</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">ssd_means</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">ssd_shrinkage_means_over_time</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">ssd_shrinkage_means</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">start</span> <span class="o">+=</span> <span class="n">evaluation_period</span>
+    <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">ssd_means_over_time</span> <span class="o">=</span> <span class="n">ssd_means_over_time</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">ssd_shrinkage_means_over_time</span> <span class="o">=</span> <span class="n">ssd_shrinkage_means_over_time</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ticker</span> <span class="o">=</span> <span class="s2">&quot;AAPL&quot;</span>
+<span class="n">means_over_time</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">ticker</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;no shrinkage&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">)</span>
+<span class="n">shrinkage_means_over_time</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">ticker</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;shrinkage&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2"> - distribution of expected returns over time&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/bb875481b605ad9b3b2c6605b513279ccd1f3042e312c8d6dae4bd9ddbe6d5e9.png" src="_images/bb875481b605ad9b3b2c6605b513279ccd1f3042e312c8d6dae4bd9ddbe6d5e9.png" />
+</div>
+</div>
 </section>
 </section>
 
@@ -591,6 +776,7 @@ E \left(y - \hat{f} \left( \boldsymbol{x} \right) \right)^2 = Var\left(\hat{f} \
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-flexible-models-polynomial-regression">More Flexible Models - Polynomial Regression</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-variance-trade-off">Bias-Variance Trade-Off</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infecting-expected-return-estimates-with-bias-by-shrinkage">Infecting expected return estimates with bias by shrinkage</a></li>
 </ul>
   </nav></div>
 
