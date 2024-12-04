@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '09_Regularization';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Dimensionality reduction" href="10_DimensionalityReduction.html" />
+    <link rel="next" title="Clustering" href="10_Clustering.html" />
     <link rel="prev" title="Model complexity" href="08_ModelComplexity.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -177,8 +177,8 @@
 <li class="toctree-l1"><a class="reference internal" href="08_ModelComplexity.html">Model complexity</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Regularization</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="10_DimensionalityReduction.html">Dimensionality reduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_Clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_Clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_DimensionalityReduction.html">Dimensionality reduction</a></li>
 </ul>
 
     </div>
@@ -465,8 +465,7 @@ L\left(\boldsymbol{y}, f_{\boldsymbol{\beta}}(\boldsymbol{X}) \right) = \sum_{i=
 <span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">Lasso</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
 
 <span class="c1"># let us define a true functional relationship which is more complex than a simple linear relationship</span>
 <span class="k">def</span> <span class="nf">true_fun</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -504,26 +503,22 @@ L\left(\boldsymbol{y}, f_{\boldsymbol{\beta}}(\boldsymbol{X}) \right) = \sum_{i=
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    <span class="n">mse_train</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">regression_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">polynomial_features</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))))</span>
-    <span class="n">mse_test</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">regression_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">polynomial_features</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">main_title</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1"> MSE_train: </span><span class="si">{</span><span class="n">mse_train</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">, MSE_test: </span><span class="si">{</span><span class="n">mse_test</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">r2_train</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">regression_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">polynomial_features</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))))</span>
+    <span class="n">r2_test</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">regression_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">polynomial_features</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">main_title</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1"> R2 (train): </span><span class="si">{</span><span class="n">r2_train</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">, R2 (test): </span><span class="si">{</span><span class="n">r2_test</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">ax</span>
 
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plot_poly_regression</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">LinearRegression</span><span class="p">(),</span> <span class="n">main_title</span> <span class="o">=</span> <span class="s1">&#39;degrees=12, linear regression&#39;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">)</span>
-<span class="n">plot_poly_regression</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">),</span> <span class="n">main_title</span> <span class="o">=</span> <span class="s1">&#39;degrees=12, lasso regression&#39;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plot_poly_regression</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.0025</span><span class="p">),</span> <span class="n">main_title</span> <span class="o">=</span> <span class="s1">&#39;degrees=12, lasso regression&#39;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/ralf/Library/Mobile Documents/com~apple~CloudDocs/Kurse/FDA/.venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:697: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.726e-01, tolerance: 1.393e-03
-  model = cd_fast.enet_coordinate_descent(
-</pre></div>
-</div>
-<img alt="_images/d431aad2e45164e0192a31efbf676d729f798941f6c7033bdced0648cefd50c3.png" src="_images/d431aad2e45164e0192a31efbf676d729f798941f6c7033bdced0648cefd50c3.png" />
+<img alt="_images/8b49b78851c6e63f7ed6b7c1addc59d24995b36fb9308d84fa89c7bbc72f09d6.png" src="_images/8b49b78851c6e63f7ed6b7c1addc59d24995b36fb9308d84fa89c7bbc72f09d6.png" />
 </div>
 </div>
 </section>
@@ -573,11 +568,11 @@ L\left(\boldsymbol{y}, f_{\boldsymbol{\beta}}(\boldsymbol{X}) \right) = \sum_{i=
       </div>
     </a>
     <a class="right-next"
-       href="10_DimensionalityReduction.html"
+       href="10_Clustering.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Dimensionality reduction</p>
+        <p class="prev-next-title">Clustering</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

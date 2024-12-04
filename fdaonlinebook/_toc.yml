@@ -13,5 +13,6 @@ chapters:
 - file: 07_ModellAccuracy
 - file: 08_ModelComplexity
 - file: 09_Regularization
-- file: 10_DimensionalityReduction
-- file: 11_Clustering
+- file: 10_Clustering
+- file: 11_DimensionalityReduction
+
