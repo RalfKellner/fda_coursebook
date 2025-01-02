@@ -580,15 +580,15 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1"># sending the GET request</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://swapi.dev/api/people/&quot;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://swapi.py4e.com/api/people/&quot;</span><span class="p">)</span>
 <span class="c1"># data in json-format</span>
 <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;count&#39;: 82,
- &#39;next&#39;: &#39;https://swapi.dev/api/people/?page=2&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;count&#39;: 87,
+ &#39;next&#39;: &#39;https://swapi.py4e.com/api/people/?page=2&#39;,
  &#39;previous&#39;: None,
  &#39;results&#39;: [{&#39;name&#39;: &#39;Luke Skywalker&#39;,
    &#39;height&#39;: &#39;172&#39;,
@@ -598,19 +598,20 @@
    &#39;eye_color&#39;: &#39;blue&#39;,
    &#39;birth_year&#39;: &#39;19BBY&#39;,
    &#39;gender&#39;: &#39;male&#39;,
-   &#39;homeworld&#39;: &#39;https://swapi.dev/api/planets/1/&#39;,
-   &#39;films&#39;: [&#39;https://swapi.dev/api/films/1/&#39;,
-    &#39;https://swapi.dev/api/films/2/&#39;,
-    &#39;https://swapi.dev/api/films/3/&#39;,
-    &#39;https://swapi.dev/api/films/6/&#39;],
-   &#39;species&#39;: [],
-   &#39;vehicles&#39;: [&#39;https://swapi.dev/api/vehicles/14/&#39;,
-    &#39;https://swapi.dev/api/vehicles/30/&#39;],
-   &#39;starships&#39;: [&#39;https://swapi.dev/api/starships/12/&#39;,
-    &#39;https://swapi.dev/api/starships/22/&#39;],
+   &#39;homeworld&#39;: &#39;https://swapi.py4e.com/api/planets/1/&#39;,
+   &#39;films&#39;: [&#39;https://swapi.py4e.com/api/films/1/&#39;,
+    &#39;https://swapi.py4e.com/api/films/2/&#39;,
+    &#39;https://swapi.py4e.com/api/films/3/&#39;,
+    &#39;https://swapi.py4e.com/api/films/6/&#39;,
+    &#39;https://swapi.py4e.com/api/films/7/&#39;],
+   &#39;species&#39;: [&#39;https://swapi.py4e.com/api/species/1/&#39;],
+   &#39;vehicles&#39;: [&#39;https://swapi.py4e.com/api/vehicles/14/&#39;,
+    &#39;https://swapi.py4e.com/api/vehicles/30/&#39;],
+   &#39;starships&#39;: [&#39;https://swapi.py4e.com/api/starships/12/&#39;,
+    &#39;https://swapi.py4e.com/api/starships/22/&#39;],
    &#39;created&#39;: &#39;2014-12-09T13:50:51.644000Z&#39;,
    &#39;edited&#39;: &#39;2014-12-20T21:17:56.891000Z&#39;,
-   &#39;url&#39;: &#39;https://swapi.dev/api/people/1/&#39;},
+   &#39;url&#39;: &#39;https://swapi.py4e.com/api/people/1/&#39;},
   {&#39;name&#39;: &#39;C-3PO&#39;,
    &#39;height&#39;: &#39;167&#39;,
    &#39;mass&#39;: &#39;75&#39;,
@@ -619,19 +620,19 @@
    &#39;eye_color&#39;: &#39;yellow&#39;,
    &#39;birth_year&#39;: &#39;112BBY&#39;,
    &#39;gender&#39;: &#39;n/a&#39;,
-   &#39;homeworld&#39;: &#39;https://swapi.dev/api/planets/1/&#39;,
-   &#39;films&#39;: [&#39;https://swapi.dev/api/films/1/&#39;,
-    &#39;https://swapi.dev/api/films/2/&#39;,
-    &#39;https://swapi.dev/api/films/3/&#39;,
-    &#39;https://swapi.dev/api/films/4/&#39;,
-    &#39;https://swapi.dev/api/films/5/&#39;,
-    &#39;https://swapi.dev/api/films/6/&#39;],
-   &#39;species&#39;: [&#39;https://swapi.dev/api/species/2/&#39;],
+   &#39;homeworld&#39;: &#39;https://swapi.py4e.com/api/planets/1/&#39;,
+   &#39;films&#39;: [&#39;https://swapi.py4e.com/api/films/1/&#39;,
+    &#39;https://swapi.py4e.com/api/films/2/&#39;,
+    &#39;https://swapi.py4e.com/api/films/3/&#39;,
+    &#39;https://swapi.py4e.com/api/films/4/&#39;,
+    &#39;https://swapi.py4e.com/api/films/5/&#39;,
+    &#39;https://swapi.py4e.com/api/films/6/&#39;],
+   &#39;species&#39;: [&#39;https://swapi.py4e.com/api/species/2/&#39;],
    &#39;vehicles&#39;: [],
    &#39;starships&#39;: [],
    &#39;created&#39;: &#39;2014-12-10T15:10:51.357000Z&#39;,
    &#39;edited&#39;: &#39;2014-12-20T21:17:50.309000Z&#39;,
-   &#39;url&#39;: &#39;https://swapi.dev/api/people/2/&#39;},
+   &#39;url&#39;: &#39;https://swapi.py4e.com/api/people/2/&#39;},
   {&#39;name&#39;: &#39;R2-D2&#39;,
    &#39;height&#39;: &#39;96&#39;,
    &#39;mass&#39;: &#39;32&#39;,
@@ -640,19 +641,20 @@
    &#39;eye_color&#39;: &#39;red&#39;,
    &#39;birth_year&#39;: &#39;33BBY&#39;,
    &#39;gender&#39;: &#39;n/a&#39;,
-   &#39;homeworld&#39;: &#39;https://swapi.dev/api/planets/8/&#39;,
-   &#39;films&#39;: [&#39;https://swapi.dev/api/films/1/&#39;,
-    &#39;https://swapi.dev/api/films/2/&#39;,
-    &#39;https://swapi.dev/api/films/3/&#39;,
-    &#39;https://swapi.dev/api/films/4/&#39;,
-    &#39;https://swapi.dev/api/films/5/&#39;,
-    &#39;https://swapi.dev/api/films/6/&#39;],
-   &#39;species&#39;: [&#39;https://swapi.dev/api/species/2/&#39;],
+   &#39;homeworld&#39;: &#39;https://swapi.py4e.com/api/planets/8/&#39;,
+   &#39;films&#39;: [&#39;https://swapi.py4e.com/api/films/1/&#39;,
+    &#39;https://swapi.py4e.com/api/films/2/&#39;,
+    &#39;https://swapi.py4e.com/api/films/3/&#39;,
+    &#39;https://swapi.py4e.com/api/films/4/&#39;,
+    &#39;https://swapi.py4e.com/api/films/5/&#39;,
+    &#39;https://swapi.py4e.com/api/films/6/&#39;,
+    &#39;https://swapi.py4e.com/api/films/7/&#39;],
+   &#39;species&#39;: [&#39;https://swapi.py4e.com/api/species/2/&#39;],
    &#39;vehicles&#39;: [],
    &#39;starships&#39;: [],
    &#39;created&#39;: &#39;2014-12-10T15:11:50.376000Z&#39;,
    &#39;edited&#39;: &#39;2014-12-20T21:17:50.311000Z&#39;,
-   &#39;url&#39;: &#39;https://swapi.dev/api/people/3/&#39;},
+   &#39;url&#39;: &#39;https://swapi.py4e.com/api/people/3/&#39;},
   {&#39;name&#39;: &#39;Darth Vader&#39;,
    &#39;height&#39;: &#39;202&#39;,
    &#39;mass&#39;: &#39;136&#39;,
@@ -661,17 +663,17 @@
    &#39;eye_color&#39;: &#39;yellow&#39;,
    &#39;birth_year&#39;: &#39;41.9BBY&#39;,
    &#39;gender&#39;: &#39;male&#39;,
-   &#39;homeworld&#39;: &#39;https://swapi.dev/api/planets/1/&#39;,
-   &#39;films&#39;: [&#39;https://swapi.dev/api/films/1/&#39;,
-    &#39;https://swapi.dev/api/films/2/&#39;,
-    &#39;https://swapi.dev/api/films/3/&#39;,
-    &#39;https://swapi.dev/api/films/6/&#39;],
-   &#39;species&#39;: [],
+   &#39;homeworld&#39;: &#39;https://swapi.py4e.com/api/planets/1/&#39;,
+   &#39;films&#39;: [&#39;https://swapi.py4e.com/api/films/1/&#39;,
+    &#39;https://swapi.py4e.com/api/films/2/&#39;,
+    &#39;https://swapi.py4e.com/api/films/3/&#39;,
+    &#39;https://swapi.py4e.com/api/films/6/&#39;],
+   &#39;species&#39;: [&#39;https://swapi.py4e.com/api/species/1/&#39;],
    &#39;vehicles&#39;: [],
-   &#39;starships&#39;: [&#39;https://swapi.dev/api/starships/13/&#39;],
+   &#39;starships&#39;: [&#39;https://swapi.py4e.com/api/starships/13/&#39;],
    &#39;created&#39;: &#39;2014-12-10T15:18:20.704000Z&#39;,
    &#39;edited&#39;: &#39;2014-12-20T21:17:50.313000Z&#39;,
-   &#39;url&#39;: &#39;https://swapi.dev/api/people/4/&#39;},
+   &#39;url&#39;: &#39;https://swapi.py4e.com/api/people/4/&#39;},
   {&#39;name&#39;: &#39;Leia Organa&#39;,
    &#39;height&#39;: &#39;150&#39;,
    &#39;mass&#39;: &#39;49&#39;,
@@ -680,17 +682,18 @@
    &#39;eye_color&#39;: &#39;brown&#39;,
    &#39;birth_year&#39;: &#39;19BBY&#39;,
    &#39;gender&#39;: &#39;female&#39;,
-   &#39;homeworld&#39;: &#39;https://swapi.dev/api/planets/2/&#39;,
-   &#39;films&#39;: [&#39;https://swapi.dev/api/films/1/&#39;,
-    &#39;https://swapi.dev/api/films/2/&#39;,
-    &#39;https://swapi.dev/api/films/3/&#39;,
-    &#39;https://swapi.dev/api/films/6/&#39;],
-   &#39;species&#39;: [],
-   &#39;vehicles&#39;: [&#39;https://swapi.dev/api/vehicles/30/&#39;],
+   &#39;homeworld&#39;: &#39;https://swapi.py4e.com/api/planets/2/&#39;,
+   &#39;films&#39;: [&#39;https://swapi.py4e.com/api/films/1/&#39;,
+    &#39;https://swapi.py4e.com/api/films/2/&#39;,
+    &#39;https://swapi.py4e.com/api/films/3/&#39;,
+    &#39;https://swapi.py4e.com/api/films/6/&#39;,
+    &#39;https://swapi.py4e.com/api/films/7/&#39;],
+   &#39;species&#39;: [&#39;https://swapi.py4e.com/api/species/1/&#39;],
+   &#39;vehicles&#39;: [&#39;https://swapi.py4e.com/api/vehicles/30/&#39;],
    &#39;starships&#39;: [],
    &#39;created&#39;: &#39;2014-12-10T15:20:09.791000Z&#39;,
    &#39;edited&#39;: &#39;2014-12-20T21:17:50.315000Z&#39;,
-   &#39;url&#39;: &#39;https://swapi.dev/api/people/5/&#39;},
+   &#39;url&#39;: &#39;https://swapi.py4e.com/api/people/5/&#39;},
   {&#39;name&#39;: &#39;Owen Lars&#39;,
    &#39;height&#39;: &#39;178&#39;,
    &#39;mass&#39;: &#39;120&#39;,
@@ -699,16 +702,16 @@
    &#39;eye_color&#39;: &#39;blue&#39;,
    &#39;birth_year&#39;: &#39;52BBY&#39;,
    &#39;gender&#39;: &#39;male&#39;,
-   &#39;homeworld&#39;: &#39;https://swapi.dev/api/planets/1/&#39;,
-   &#39;films&#39;: [&#39;https://swapi.dev/api/films/1/&#39;,
-    &#39;https://swapi.dev/api/films/5/&#39;,
-    &#39;https://swapi.dev/api/films/6/&#39;],
-   &#39;species&#39;: [],
+   &#39;homeworld&#39;: &#39;https://swapi.py4e.com/api/planets/1/&#39;,
+   &#39;films&#39;: [&#39;https://swapi.py4e.com/api/films/1/&#39;,
+    &#39;https://swapi.py4e.com/api/films/5/&#39;,
+    &#39;https://swapi.py4e.com/api/films/6/&#39;],
+   &#39;species&#39;: [&#39;https://swapi.py4e.com/api/species/1/&#39;],
    &#39;vehicles&#39;: [],
    &#39;starships&#39;: [],
    &#39;created&#39;: &#39;2014-12-10T15:52:14.024000Z&#39;,
    &#39;edited&#39;: &#39;2014-12-20T21:17:50.317000Z&#39;,
-   &#39;url&#39;: &#39;https://swapi.dev/api/people/6/&#39;},
+   &#39;url&#39;: &#39;https://swapi.py4e.com/api/people/6/&#39;},
   {&#39;name&#39;: &#39;Beru Whitesun lars&#39;,
    &#39;height&#39;: &#39;165&#39;,
    &#39;mass&#39;: &#39;75&#39;,
@@ -717,16 +720,16 @@
    &#39;eye_color&#39;: &#39;blue&#39;,
    &#39;birth_year&#39;: &#39;47BBY&#39;,
    &#39;gender&#39;: &#39;female&#39;,
-   &#39;homeworld&#39;: &#39;https://swapi.dev/api/planets/1/&#39;,
-   &#39;films&#39;: [&#39;https://swapi.dev/api/films/1/&#39;,
-    &#39;https://swapi.dev/api/films/5/&#39;,
-    &#39;https://swapi.dev/api/films/6/&#39;],
-   &#39;species&#39;: [],
+   &#39;homeworld&#39;: &#39;https://swapi.py4e.com/api/planets/1/&#39;,
+   &#39;films&#39;: [&#39;https://swapi.py4e.com/api/films/1/&#39;,
+    &#39;https://swapi.py4e.com/api/films/5/&#39;,
+    &#39;https://swapi.py4e.com/api/films/6/&#39;],
+   &#39;species&#39;: [&#39;https://swapi.py4e.com/api/species/1/&#39;],
    &#39;vehicles&#39;: [],
    &#39;starships&#39;: [],
    &#39;created&#39;: &#39;2014-12-10T15:53:41.121000Z&#39;,
    &#39;edited&#39;: &#39;2014-12-20T21:17:50.319000Z&#39;,
-   &#39;url&#39;: &#39;https://swapi.dev/api/people/7/&#39;},
+   &#39;url&#39;: &#39;https://swapi.py4e.com/api/people/7/&#39;},
   {&#39;name&#39;: &#39;R5-D4&#39;,
    &#39;height&#39;: &#39;97&#39;,
    &#39;mass&#39;: &#39;32&#39;,
@@ -735,14 +738,14 @@
    &#39;eye_color&#39;: &#39;red&#39;,
    &#39;birth_year&#39;: &#39;unknown&#39;,
    &#39;gender&#39;: &#39;n/a&#39;,
-   &#39;homeworld&#39;: &#39;https://swapi.dev/api/planets/1/&#39;,
-   &#39;films&#39;: [&#39;https://swapi.dev/api/films/1/&#39;],
-   &#39;species&#39;: [&#39;https://swapi.dev/api/species/2/&#39;],
+   &#39;homeworld&#39;: &#39;https://swapi.py4e.com/api/planets/1/&#39;,
+   &#39;films&#39;: [&#39;https://swapi.py4e.com/api/films/1/&#39;],
+   &#39;species&#39;: [&#39;https://swapi.py4e.com/api/species/2/&#39;],
    &#39;vehicles&#39;: [],
    &#39;starships&#39;: [],
    &#39;created&#39;: &#39;2014-12-10T15:57:50.959000Z&#39;,
    &#39;edited&#39;: &#39;2014-12-20T21:17:50.321000Z&#39;,
-   &#39;url&#39;: &#39;https://swapi.dev/api/people/8/&#39;},
+   &#39;url&#39;: &#39;https://swapi.py4e.com/api/people/8/&#39;},
   {&#39;name&#39;: &#39;Biggs Darklighter&#39;,
    &#39;height&#39;: &#39;183&#39;,
    &#39;mass&#39;: &#39;84&#39;,
@@ -751,14 +754,14 @@
    &#39;eye_color&#39;: &#39;brown&#39;,
    &#39;birth_year&#39;: &#39;24BBY&#39;,
    &#39;gender&#39;: &#39;male&#39;,
-   &#39;homeworld&#39;: &#39;https://swapi.dev/api/planets/1/&#39;,
-   &#39;films&#39;: [&#39;https://swapi.dev/api/films/1/&#39;],
-   &#39;species&#39;: [],
+   &#39;homeworld&#39;: &#39;https://swapi.py4e.com/api/planets/1/&#39;,
+   &#39;films&#39;: [&#39;https://swapi.py4e.com/api/films/1/&#39;],
+   &#39;species&#39;: [&#39;https://swapi.py4e.com/api/species/1/&#39;],
    &#39;vehicles&#39;: [],
-   &#39;starships&#39;: [&#39;https://swapi.dev/api/starships/12/&#39;],
+   &#39;starships&#39;: [&#39;https://swapi.py4e.com/api/starships/12/&#39;],
    &#39;created&#39;: &#39;2014-12-10T15:59:50.509000Z&#39;,
    &#39;edited&#39;: &#39;2014-12-20T21:17:50.323000Z&#39;,
-   &#39;url&#39;: &#39;https://swapi.dev/api/people/9/&#39;},
+   &#39;url&#39;: &#39;https://swapi.py4e.com/api/people/9/&#39;},
   {&#39;name&#39;: &#39;Obi-Wan Kenobi&#39;,
    &#39;height&#39;: &#39;182&#39;,
    &#39;mass&#39;: &#39;77&#39;,
@@ -767,23 +770,23 @@
    &#39;eye_color&#39;: &#39;blue-gray&#39;,
    &#39;birth_year&#39;: &#39;57BBY&#39;,
    &#39;gender&#39;: &#39;male&#39;,
-   &#39;homeworld&#39;: &#39;https://swapi.dev/api/planets/20/&#39;,
-   &#39;films&#39;: [&#39;https://swapi.dev/api/films/1/&#39;,
-    &#39;https://swapi.dev/api/films/2/&#39;,
-    &#39;https://swapi.dev/api/films/3/&#39;,
-    &#39;https://swapi.dev/api/films/4/&#39;,
-    &#39;https://swapi.dev/api/films/5/&#39;,
-    &#39;https://swapi.dev/api/films/6/&#39;],
-   &#39;species&#39;: [],
-   &#39;vehicles&#39;: [&#39;https://swapi.dev/api/vehicles/38/&#39;],
-   &#39;starships&#39;: [&#39;https://swapi.dev/api/starships/48/&#39;,
-    &#39;https://swapi.dev/api/starships/59/&#39;,
-    &#39;https://swapi.dev/api/starships/64/&#39;,
-    &#39;https://swapi.dev/api/starships/65/&#39;,
-    &#39;https://swapi.dev/api/starships/74/&#39;],
+   &#39;homeworld&#39;: &#39;https://swapi.py4e.com/api/planets/20/&#39;,
+   &#39;films&#39;: [&#39;https://swapi.py4e.com/api/films/1/&#39;,
+    &#39;https://swapi.py4e.com/api/films/2/&#39;,
+    &#39;https://swapi.py4e.com/api/films/3/&#39;,
+    &#39;https://swapi.py4e.com/api/films/4/&#39;,
+    &#39;https://swapi.py4e.com/api/films/5/&#39;,
+    &#39;https://swapi.py4e.com/api/films/6/&#39;],
+   &#39;species&#39;: [&#39;https://swapi.py4e.com/api/species/1/&#39;],
+   &#39;vehicles&#39;: [&#39;https://swapi.py4e.com/api/vehicles/38/&#39;],
+   &#39;starships&#39;: [&#39;https://swapi.py4e.com/api/starships/48/&#39;,
+    &#39;https://swapi.py4e.com/api/starships/59/&#39;,
+    &#39;https://swapi.py4e.com/api/starships/64/&#39;,
+    &#39;https://swapi.py4e.com/api/starships/65/&#39;,
+    &#39;https://swapi.py4e.com/api/starships/74/&#39;],
    &#39;created&#39;: &#39;2014-12-10T16:16:29.192000Z&#39;,
    &#39;edited&#39;: &#39;2014-12-20T21:17:50.325000Z&#39;,
-   &#39;url&#39;: &#39;https://swapi.dev/api/people/10/&#39;}]}
+   &#39;url&#39;: &#39;https://swapi.py4e.com/api/people/10/&#39;}]}
 </pre></div>
 </div>
 </div>
@@ -844,14 +847,14 @@
       <td>blue</td>
       <td>19BBY</td>
       <td>male</td>
-      <td>https://swapi.dev/api/planets/1/</td>
-      <td>[https://swapi.dev/api/films/1/, https://swapi...</td>
-      <td>[]</td>
-      <td>[https://swapi.dev/api/vehicles/14/, https://s...</td>
-      <td>[https://swapi.dev/api/starships/12/, https://...</td>
+      <td>https://swapi.py4e.com/api/planets/1/</td>
+      <td>[https://swapi.py4e.com/api/films/1/, https://...</td>
+      <td>[https://swapi.py4e.com/api/species/1/]</td>
+      <td>[https://swapi.py4e.com/api/vehicles/14/, http...</td>
+      <td>[https://swapi.py4e.com/api/starships/12/, htt...</td>
       <td>2014-12-09T13:50:51.644000Z</td>
       <td>2014-12-20T21:17:56.891000Z</td>
-      <td>https://swapi.dev/api/people/1/</td>
+      <td>https://swapi.py4e.com/api/people/1/</td>
     </tr>
     <tr>
       <th>1</th>
@@ -863,14 +866,14 @@
       <td>yellow</td>
       <td>112BBY</td>
       <td>n/a</td>
-      <td>https://swapi.dev/api/planets/1/</td>
-      <td>[https://swapi.dev/api/films/1/, https://swapi...</td>
-      <td>[https://swapi.dev/api/species/2/]</td>
+      <td>https://swapi.py4e.com/api/planets/1/</td>
+      <td>[https://swapi.py4e.com/api/films/1/, https://...</td>
+      <td>[https://swapi.py4e.com/api/species/2/]</td>
       <td>[]</td>
       <td>[]</td>
       <td>2014-12-10T15:10:51.357000Z</td>
       <td>2014-12-20T21:17:50.309000Z</td>
-      <td>https://swapi.dev/api/people/2/</td>
+      <td>https://swapi.py4e.com/api/people/2/</td>
     </tr>
     <tr>
       <th>2</th>
@@ -882,14 +885,14 @@
       <td>red</td>
       <td>33BBY</td>
       <td>n/a</td>
-      <td>https://swapi.dev/api/planets/8/</td>
-      <td>[https://swapi.dev/api/films/1/, https://swapi...</td>
-      <td>[https://swapi.dev/api/species/2/]</td>
+      <td>https://swapi.py4e.com/api/planets/8/</td>
+      <td>[https://swapi.py4e.com/api/films/1/, https://...</td>
+      <td>[https://swapi.py4e.com/api/species/2/]</td>
       <td>[]</td>
       <td>[]</td>
       <td>2014-12-10T15:11:50.376000Z</td>
       <td>2014-12-20T21:17:50.311000Z</td>
-      <td>https://swapi.dev/api/people/3/</td>
+      <td>https://swapi.py4e.com/api/people/3/</td>
     </tr>
     <tr>
       <th>3</th>
@@ -901,14 +904,14 @@
       <td>yellow</td>
       <td>41.9BBY</td>
       <td>male</td>
-      <td>https://swapi.dev/api/planets/1/</td>
-      <td>[https://swapi.dev/api/films/1/, https://swapi...</td>
+      <td>https://swapi.py4e.com/api/planets/1/</td>
+      <td>[https://swapi.py4e.com/api/films/1/, https://...</td>
+      <td>[https://swapi.py4e.com/api/species/1/]</td>
       <td>[]</td>
-      <td>[]</td>
-      <td>[https://swapi.dev/api/starships/13/]</td>
+      <td>[https://swapi.py4e.com/api/starships/13/]</td>
       <td>2014-12-10T15:18:20.704000Z</td>
       <td>2014-12-20T21:17:50.313000Z</td>
-      <td>https://swapi.dev/api/people/4/</td>
+      <td>https://swapi.py4e.com/api/people/4/</td>
     </tr>
     <tr>
       <th>4</th>
@@ -920,14 +923,14 @@
       <td>brown</td>
       <td>19BBY</td>
       <td>female</td>
-      <td>https://swapi.dev/api/planets/2/</td>
-      <td>[https://swapi.dev/api/films/1/, https://swapi...</td>
-      <td>[]</td>
-      <td>[https://swapi.dev/api/vehicles/30/]</td>
+      <td>https://swapi.py4e.com/api/planets/2/</td>
+      <td>[https://swapi.py4e.com/api/films/1/, https://...</td>
+      <td>[https://swapi.py4e.com/api/species/1/]</td>
+      <td>[https://swapi.py4e.com/api/vehicles/30/]</td>
       <td>[]</td>
       <td>2014-12-10T15:20:09.791000Z</td>
       <td>2014-12-20T21:17:50.315000Z</td>
-      <td>https://swapi.dev/api/people/5/</td>
+      <td>https://swapi.py4e.com/api/people/5/</td>
     </tr>
   </tbody>
 </table>
