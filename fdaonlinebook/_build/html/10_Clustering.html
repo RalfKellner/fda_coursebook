@@ -383,7 +383,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="clustering">
 <h1>Clustering<a class="headerlink" href="#clustering" title="Link to this heading">#</a></h1>
-<p>Another useful application from the field of unsupervised learning is clustering. Clustering involves dividing the data into subgroups, where members of each group should be as similar as possible to their own group members and as different as possible from members of other groups. The similarity of pairwise observations is evaluated using all variables. In the bottom two cells, we see the first observations of a dataset with two variables <span class="math notranslate nohighlight">\(x_1, x_2\)</span>. In total, this artificially generated dataset has <span class="math notranslate nohighlight">\(300\)</span> observations, which can be divided relatively unambiguously into three clusters. In the graph on the left, we see what the data would look like without cluster assignment. In this case, we can identify the division into three clusters relatively well. However, as soon as we are dealing with more than <span class="math notranslate nohighlight">\(3\)</span> variables in a dataset, the possibility of visual partitioning disappears. In addition, real data usually cannot be divided into clusters so clearly. In order to divide data into similar and dissimilar observations as well as possible, we first need one or more metrics on how to quantify similarity. Starting from this, various methos of clustering exist, and in this chapter we will look at the algorithms of K-means and hierarchical clustering as examples. Both algorithms are well suited to understand the principles of clustering, since the chosen procedure is relatively intuitive and comparatively easy to follow.</p>
+<p>A useful application from the field of unsupervised learning is clustering. Clustering involves dividing the data into subgroups, where members of each group should be as similar as possible to their own group members and as different as possible from members of other groups. The similarity of pairwise observations is evaluated using all variables. In the bottom two cells, we see the first observations of a dataset with two variables <span class="math notranslate nohighlight">\(x_1, x_2\)</span>. In total, this artificially generated dataset has <span class="math notranslate nohighlight">\(300\)</span> observations, which can be divided relatively unambiguously into three clusters. In the graph on the left, we see what the data would look like without cluster assignment. In this case, we can identify the division into three clusters relatively well. However, as soon as we are dealing with more than <span class="math notranslate nohighlight">\(3\)</span> variables in a dataset, the possibility of visual partitioning disappears. In addition, real data usually cannot be divided into clusters so clearly. In order to divide data into similar and dissimilar observations as well as possible, we first need one or more metrics on how to quantify similarity. Starting from this, various methos of clustering exist, and in this chapter we will look at the algorithms of K-means and hierarchical clustering as examples. Both algorithms are well suited to understand the principles of clustering, since the chosen procedure is relatively intuitive and comparatively easy to follow.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
@@ -646,7 +646,7 @@ d \left(\boldsymbol{x}_i, \boldsymbol{x}_l \right) = \sqrt{ \sum_{j=1}^p \left(x
 <p>Mathematically it holds for distance measures <span class="math notranslate nohighlight">\(d\left( \boldsymbol{x}_i, \boldsymbol{x}_l \right)\)</span>:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(d\left( \boldsymbol{x}_i, \boldsymbol{x}_l \right) \geq 0 \)</span> (non negativity)</p></li>
-<li><p><span class="math notranslate nohighlight">\(d\left( \boldsymbol{x}_i, \boldsymbol{x}_l \right) = 0 \text{ nur falls } \boldsymbol{x}_i = \boldsymbol{x}_l\)</span> (positive definitness)</p></li>
+<li><p><span class="math notranslate nohighlight">\(d\left( \boldsymbol{x}_i, \boldsymbol{x}_l \right) = 0 \text{ only if } \boldsymbol{x}_i = \boldsymbol{x}_l\)</span> (positive definitness)</p></li>
 <li><p><span class="math notranslate nohighlight">\(d\left( \boldsymbol{x}_i, \boldsymbol{x}_l \right) = d\left( \boldsymbol{x}_l, \boldsymbol{x}_i \right)\)</span> (symmetry resp. commutativity)</p></li>
 <li><p><span class="math notranslate nohighlight">\(d\left( \boldsymbol{x}_i, \boldsymbol{x}_l \right) \leq d\left( \boldsymbol{x}_i, \boldsymbol{x}_k \right) + d\left( \boldsymbol{x}_k, \boldsymbol{x}_l \right)\)</span> (triangle inequality)</p></li>
 </ul>
@@ -667,7 +667,7 @@ C_3 = &amp; \lbrace \boldsymbol{x}_1, \boldsymbol{x}_3, \boldsymbol{x}_9 \rbrace
 \[
 W \left( C_k \right) = \frac{1}{|C_k|} \sum_{i, l \in C_k} \sum_{j = 1}^p \left( x_{ij} - x_{lj} \right)^2
 \]</div>
-<p><span class="math notranslate nohighlight">\(|C_k|\)</span> is the set of all observations in cluster <span class="math notranslate nohighlight">\(k\)</span>. Using this definition, we can obtain the loss function of K-means clustering by:</p>
+<p><span class="math notranslate nohighlight">\(|C_k|\)</span> is the number of all observations in cluster <span class="math notranslate nohighlight">\(k\)</span>. Using this definition, we can obtain the loss function of K-means clustering by:</p>
 <div class="math notranslate nohighlight">
 \[
 L\left( C_1, ..., C_k, X \right) = \sum_{k = 1}^K W \left( C_k \right) = \sum_{k = 1}^K \frac{1}{|C_k|} \sum_{i, l \in C_k} \sum_{j = 1}^p \left( x_{ij} - x_{lj} \right)^2
@@ -683,7 +683,8 @@ L\left( C_1, ..., C_k, X \right) = \sum_{k = 1}^K W \left( C_k \right) = \sum_{k
 </ol>
 </li>
 </ol>
-<p>In the following cells, we run the algorithm over two iterations. We can see well that after the random initialization, matching clusters are found relatively quickly and the cluster centroids move further apart. A critical aspect in practice is the sensitivity of the algorithm to the random assignment performed at the beginning. In addition, the clusters should be characterized and compared by their respective centroids. For example, if the algorithm runs multiple times, the cluster with the same centroid can be named cluster <span class="math notranslate nohighlight">\(C_0\)</span> once and cluster <span class="math notranslate nohighlight">\(C_2\)</span> the next time. This assignment is arbitrary, but the centroids found are characteristic. In addition, it is important to know that the data should be normalized before clustering, otherwise the Euclidean distance or squared Euclidean distance is more influenced by the variable with the higher numerical values. For example, if the values of two features are in the range <span class="math notranslate nohighlight">\([0, 1]\)</span> and <span class="math notranslate nohighlight">\([0, 1000]\)</span>, a distance of <span class="math notranslate nohighlight">\(10^2\)</span> of the second feature would dominate the quantification of the Euclidean distance compared to the maximum distance <span class="math notranslate nohighlight">\(1^2\)</span> of the first feature, although this should probably be considered relatively small in relation to the total numerical range.</p>
+<p>In the following cells, we run the algorithm over two iterations. We can see well that after the random initialization, matching clusters are found relatively quickly and the cluster centroids move further apart. A critical aspect in practice is the sensitivity of the algorithm to the random assignment performed at the beginning. In addition, the clusters should be characterized and compared by their respective centroids. For example, if the algorithm runs multiple times, the cluster with the same centroid can be named cluster <span class="math notranslate nohighlight">\(C_0\)</span> once and cluster <span class="math notranslate nohighlight">\(C_2\)</span> the next time. This assignment is arbitrary, but the centroids found are characteristic.</p>
+<p>In addition, it is important to know that the data should be normalized before clustering, otherwise the Euclidean distance or squared Euclidean distance is more influenced by the variable with the higher numerical values. For example, if the values of two features are in the range <span class="math notranslate nohighlight">\([0, 1]\)</span> and <span class="math notranslate nohighlight">\([0, 1000]\)</span>, a distance of <span class="math notranslate nohighlight">\(10^2\)</span> of the second feature would dominate the quantification of the Euclidean distance compared to the maximum distance <span class="math notranslate nohighlight">\(1^2\)</span> of the first feature, although this should probably be considered relatively small in relation to the total numerical range.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
@@ -736,12 +737,12 @@ L\left( C_1, ..., C_k, X \right) = \sum_{k = 1}^K W \left( C_k \right) = \sum_{k
 \[
 a(i) = \frac{1}{| C_k| - 1} \sum_{l \in C_k, l \neq i} \sum_{j = 1}^p \left( x_{ij} - x_{lj} \right)^2, i \in C_k
 \]</div>
-<p>In addition, the average squared Euclidean distance of the <span class="math notranslate nohighlight">\(i\)</span>th observation to the nearest cluster is determined:</p>
+<p>In addition, the average squared Euclidean distance of the <span class="math notranslate nohighlight">\(i\)</span>-th observation to the nearest cluster is determined:</p>
 <div class="math notranslate nohighlight">
 \[
 b(i) = \min_{C_q} \frac{1}{| C_q| - 1} \sum_{l \in C_q, i \neq l} \sum_{j = 1}^p \left( x_{ij} - x_{lj} \right)^2, i \not\in C_q
 \]</div>
-<p>The silhouette score for the <span class="math notranslate nohighlight">\(i\)</span>th observation is given by:</p>
+<p>The silhouette score for the <span class="math notranslate nohighlight">\(i\)</span>-th observation is given by:</p>
 <div class="math notranslate nohighlight">
 \[
 S(i) = \frac{b(i) - a(i)}{\max \lbrace a(i), b(i)\rbrace}
@@ -789,7 +790,7 @@ S(i) = \frac{b(i) - a(i)}{\max \lbrace a(i), b(i)\rbrace}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/43249c91c801c079c375baa89b51f0d183a28c2c48758f68212cd6805b6a2982.png" src="_images/43249c91c801c079c375baa89b51f0d183a28c2c48758f68212cd6805b6a2982.png" />
+<img alt="_images/5a3a0563c9a6830ee378bc7db6b88ea77887ebed6cf98e7f6dc33d4b7e8d5024.png" src="_images/5a3a0563c9a6830ee378bc7db6b88ea77887ebed6cf98e7f6dc33d4b7e8d5024.png" />
 </div>
 </div>
 <p>An even more differentiated graphical view of the clustering quality can be generated if we visualize the silhouette scores in ascending order for each estimated cluster. In this way, we can see in which clusters the highest scores occur and in which clusters, on the other hand, individual less good assignments take place. We also look at the appropriate graph for our example and see that the cluster in the lower left corner has the highest silhouette scores. This makes sense, since it is further away from the other two clusters, which results in a better delineation. We also see that a negative silhouette score is realized for the cluster in the middle. This is the single data point that is very close to the cluster in the left corner. The idea of the Silhouette Score can of course be adapted for other distance measures. In addition, other metrics can be used to evaluate the cluster assignment. However, the operation of most metrics is similar in principle to the Silhouette Score, which is why we refrain from further illustrations.</p>
@@ -812,13 +813,13 @@ S(i) = \frac{b(i) - a(i)}{\max \lbrace a(i), b(i)\rbrace}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e80b200e5789cd4824420b93d0bd037c5c254790c7052acc02e19f7e9dfd43d5.png" src="_images/e80b200e5789cd4824420b93d0bd037c5c254790c7052acc02e19f7e9dfd43d5.png" />
+<img alt="_images/91228c53aef97b278a70e14a49f55df343927f81d9cdd690a8cc58c3f1d82ca3.png" src="_images/91228c53aef97b278a70e14a49f55df343927f81d9cdd690a8cc58c3f1d82ca3.png" />
 </div>
 </div>
 </section>
 <section id="hierarchical-clustering">
 <h2>Hierarchical clustering<a class="headerlink" href="#hierarchical-clustering" title="Link to this heading">#</a></h2>
-<p>To get an insight into how clusters can be formed in an alternative way, we still consider hierarchical clustering. At the beginning, each observation is interpreted as a cluster. In the course of the algorithm, observations that are as similar as possible are merged into new clusters (while the original clusters of these observations are no longer considered as existing clusters) until the number of desired clusters is reached. Thus, the commonality to K-means clustering is the necessary specification of the number of clusters. In contrast to K-means clustering, the clusters are not created by directly minimizing an objective function, but by successively merging the existing clusters. Depending on the type of merging, this can be equivalent to minimization, yet the approach is different.</p>
+<p>To get an insight into how clusters can be formed in an alternative way, we consider hierarchical clustering. At the beginning, each observation is interpreted as a cluster. In the course of the algorithm, observations that are as similar as possible are merged into new clusters (while the original clusters of these observations are no longer considered as existing clusters) until the number of desired clusters is reached. Thus, the commonality to K-means clustering is the necessary specification of the number of clusters. In contrast to K-means clustering, the clusters are not created by directly minimizing an objective function, but by successively merging the existing clusters. Depending on the type of merging, this can be equivalent to minimization, yet the approach is different.</p>
 <p>In the cell below, let us consider five observations and their pairwise Euclidean distances. In the first step, it is relatively easy to see that the two clusters (observations) with indexes <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span> have the smallest distance, thus creating a new cluster from these two points. Thus, after this step, one has <span class="math notranslate nohighlight">\(4\)</span> clusters. Three with one observation each and one cluster with the two observations <span class="math notranslate nohighlight">\(0, 1\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -866,7 +867,7 @@ Pairwise euclidean distances:
 <li><p>Average: determine the average of all pairwise distances between observations <span class="math notranslate nohighlight">\(i\)</span> of cluster <span class="math notranslate nohighlight">\(k\)</span> and observations <span class="math notranslate nohighlight">\(j\)</span> of cluster <span class="math notranslate nohighlight">\(\tilde{k}\)</span>.</p></li>
 </ul>
 <p>With a chosen linkage definition, the algorithm of Hierarchical Clustering is generally described as follows:</p>
-<p>Hierarchisches Clustering:</p>
+<p>Hierarchical Clustering:</p>
 <ol class="arabic simple">
 <li><p>Each observation is interpreted as a cluster at the beginning.</p></li>
 <li><p>Perform the following steps for a chosen distance and linkage measure until <span class="math notranslate nohighlight">\(K\)</span> clusters have been formed:</p>
@@ -887,7 +888,7 @@ C_0 = \lbrace \boldsymbol{x}_0 \rbrace, C_1 = \lbrace \boldsymbol{x}_1 \rbrace, 
 \[
 C_2 = \lbrace \boldsymbol{x}_2 \rbrace, C_3 = \lbrace \boldsymbol{x}_3 \rbrace, C_4 = \lbrace \boldsymbol{x}_4 \rbrace, C_5 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2 \rbrace
 \]</div>
-<p>Step 3: In the above example, we use the single linkage method to merge the clusters. Therefore, we only need to check which next two values have the smallest distance. This is true for the original observations <span class="math notranslate nohighlight">\(i=1, i=4\)</span> with a distance of <span class="math notranslate nohighlight">\(2.67\)</span>. Since <span class="math notranslate nohighlight">\(i=1\)</span> is already included in the new cluster with index <span class="math notranslate nohighlight">\(i = 5\)</span>, we need to merge this cluster with observation <span class="math notranslate nohighlight">\(i=4\)</span>. A new cluster is formed from clusters <span class="math notranslate nohighlight">\(C_4, C_5\)</span> whose index is <span class="math notranslate nohighlight">\(i=6\)</span>.</p>
+<p>Step 3: In the above example, we use the single linkage method to merge the clusters. Therefore, we only need to check which next two values have the smallest distance. This is true for the original observations <span class="math notranslate nohighlight">\(i=1\)</span> and <span class="math notranslate nohighlight">\(i=4\)</span> with a distance of <span class="math notranslate nohighlight">\(2.67\)</span>. Since <span class="math notranslate nohighlight">\(i=1\)</span> is already included in the new cluster with index <span class="math notranslate nohighlight">\(i = 5\)</span>, we need to merge this cluster with observation <span class="math notranslate nohighlight">\(i=4\)</span>. A new cluster is formed from clusters <span class="math notranslate nohighlight">\(C_4, C_5\)</span> whose index is <span class="math notranslate nohighlight">\(i=6\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
 C_2 = \lbrace \boldsymbol{x}_2 \rbrace, C_3 = \lbrace \boldsymbol{x}_3 \rbrace, C_6 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_4 \rbrace
@@ -1613,7 +1614,7 @@ C_6 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_4 \rbrace, C_7 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1270f2dd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x123578a50&gt;
 </pre></div>
 </div>
 <img alt="_images/d3b3a9998cfdafa573dce6c7e7a0fdbf10f3363de4aceafb51d35dcef5fb5596.png" src="_images/d3b3a9998cfdafa573dce6c7e7a0fdbf10f3363de4aceafb51d35dcef5fb5596.png" />

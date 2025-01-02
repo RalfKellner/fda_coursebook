@@ -7,3 +7,5 @@ generate_logo.ipynb
 .DS_Store
 tex/*
 !tex/fda.pdf
+fdaonlinebook/__pycache__/*
+fdaonlinebook/utils.py
