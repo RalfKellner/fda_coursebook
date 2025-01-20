@@ -15,4 +15,5 @@ chapters:
 - file: 09_Regularization
 - file: 10_Clustering
 - file: 11_DimensionalityReduction
+- file: 12_TextAnalysis
 

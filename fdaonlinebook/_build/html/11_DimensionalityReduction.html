@@ -65,6 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '11_DimensionalityReduction';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Text Analysis" href="12_TextAnalysis.html" />
     <link rel="prev" title="Clustering" href="10_Clustering.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -178,6 +179,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="10_Clustering.html">Clustering</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Dimensionality reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_TextAnalysis.html">Text Analysis</a></li>
 </ul>
 
     </div>
@@ -442,7 +444,7 @@ PSS_j = \frac{SS_j}{TSS} = \frac{\sum_{i=1}^n z_{ij}^2}{\sum_{i = 1}^n \sum_{j =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/046073528aedd256745ff30e313d932efd7cb1b26d518d809d0b6cf505f2c9f9.png" src="_images/046073528aedd256745ff30e313d932efd7cb1b26d518d809d0b6cf505f2c9f9.png" />
+<img alt="_images/555b2c2f1682ca6cde4fcf879667596ba806a9d7b8769e31cc2c821a6ee7880c.png" src="_images/555b2c2f1682ca6cde4fcf879667596ba806a9d7b8769e31cc2c821a6ee7880c.png" />
 </div>
 </div>
 <p>Variation in the data stems from the individual variance of each variable and their relationship. Given the relationship is linear, its strength can be quantified by covariance. If we take a look at the covariance matrix from the data above:</p>
@@ -453,8 +455,8 @@ PSS_j = \frac{SS_j}{TSS} = \frac{\sum_{i=1}^n z_{ij}^2}{\sum_{i = 1}^n \sum_{j =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2.0038 0.4957]
- [0.4957 1.0412]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2.111  0.5157]
+ [0.5157 0.9931]]
 </pre></div>
 </div>
 </div>
@@ -467,7 +469,7 @@ PSS_j = \frac{SS_j}{TSS} = \frac{\sum_{i=1}^n z_{ij}^2}{\sum_{i = 1}^n \sum_{j =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.921  0.3895]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.9314 0.364 ]
 </pre></div>
 </div>
 </div>
@@ -485,7 +487,7 @@ z_{i1} = x_{i1} w_{11} + x_{i2} w_{21} = 0.9166 x_{i1}  + 0.3998 x_{i2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.3895  0.921 ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.364   0.9314]
 </pre></div>
 </div>
 </div>
@@ -507,7 +509,7 @@ z_{i1} = x_{i1} w_{11} + x_{i2} w_{21} = 0.9166 x_{i1}  + 0.3998 x_{i2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b3dc0c1b9c40af3ae1a4a8f32e86d01f3421d85d41c740e6fba79f61ca5aa8d1.png" src="_images/b3dc0c1b9c40af3ae1a4a8f32e86d01f3421d85d41c740e6fba79f61ca5aa8d1.png" />
+<img alt="_images/13863824e12744e542df1256c0f05f674c45f3ff5239298280d0dca2b5269231.png" src="_images/13863824e12744e542df1256c0f05f674c45f3ff5239298280d0dca2b5269231.png" />
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(PSS_1 = 0.75\)</span> which tells us that 75% from the overall variation in the data is captured by the first principal component. Furthermore, as both weights from the first principal component are positive, we know that if the score for the first principal component is positive, that the observations of <span class="math notranslate nohighlight">\(x_1, x_2\)</span> likely have the same sign. This can not said with certainty, however, the latter sentence highlights a characteristic of dimensionality reduction. From the lower representation, we can say something about the original data without knowing the original data. Not with certainty, however, on average we should be write with such an inference.</p>
@@ -532,13 +534,13 @@ z_{i1} = x_{i1} w_{11} + x_{i2} w_{21} = 0.9166 x_{i1}  + 0.3998 x_{i2}
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distance between the first and 20th samples:
-0.97
+1.48
 Distance between the first and 200th samples:
-2.96
+3.21
 Distance between the first and 20th samples of the first principal component score:
-0.25
+1.22
 Distance between the first and 200th samples of the first principal component score:
-2.46
+2.5
 </pre></div>
 </div>
 </div>
@@ -1520,52 +1522,52 @@ z_{t1} = r_{t1} w_{11} + r_{t2} w_{21} + ... + r_{t5} w_{51}
       <td>9.944973e-01</td>
       <td>-7.032176e-02</td>
       <td>-8.499983e-03</td>
-      <td>-2.502608e-02</td>
-      <td>-1.384320e-02</td>
+      <td>2.502608e-02</td>
+      <td>1.384320e-02</td>
     </tr>
     <tr>
       <th>PC_1</th>
       <td>0.994497</td>
       <td>1.000000e+00</td>
-      <td>2.340503e-16</td>
-      <td>-1.701601e-16</td>
-      <td>1.421432e-16</td>
-      <td>4.345851e-16</td>
+      <td>4.730454e-16</td>
+      <td>6.360603e-16</td>
+      <td>3.573892e-16</td>
+      <td>-1.567507e-16</td>
     </tr>
     <tr>
       <th>PC_2</th>
       <td>-0.070322</td>
-      <td>2.340503e-16</td>
+      <td>4.730454e-16</td>
       <td>1.000000e+00</td>
-      <td>2.942733e-16</td>
-      <td>-2.317204e-16</td>
-      <td>3.201760e-16</td>
+      <td>2.501130e-16</td>
+      <td>1.669322e-16</td>
+      <td>1.510659e-16</td>
     </tr>
     <tr>
       <th>PC_3</th>
       <td>-0.008500</td>
-      <td>-1.701601e-16</td>
-      <td>2.942733e-16</td>
+      <td>6.360603e-16</td>
+      <td>2.501130e-16</td>
       <td>1.000000e+00</td>
-      <td>6.639647e-16</td>
-      <td>-3.714232e-16</td>
+      <td>5.689001e-16</td>
+      <td>3.942399e-16</td>
     </tr>
     <tr>
       <th>PC_4</th>
-      <td>-0.025026</td>
-      <td>1.421432e-16</td>
-      <td>-2.317204e-16</td>
-      <td>6.639647e-16</td>
+      <td>0.025026</td>
+      <td>3.573892e-16</td>
+      <td>1.669322e-16</td>
+      <td>5.689001e-16</td>
       <td>1.000000e+00</td>
-      <td>-2.018187e-16</td>
+      <td>3.528382e-16</td>
     </tr>
     <tr>
       <th>PC_5</th>
-      <td>-0.013843</td>
-      <td>4.345851e-16</td>
-      <td>3.201760e-16</td>
-      <td>-3.714232e-16</td>
-      <td>-2.018187e-16</td>
+      <td>0.013843</td>
+      <td>-1.567507e-16</td>
+      <td>1.510659e-16</td>
+      <td>3.942399e-16</td>
+      <td>3.528382e-16</td>
       <td>1.000000e+00</td>
     </tr>
   </tbody>
@@ -1829,6 +1831,15 @@ A = Q \Lambda Q^T
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Clustering</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="12_TextAnalysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Text Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
