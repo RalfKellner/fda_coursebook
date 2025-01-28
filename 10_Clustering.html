@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,10 +27,10 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -188,9 +188,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -387,9 +392,9 @@
 <p>A useful application from the field of unsupervised learning is clustering. Clustering involves dividing the data into subgroups, where members of each group should be as similar as possible to their own group members and as different as possible from members of other groups. The similarity of pairwise observations is evaluated using all variables. In the bottom two cells, we see the first observations of a dataset with two variables <span class="math notranslate nohighlight">\(x_1, x_2\)</span>. In total, this artificially generated dataset has <span class="math notranslate nohighlight">\(300\)</span> observations, which can be divided relatively unambiguously into three clusters. In the graph on the left, we see what the data would look like without cluster assignment. In this case, we can identify the division into three clusters relatively well. However, as soon as we are dealing with more than <span class="math notranslate nohighlight">\(3\)</span> variables in a dataset, the possibility of visual partitioning disappears. In addition, real data usually cannot be divided into clusters so clearly. In order to divide data into similar and dissimilar observations as well as possible, we first need one or more metrics on how to quantify similarity. Starting from this, various methos of clustering exist, and in this chapter we will look at the algorithms of K-means and hierarchical clustering as examples. Both algorithms are well suited to understand the principles of clustering, since the chosen procedure is relatively intuitive and comparatively easy to follow.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">X</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x_1&quot;</span><span class="p">,</span> <span class="s2">&quot;x_2&quot;</span><span class="p">])</span>
@@ -478,7 +483,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/051403b9c2836390680b0a31a512c2e8dbfd102dabdad2c14e18e23185c66e9c.png" src="_images/051403b9c2836390680b0a31a512c2e8dbfd102dabdad2c14e18e23185c66e9c.png" />
+<img alt="_images/7939da4aa97979e1c3915e6de2c827d03c503d40021a615fff54c64a46ffc520.png" src="_images/7939da4aa97979e1c3915e6de2c827d03c503d40021a615fff54c64a46ffc520.png" />
 </div>
 </div>
 <section id="similarity-of-observations">
@@ -509,9 +514,9 @@ d \left(\boldsymbol{x}_i, \boldsymbol{x}_l \right) = \sqrt{ \sum_{j=1}^p \left(x
 <p>In the graph below, we consider three observations of a data set with two variables. The data are given with the following values and visualized as in the following cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
@@ -584,13 +589,13 @@ d \left(\boldsymbol{x}_i, \boldsymbol{x}_l \right) = \sqrt{ \sum_{j=1}^p \left(x
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eb8f6ee99fd27b83a5d13c700821de334925ee14281b9d0c3b5ef2498266dad8.png" src="_images/eb8f6ee99fd27b83a5d13c700821de334925ee14281b9d0c3b5ef2498266dad8.png" />
+<img alt="_images/1d897e42c2d48c12ed9ee1b64232078838c2c87aaa6ee6ebe03d0212d7d37ba9.png" src="_images/1d897e42c2d48c12ed9ee1b64232078838c2c87aaa6ee6ebe03d0212d7d37ba9.png" />
 </div>
 </div>
 <p>If we calculate the Euclidean distance for each pair, the following values result:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">euclidean_distances</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics.pairwise</span><span class="w"> </span><span class="kn">import</span> <span class="n">euclidean_distances</span>
 
 <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">euclidean_distances</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
@@ -688,11 +693,11 @@ L\left( C_1, ..., C_k, X \right) = \sum_{k = 1}^K W \left( C_k \right) = \sum_{k
 <p>In addition, it is important to know that the data should be normalized before clustering, otherwise the Euclidean distance or squared Euclidean distance is more influenced by the variable with the higher numerical values. For example, if the values of two features are in the range <span class="math notranslate nohighlight">\([0, 1]\)</span> and <span class="math notranslate nohighlight">\([0, 1000]\)</span>, a distance of <span class="math notranslate nohighlight">\(10^2\)</span> of the second feature would dominate the quantification of the Euclidean distance compared to the maximum distance <span class="math notranslate nohighlight">\(1^2\)</span> of the first feature, although this should probably be considered relatively small in relation to the total numerical range.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">euclidean_distances</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics.pairwise</span><span class="w"> </span><span class="kn">import</span> <span class="n">euclidean_distances</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">,</span> <span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span> <span class="s2">&quot;#2ca02c&quot;</span><span class="p">]</span>
@@ -728,20 +733,20 @@ L\left( C_1, ..., C_k, X \right) = \sum_{k = 1}^K W \left( C_k \right) = \sum_{k
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/419704b8917aba7008ca1ef0a376c5d9ad8e0c5d58013c64f9b73ae420dc962e.png" src="_images/419704b8917aba7008ca1ef0a376c5d9ad8e0c5d58013c64f9b73ae420dc962e.png" />
-<img alt="_images/4b9f1ce4d87b594342285eaa525f5a46e8cb58fa1e4ec1a9a04a704d3589111c.png" src="_images/4b9f1ce4d87b594342285eaa525f5a46e8cb58fa1e4ec1a9a04a704d3589111c.png" />
-<img alt="_images/ffdaa753bfa1f7ce5a9db1124ed0df322166ac1de8c66816e5469c64f400bfc4.png" src="_images/ffdaa753bfa1f7ce5a9db1124ed0df322166ac1de8c66816e5469c64f400bfc4.png" />
+<img alt="_images/8692a5372c1e18d6f784c955b0a3f774e3aa6fcf857d05a88dd6b13e04a94a19.png" src="_images/8692a5372c1e18d6f784c955b0a3f774e3aa6fcf857d05a88dd6b13e04a94a19.png" />
+<img alt="_images/9c2a917079e100d5868257c82f3c34542c20c7cecb8ed3524beaf706b08b5aee.png" src="_images/9c2a917079e100d5868257c82f3c34542c20c7cecb8ed3524beaf706b08b5aee.png" />
+<img alt="_images/d559d2845e66826acb4a36ebffc989e754880ba7a6842f1502f37dc37891496a.png" src="_images/d559d2845e66826acb4a36ebffc989e754880ba7a6842f1502f37dc37891496a.png" />
 </div>
 </div>
-<p>After cluster allocation, the K-means algorithm has to find the best value for <span class="math notranslate nohighlight">\(K\)</span>. For this purpose, the quality of the allocation found in each case must be quantified and compared with the other allocations. An example for a corresponding measure is the silhouette score of an observation. Here, on the one hand, the average squared Euclidean distance of the <span class="math notranslate nohighlight">\(i\)</span>-th observation to all other observations within the cluster of <span class="math notranslate nohighlight">\(i\)</span> is determined.</p>
+<p>After cluster allocation, the K-means algorithm has to find the best value for <span class="math notranslate nohighlight">\(K\)</span>. For this purpose, the quality of the allocation found in each case must be quantified and compared with the other allocations. An example for a corresponding measure is the silhouette score of an observation. Here, on the one hand, the average euclidean distance of the <span class="math notranslate nohighlight">\(i\)</span>-th observation to all other observations within the cluster of <span class="math notranslate nohighlight">\(i\)</span> is determined.</p>
 <div class="math notranslate nohighlight">
 \[
-a(i) = \frac{1}{| C_k| - 1} \sum_{l \in C_k, l \neq i} \sum_{j = 1}^p \left( x_{ij} - x_{lj} \right)^2, i \in C_k
+a(i) = \frac{1}{| C_k| - 1} \sum_{l \in C_k, l \neq i} \sqrt{ \sum_{j = 1}^p \left( x_{ij} - x_{lj} \right)^2 }, i \in C_k
 \]</div>
-<p>In addition, the average squared Euclidean distance of the <span class="math notranslate nohighlight">\(i\)</span>-th observation to the nearest cluster is determined:</p>
+<p>In addition, the average euclidean distance of the <span class="math notranslate nohighlight">\(i\)</span>-th observation to the nearest cluster is determined:</p>
 <div class="math notranslate nohighlight">
 \[
-b(i) = \min_{C_q} \frac{1}{| C_q| - 1} \sum_{l \in C_q, i \neq l} \sum_{j = 1}^p \left( x_{ij} - x_{lj} \right)^2, i \not\in C_q
+b(i) = \min_{C_q} \frac{1}{| C_q| - 1} \sum_{l \in C_q, i \neq l} \sqrt{ \sum_{j = 1}^p \left( x_{ij} - x_{lj} \right)^2 }, i \not\in C_q
 \]</div>
 <p>The silhouette score for the <span class="math notranslate nohighlight">\(i\)</span>-th observation is given by:</p>
 <div class="math notranslate nohighlight">
@@ -751,12 +756,12 @@ S(i) = \frac{b(i) - a(i)}{\max \lbrace a(i), b(i)\rbrace}
 <p>The value is in the interval <span class="math notranslate nohighlight">\([-1, 1]\)</span>, where a value close to <span class="math notranslate nohighlight">\(1\)</span> signals very good separation of the observation by its cluster assignment, while a negative value suggests that this observation is on average closer to the observations of the nearest cluster. Averages over a cluster can be used as a cluster-specific metric, while the average over all observations can be used as a metric for the entire cluster classification. In the left plot of the next graph, we see the average silhouette score over all clusters for a different number of clusters. We can see that the actual number of clusters <span class="math notranslate nohighlight">\(K=3\)</span> would also be identified using this metric. The estimated cluster assignments for <span class="math notranslate nohighlight">\(K=3\)</span> can be seen in the right plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_samples</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_samples</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
 <span class="n">X</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -791,7 +796,7 @@ S(i) = \frac{b(i) - a(i)}{\max \lbrace a(i), b(i)\rbrace}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e50fdd32112365588eb74221aff8d06a861c15067903c58f4977f11a7d0b7312.png" src="_images/e50fdd32112365588eb74221aff8d06a861c15067903c58f4977f11a7d0b7312.png" />
+<img alt="_images/b8c4cbb566a1fc45a5f8e9b9dc5097e38a29e2f21b9ff0007d1e82563620d284.png" src="_images/b8c4cbb566a1fc45a5f8e9b9dc5097e38a29e2f21b9ff0007d1e82563620d284.png" />
 </div>
 </div>
 <p>An even more differentiated graphical view of the clustering quality can be generated if we visualize the silhouette scores in ascending order for each estimated cluster. In this way, we can see in which clusters the highest scores occur and in which clusters, on the other hand, individual less good assignments take place. We also look at the appropriate graph for our example and see that the cluster in the lower left corner has the highest silhouette scores. This makes sense, since it is further away from the other two clusters, which results in a better delineation. We also see that a negative silhouette score is realized for the cluster in the middle. This is the single data point that is very close to the cluster in the left corner. The idea of the Silhouette Score can of course be adapted for other distance measures. In addition, other metrics can be used to evaluate the cluster assignment. However, the operation of most metrics is similar in principle to the Silhouette Score, which is why we refrain from further illustrations.</p>
@@ -814,7 +819,7 @@ S(i) = \frac{b(i) - a(i)}{\max \lbrace a(i), b(i)\rbrace}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/54e767841c963ba7efad35829d4aa015289d6d9f3026df976c5d827dbd2ef76f.png" src="_images/54e767841c963ba7efad35829d4aa015289d6d9f3026df976c5d827dbd2ef76f.png" />
+<img alt="_images/c5c1eb6f6bcbc794b967067b0ccc7f8e93e57e57a1d76efd46ce34e51c16eaed.png" src="_images/c5c1eb6f6bcbc794b967067b0ccc7f8e93e57e57a1d76efd46ce34e51c16eaed.png" />
 </div>
 </div>
 </section>
@@ -824,9 +829,9 @@ S(i) = \frac{b(i) - a(i)}{\max \lbrace a(i), b(i)\rbrace}
 <p>In the cell below, let us consider five observations and their pairwise Euclidean distances. In the first step, it is relatively easy to see that the two clusters (observations) with indexes <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span> have the smallest distance, thus creating a new cluster from these two points. Thus, after this step, one has <span class="math notranslate nohighlight">\(4\)</span> clusters. Three with one observation each and one cluster with the two observations <span class="math notranslate nohighlight">\(0, 1\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">euclidean_distances</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics.pairwise</span><span class="w"> </span><span class="kn">import</span> <span class="n">euclidean_distances</span>
 
 
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">,</span> <span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span> <span class="s2">&quot;#2ca02c&quot;</span><span class="p">]</span>
@@ -903,10 +908,10 @@ C_6 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_4 \rbrace, C_7 
 <p>A visual form of hierarchical clustering is given by dendograms, which visualize the pairwise mergers. In the next graph we see the five observations of our example and the corresponding dendogram of steps 1-5. With a desired number of clusters, the clusters can be extracted from the information of the dendogram. If the dendogram is visualized from bottom to top, as we did, <span class="math notranslate nohighlight">\(K\)</span> clusters result from a horizontal cut through the dendogram, leaving <span class="math notranslate nohighlight">\(K\)</span> separate branches.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">dendrogram</span><span class="p">,</span> <span class="n">linkage</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.cluster.hierarchy</span><span class="w"> </span><span class="kn">import</span> <span class="n">dendrogram</span><span class="p">,</span> <span class="n">linkage</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">,</span> <span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span> <span class="s2">&quot;#2ca02c&quot;</span><span class="p">]</span>
@@ -924,13 +929,13 @@ C_6 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_4 \rbrace, C_7 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/749e9a7556e2f35e004bbb4f3975229ee9868cb46e5fc51f51249e02386332a6.png" src="_images/749e9a7556e2f35e004bbb4f3975229ee9868cb46e5fc51f51249e02386332a6.png" />
+<img alt="_images/85ec45e265702574c0f1196bdf96bc18c797282f8acd2030ea39ca31b09aeb02.png" src="_images/85ec45e265702574c0f1196bdf96bc18c797282f8acd2030ea39ca31b09aeb02.png" />
 </div>
 </div>
 <p>Both the number of clusters and the linkage definition chosen affect the clustering. For this purpose, we consider the clusters found for the data already used in K-means clustering with <span class="math notranslate nohighlight">\(K=3\)</span> and the variants of linkage definition provided in the sklearn module. We can definitely see some significant differences. In particular, using single-linkage produces a partitioning that is significantly different from the originally generated partitioning. Such sensitivity is rather to be seen as a disadvantage and should be considered for dealing with real data. On the other hand, the cluster allocations always remain identical when the linkage is chosen. This, on the other hand, is not the case with the K-means algorithm, since new clusters can be found with each run of the algorithm for the same data. The reason for this behavior is the randomized cluster assignment at the beginning of the clustering process in K-means clustering.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
 
 
 <span class="n">linkages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ward&quot;</span><span class="p">,</span> <span class="s2">&quot;complete&quot;</span><span class="p">,</span> <span class="s2">&quot;average&quot;</span><span class="p">,</span> <span class="s2">&quot;single&quot;</span><span class="p">]</span>
@@ -956,7 +961,7 @@ C_6 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_4 \rbrace, C_7 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6c791b43073728332352e55929d77fe27e8b1ca4cbe1595df171848770f01f08.png" src="_images/6c791b43073728332352e55929d77fe27e8b1ca4cbe1595df171848770f01f08.png" />
+<img alt="_images/925762001b16412a359c7a7eeefa0df647734cee0d953e023ea2ab54253c5a2c.png" src="_images/925762001b16412a359c7a7eeefa0df647734cee0d953e023ea2ab54253c5a2c.png" />
 </div>
 </div>
 <p>In addition to K-means and hierarchical clustering, other clustering methods exist. Among others, the HDBSCAN algorithm is considered state-of-the-art today. Since this can be interpreted as a further development of the DBSCAN algorithm, it would make sense to look at both algorithms in the self-study or another course. An essential difference of these two algorithms is the possibility to identify observations as outliers and not to assign a cluster. This possibility is neither given by K-means nor by hierarchical clustering, because all observations are always assigned to clusters. However, it cannot be assumed that a certain algorithm dominates the other methods. The appropriate choice of the cluster algorithm always depends on the given data and field of study. Furthermore, it makes sense to compare several methods for the same data set in order to be able to assess how much the chosen model influences the assignment and thus the own analysis.</p>
@@ -972,8 +977,8 @@ C_6 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_4 \rbrace, C_7 
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/fda_cluster_data_sp500.csv&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Calc Date&quot;</span><span class="p">],</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1085,7 +1090,7 @@ C_6 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_4 \rbrace, C_7 
 <p>As soon as we exceed three dimensions, we can not visualize the data. For the moment, let us only use up to two variables for clustering such that we can visually observer what is going on. Below we examine all possible pair combinations for the four firm variables for the first month in our data set. We can see that no typical clusters can be observed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">dates</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">dates</span><span class="p">))</span>
@@ -1106,16 +1111,16 @@ C_6 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_4 \rbrace, C_7 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e71d87dba1b68510a9c749f4e5b794a3112f59b74ad247dcb82002809ced6c8b.png" src="_images/e71d87dba1b68510a9c749f4e5b794a3112f59b74ad247dcb82002809ced6c8b.png" />
+<img alt="_images/e496bddc87780b15a8f993e5a894eaadb0e5b8da07d7d494569359b6cc0728ee.png" src="_images/e496bddc87780b15a8f993e5a894eaadb0e5b8da07d7d494569359b6cc0728ee.png" />
 </div>
 </div>
 <p>Nevertheless, let us try to group the data by the size and esg variable. Below is a plot which exhibits the average silhouette scores for all companies for an increasing number of clusters. Overall, if we cluster the data, it seems to work best for three clusters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_samples</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_samples</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span> <span class="o">==</span> <span class="n">dt</span><span class="p">]</span>
 <span class="n">cluster_data</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="s2">&quot;esg&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1141,14 +1146,14 @@ C_6 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_4 \rbrace, C_7 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5eb8a0f10c49e6876cb8cf5e2d0a56a59aca7567b9838e292a6b971e1d4667ba.png" src="_images/5eb8a0f10c49e6876cb8cf5e2d0a56a59aca7567b9838e292a6b971e1d4667ba.png" />
+<img alt="_images/4ee7d4bb41a360e396844fbc4de982957709225cfddc9e01a804cdf66d26492a.png" src="_images/4ee7d4bb41a360e396844fbc4de982957709225cfddc9e01a804cdf66d26492a.png" />
 </div>
 </div>
 <p>The left figure shows us that the data set is roughly split into two groups with either higher or lower ESG risks. The low ESG risk group is further split by size. Nevertheless, we can see that many companies are similar to companies from other clusters. This is especially true at the edges of each cluster and due to the fact that no isolated company group does exist.</p>
 <p>To alter this approach in a domain-specific way, we do the following. For each cluster we determine the silhouette scores for every company and rank these values. Within each cluster, we only keep 20 companies with the highest scores (lowest rank). All other companies are treated as outliers and do not belong to their original cluster anymore. The right figure exhibits the results for this procedure. Even though we exclude many companies by this approach, we improve the clusters such that companies between clusters are more different to each other than under the standard approach.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">keep_topn</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">cluster_data_tmp</span> <span class="o">=</span> <span class="n">cluster_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1172,16 +1177,16 @@ C_6 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_4 \rbrace, C_7 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/677138037111dfd6a61f17dc84b6e900f24ce56ecc3f60fc154c2fc246e80765.png" src="_images/677138037111dfd6a61f17dc84b6e900f24ce56ecc3f60fc154c2fc246e80765.png" />
+<img alt="_images/b9898d326d138f02487ef47c360720687376996efabd457151f4d1ecd1363f94.png" src="_images/b9898d326d138f02487ef47c360720687376996efabd457151f4d1ecd1363f94.png" />
 </div>
 </div>
 <p>The improvement can be quantified by higher average silhouette scores for all number of clusters as demonstrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_samples</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_samples</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span> <span class="o">==</span> <span class="n">dt</span><span class="p">]</span>
 <span class="n">cluster_data</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="s2">&quot;esg&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1218,7 +1223,7 @@ C_6 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_4 \rbrace, C_7 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c9b6e96fd6df148a0fc1ef81d37b639b1fbc689fb51f12d78a0e7820916460e9.png" src="_images/c9b6e96fd6df148a0fc1ef81d37b639b1fbc689fb51f12d78a0e7820916460e9.png" />
+<img alt="_images/e102e74456c3f59eb67cf3cf4bc5b9d2a579c31642d9e287adfd08356b25b737.png" src="_images/e102e74456c3f59eb67cf3cf4bc5b9d2a579c31642d9e287adfd08356b25b737.png" />
 </div>
 </div>
 <p>To examine the economic meaning behind each cluster, we do the following. For a given month, we cluster the data into three clusters. We only keep the 20 companies with the highest silhouette scores per cluster. For each of these clusters, we build a equally weighted portfolio and track its portfolio mean in the month after clustering. For comparability, the cluster centers are initialized with the cluster centers from the month before (except for the first month in the time series, here centers are initialized randomly). While portfolio members over time can change, each cluster portfolio is representing a group with characteristic firm variables that are different for each cluster.</p>
@@ -1596,7 +1601,7 @@ C_6 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_4 \rbrace, C_7 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/799344e8dbbfa09e3a63e4e5c7f6c073cf2a8b0c1e13b32ffa50f37390fb3605.png" src="_images/799344e8dbbfa09e3a63e4e5c7f6c073cf2a8b0c1e13b32ffa50f37390fb3605.png" />
+<img alt="_images/c048e76417061880c99eed996f0a2e1fc9db2aef36d845ad3026378040d31400.png" src="_images/c048e76417061880c99eed996f0a2e1fc9db2aef36d845ad3026378040d31400.png" />
 </div>
 </div>
 <p>The graph below shows the cumulative (left) and monthly (right) portfolio returns. Cluster 1 has the highest increase in value of the year. Financial market theory tells us that this portfolio should also be more risky than the other two portfolios. Let us take a look at the descriptive statistics for all three portfolios below.</p>
@@ -1615,10 +1620,10 @@ C_6 = \lbrace \boldsymbol{x}_1, \boldsymbol{x}_2, \boldsymbol{x}_4 \rbrace, C_7 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x357f845d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x37a1a47a0&gt;
 </pre></div>
 </div>
-<img alt="_images/d3b3a9998cfdafa573dce6c7e7a0fdbf10f3363de4aceafb51d35dcef5fb5596.png" src="_images/d3b3a9998cfdafa573dce6c7e7a0fdbf10f3363de4aceafb51d35dcef5fb5596.png" />
+<img alt="_images/276fec315e62692854830356eb48ca705632aa6e2c952de5d789d067bb18aa99.png" src="_images/276fec315e62692854830356eb48ca705632aa6e2c952de5d789d067bb18aa99.png" />
 </div>
 </div>
 <p>The cluster 2 portfolio is not promising for any investor as it has the lowest average return and the highest risk (higher standard deviation, highest loss, lowest 5% quantile). However, the financial performance of cluster 0 and cluster 1 is in line with financial market theory. Except for the highest loss, cluster 0 portfolio is less profitable but also less risky (lower standard deviation, higher 5% quantile).</p>
@@ -1835,8 +1840,8 @@ By Prof. Dr. Ralf Kellner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

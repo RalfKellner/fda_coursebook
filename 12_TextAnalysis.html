@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,10 +27,10 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -187,9 +187,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -442,8 +447,8 @@
 <p>Sometimes text includes characters which we want to avoid or exclude, e.g., accents, extra whitespaces, etc. Furthermore, we may want to use lowercase letters to keep the set of unique tokens smaller. Such steps are usually conducted first. See an example below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tokenizers.normalizers</span> <span class="kn">import</span> <span class="n">NFD</span><span class="p">,</span> <span class="n">Strip</span><span class="p">,</span> <span class="n">StripAccents</span><span class="p">,</span> <span class="n">Lowercase</span>
-<span class="kn">from</span> <span class="nn">tokenizers.normalizers</span> <span class="kn">import</span> <span class="n">Sequence</span> <span class="k">as</span> <span class="n">NormalizerSequence</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tokenizers.normalizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">NFD</span><span class="p">,</span> <span class="n">Strip</span><span class="p">,</span> <span class="n">StripAccents</span><span class="p">,</span> <span class="n">Lowercase</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tokenizers.normalizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span> <span class="k">as</span> <span class="n">NormalizerSequence</span>
 
 <span class="n">normalizer</span> <span class="o">=</span> <span class="n">NormalizerSequence</span><span class="p">([</span><span class="n">NFD</span><span class="p">(),</span> <span class="n">Strip</span><span class="p">(),</span> <span class="n">StripAccents</span><span class="p">(),</span> <span class="n">Lowercase</span><span class="p">()])</span>
 
@@ -474,8 +479,8 @@ this is a very non-standardized 12 string.
 <p>Before, we identify tokens in each document, we can set rules how tokens should be identified. For instance, if we want tokens not to include whitespaces, digits or punctuation, we first split the text by these identifiers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tokenizers.pre_tokenizers</span> <span class="kn">import</span> <span class="n">Whitespace</span><span class="p">,</span> <span class="n">Punctuation</span><span class="p">,</span> <span class="n">Digits</span>
-<span class="kn">from</span> <span class="nn">tokenizers.pre_tokenizers</span> <span class="kn">import</span> <span class="n">Sequence</span> <span class="k">as</span> <span class="n">TokenizerSequence</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tokenizers.pre_tokenizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Whitespace</span><span class="p">,</span> <span class="n">Punctuation</span><span class="p">,</span> <span class="n">Digits</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tokenizers.pre_tokenizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span> <span class="k">as</span> <span class="n">TokenizerSequence</span>
 
 <span class="n">pre_tokenizer</span> <span class="o">=</span> <span class="n">TokenizerSequence</span><span class="p">([</span><span class="n">Whitespace</span><span class="p">(),</span> <span class="n">Punctuation</span><span class="p">(),</span> <span class="n">Digits</span><span class="p">(</span><span class="n">individual_digits</span><span class="o">=</span><span class="kc">False</span><span class="p">)])</span>
 <span class="n">tokens_and_positions</span> <span class="o">=</span> <span class="n">pre_tokenizer</span><span class="o">.</span><span class="n">pre_tokenize_str</span><span class="p">(</span><span class="n">d1_normalized</span><span class="p">)</span>
@@ -550,7 +555,7 @@ string
 <p>are brought to improve by lemmatization and to improv by stemming. Lemmatization is build upon text data and aims to learn structure of language. Stemming is a rule-based system which makes it a little easier to implement. Note that different models and rule systems do exist for conducting stemming and lemmatization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.stem.snowball</span> <span class="kn">import</span> <span class="n">SnowballStemmer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">nltk.stem.snowball</span><span class="w"> </span><span class="kn">import</span> <span class="n">SnowballStemmer</span>
 
 <span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="n">language</span> <span class="o">=</span> <span class="s2">&quot;english&quot;</span><span class="p">)</span>
 
@@ -608,9 +613,9 @@ x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nd} \\
 <p>with <span class="math notranslate nohighlight">\(x_{ij}\)</span> describing the number of term <span class="math notranslate nohighlight">\(j\)</span> in document <span class="math notranslate nohighlight">\(i\)</span>. For larger corpora, <span class="math notranslate nohighlight">\(d\)</span> is a large number so <span class="math notranslate nohighlight">\(D\)</span> is a high-dimensional and, typically, a sparse matrix. The latter means the matrix has many zeros and only a few non-zero entries. A few options exist which can help dealing with this issue. One is the removal of stopwords, stemming or lemmatization. Other options are to exclude words with little and very high frequency or to exclude words with very little or high document occurrence. However, these measures need to be evaluated carefully, because sometimes words with little occurrence or frequency might provide more information than words with high occurrence of frequency.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fda_helper.text</span> <span class="kn">import</span> <span class="n">ListCorpus</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">fda_helper.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">ListCorpus</span>
 
-<span class="k">def</span> <span class="nf">tokenizer</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tokenizer</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
     <span class="n">tokens_and_positions</span> <span class="o">=</span> <span class="n">pre_tokenizer</span><span class="o">.</span><span class="n">pre_tokenize_str</span><span class="p">(</span><span class="n">normalizer</span><span class="o">.</span><span class="n">normalize_str</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">tokens_and_positions</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">tokens</span>
@@ -629,64 +634,64 @@ x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nd} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,463 : INFO : Starting to identify phrases.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,152 : INFO : Starting to identify phrases.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,463 : INFO : Phrases are identified using a min_count of 25 and a scoring threshold of 20.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,152 : INFO : Phrases are identified using a min_count of 25 and a scoring threshold of 20.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,463 : INFO : collecting all words and their counts
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,152 : INFO : collecting all words and their counts
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,464 : INFO : PROGRESS: at sentence #0, processed 0 words and 0 word types
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,153 : INFO : PROGRESS: at sentence #0, processed 0 words and 0 word types
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,466 : INFO : collected 1037 token types (unigram + bigrams) from a corpus of 975 words and 3 sentences
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,155 : INFO : collected 1037 token types (unigram + bigrams) from a corpus of 975 words and 3 sentences
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,466 : INFO : merged Phrases&lt;1037 vocab, min_count=25, threshold=20, max_vocab_size=40000000&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,155 : INFO : merged Phrases&lt;1037 vocab, min_count=25, threshold=20, max_vocab_size=40000000&gt;
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,466 : INFO : Phrases lifecycle event {&#39;msg&#39;: &#39;built Phrases&lt;1037 vocab, min_count=25, threshold=20, max_vocab_size=40000000&gt; in 0.00s&#39;, &#39;datetime&#39;: &#39;2025-01-20T17:04:03.466469&#39;, &#39;gensim&#39;: &#39;4.3.3&#39;, &#39;python&#39;: &#39;3.11.7 (main, Dec  4 2023, 18:10:11) [Clang 15.0.0 (clang-1500.1.0.2.5)]&#39;, &#39;platform&#39;: &#39;macOS-15.1.1-arm64-arm-64bit&#39;, &#39;event&#39;: &#39;created&#39;}
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,155 : INFO : Phrases lifecycle event {&#39;msg&#39;: &#39;built Phrases&lt;1037 vocab, min_count=25, threshold=20, max_vocab_size=40000000&gt; in 0.00s&#39;, &#39;datetime&#39;: &#39;2025-01-28T13:53:57.155481&#39;, &#39;gensim&#39;: &#39;4.3.3&#39;, &#39;python&#39;: &#39;3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]&#39;, &#39;platform&#39;: &#39;macOS-15.1-arm64-arm-64bit&#39;, &#39;event&#39;: &#39;created&#39;}
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,466 : INFO : Phrases have been identified. Building dictionary.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,155 : INFO : Phrases have been identified. Building dictionary.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,467 : INFO : adding document #0 to Dictionary&lt;0 unique tokens: []&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,156 : INFO : adding document #0 to Dictionary&lt;0 unique tokens: []&gt;
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,469 : INFO : built Dictionary&lt;318 unique tokens: [&#39;+&#39;, &#39;,&#39;, &#39;-&#39;, &#39;.&#39;, &#39;1976&#39;]...&gt; from 3 documents (total 975 corpus positions)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,157 : INFO : built Dictionary&lt;318 unique tokens: [&#39;+&#39;, &#39;,&#39;, &#39;-&#39;, &#39;.&#39;, &#39;1976&#39;]...&gt; from 3 documents (total 975 corpus positions)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,469 : INFO : Dictionary lifecycle event {&#39;msg&#39;: &quot;built Dictionary&lt;318 unique tokens: [&#39;+&#39;, &#39;,&#39;, &#39;-&#39;, &#39;.&#39;, &#39;1976&#39;]...&gt; from 3 documents (total 975 corpus positions)&quot;, &#39;datetime&#39;: &#39;2025-01-20T17:04:03.469545&#39;, &#39;gensim&#39;: &#39;4.3.3&#39;, &#39;python&#39;: &#39;3.11.7 (main, Dec  4 2023, 18:10:11) [Clang 15.0.0 (clang-1500.1.0.2.5)]&#39;, &#39;platform&#39;: &#39;macOS-15.1.1-arm64-arm-64bit&#39;, &#39;event&#39;: &#39;created&#39;}
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,158 : INFO : Dictionary lifecycle event {&#39;msg&#39;: &quot;built Dictionary&lt;318 unique tokens: [&#39;+&#39;, &#39;,&#39;, &#39;-&#39;, &#39;.&#39;, &#39;1976&#39;]...&gt; from 3 documents (total 975 corpus positions)&quot;, &#39;datetime&#39;: &#39;2025-01-28T13:53:57.158110&#39;, &#39;gensim&#39;: &#39;4.3.3&#39;, &#39;python&#39;: &#39;3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]&#39;, &#39;platform&#39;: &#39;macOS-15.1-arm64-arm-64bit&#39;, &#39;event&#39;: &#39;created&#39;}
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,469 : INFO : discarding 0 tokens: []...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,158 : INFO : discarding 0 tokens: []...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,469 : INFO : keeping 318 tokens which were in no less than 0 and no more than 3 (=100.0%) documents
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,158 : INFO : keeping 318 tokens which were in no less than 0 and no more than 3 (=100.0%) documents
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,470 : INFO : resulting dictionary: Dictionary&lt;318 unique tokens: [&#39;+&#39;, &#39;,&#39;, &#39;-&#39;, &#39;.&#39;, &#39;1976&#39;]...&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,158 : INFO : resulting dictionary: Dictionary&lt;318 unique tokens: [&#39;+&#39;, &#39;,&#39;, &#39;-&#39;, &#39;.&#39;, &#39;1976&#39;]...&gt;
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,470 : INFO : Filtered words from bag-of-words dictionary if they occur in less than 0.0 documents or in more than 100.0% of all documents.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,158 : INFO : Filtered words from bag-of-words dictionary if they occur in less than 0.0 documents or in more than 100.0% of all documents.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,470 : INFO : Dictionary has been built. Creating bag-of-words and TF-IDF representations.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,158 : INFO : Dictionary has been built. Creating bag-of-words and TF-IDF representations.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,470 : INFO : collecting document frequencies
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,159 : INFO : collecting document frequencies
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,471 : INFO : PROGRESS: processing document #0
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,159 : INFO : PROGRESS: processing document #0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,473 : INFO : TfidfModel lifecycle event {&#39;msg&#39;: &#39;calculated IDF weights for 3 documents and 318 features (414 matrix non-zeros)&#39;, &#39;datetime&#39;: &#39;2025-01-20T17:04:03.473213&#39;, &#39;gensim&#39;: &#39;4.3.3&#39;, &#39;python&#39;: &#39;3.11.7 (main, Dec  4 2023, 18:10:11) [Clang 15.0.0 (clang-1500.1.0.2.5)]&#39;, &#39;platform&#39;: &#39;macOS-15.1.1-arm64-arm-64bit&#39;, &#39;event&#39;: &#39;initialize&#39;}
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,161 : INFO : TfidfModel lifecycle event {&#39;msg&#39;: &#39;calculated IDF weights for 3 documents and 318 features (414 matrix non-zeros)&#39;, &#39;datetime&#39;: &#39;2025-01-28T13:53:57.161658&#39;, &#39;gensim&#39;: &#39;4.3.3&#39;, &#39;python&#39;: &#39;3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]&#39;, &#39;platform&#39;: &#39;macOS-15.1-arm64-arm-64bit&#39;, &#39;event&#39;: &#39;initialize&#39;}
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,473 : INFO : Bag-of-words and TF-IDF vectors are ready.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,161 : INFO : Bag-of-words and TF-IDF vectors are ready.
 </pre></div>
 </div>
 </div>
@@ -694,7 +699,7 @@ x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nd} \\
 <p>Let us take a look how this works for our example. Below you observe the term-frequency matrix. Even though our example only includes three documents of short length, the dimensionality of each term-frequency vector is already relatively high (<span class="math notranslate nohighlight">\(d = 318\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">tfs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">corpus</span><span class="o">.</span><span class="n">bow_to_matrix</span><span class="p">(</span><span class="n">sparse</span> <span class="o">=</span> <span class="kc">False</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">corpus</span><span class="o">.</span><span class="n">get_dictionary_vocabulary</span><span class="p">(),</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AAPL&quot;</span><span class="p">,</span> <span class="s2">&quot;MSFT&quot;</span><span class="p">,</span> <span class="s2">&quot;MS&quot;</span><span class="p">])</span>
 <span class="n">tfs</span>
@@ -849,7 +854,7 @@ id_j =
 <p>The cell below exhibits the term-frequency inverse-document-frequency matrix. A good example is the term “wealth” which appears for five times in the description of Morgan Stanley, but is not mentioned in the descriptions of Apple and Microsoft. Due to its unique document appearance, its term-frequency is doubled for the term-frequency inverse-document-frequency representation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">tfidfs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">corpus</span><span class="o">.</span><span class="n">tfidf_to_matrix</span><span class="p">(</span><span class="n">sparse</span> <span class="o">=</span> <span class="kc">False</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">corpus</span><span class="o">.</span><span class="n">get_dictionary_vocabulary</span><span class="p">())</span>
 <span class="n">tfidfs</span>
@@ -982,13 +987,13 @@ id_j =
 <p>In the examples above, we observe that each document is represented by a high dimensional vector. High dimensions can often be troublesome for machine learning methods. To deal with this issue, one may focus on the occurrences of certain words that fall into a category of interest. Usually, the common categories which are used are the number of positive and negative words. Which words are considered as negative and positive are defined by different dictionaries. An example for a general-purpose dictionary is the Harvard IV-4 dictionary. However, especially for financial documents general-purpose dictionaries may not be useful due to the domain specific usage of words, e.g., the word bear stands for bad market conditions or bull stands for good market conditions, respectively. <a class="reference external" href="https://www.uts.edu.au/sites/default/files/ADG_Cons2015_Loughran%20McDonald%20JE%202011.pdf">Loughran and McDonald (2011)</a> find that the majority of general-purpose negative words from the Harvard dictionary found in in 10-K filings are not considered as negative in a financial context. This is why they generate their own dictionary. See the next cell’s output for a few examples. Besides the categories positive and negative, they also generate the categories: uncertainty, litigious, strong modal, weak modal and constraining. Each report can be summarized by counting the (relative) frequencies of words falling into these categories.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../data/LMcD_word_list.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">lmcd_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">dict_word_vectorizer</span><span class="p">(</span><span class="n">sentiment_dictionary</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="n">raw_counts</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dict_word_vectorizer</span><span class="p">(</span><span class="n">sentiment_dictionary</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="n">raw_counts</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
     <span class="n">categories</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sentiment_dictionary</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
     <span class="n">counts</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">:</span>
@@ -1012,38 +1017,38 @@ id_j =
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Examples for the category: negative
 --------------------------------------------------
-[&#39;unintended&#39; &#39;disparage&#39; &#39;aberration&#39; &#39;deadweight&#39; &#39;tainted&#39; &#39;protests&#39;
- &#39;misuse&#39; &#39;mishandle&#39; &#39;rationalize&#39; &#39;severity&#39;]
+[&#39;cybercriminals&#39; &#39;harassing&#39; &#39;dispossessed&#39; &#39;risky&#39; &#39;relinquished&#39;
+ &#39;forego&#39; &#39;erroneous&#39; &#39;confined&#39; &#39;worsens&#39; &#39;culpably&#39;]
 --------------------------------------------------
 Examples for the category: positive
 --------------------------------------------------
-[&#39;profitable&#39; &#39;accomplishment&#39; &#39;attaining&#39; &#39;advantaged&#39; &#39;popular&#39;
- &#39;honoring&#39; &#39;vibrancy&#39; &#39;versatility&#39; &#39;succeeding&#39; &#39;enthusiastic&#39;]
+[&#39;vibrancy&#39; &#39;preeminence&#39; &#39;strong&#39; &#39;empowering&#39; &#39;impressively&#39; &#39;rewarded&#39;
+ &#39;enjoyed&#39; &#39;rewarding&#39; &#39;surpasses&#39; &#39;distinctions&#39;]
 --------------------------------------------------
 Examples for the category: uncertainty
 --------------------------------------------------
-[&#39;sudden&#39; &#39;confusion&#39; &#39;variations&#39; &#39;speculation&#39; &#39;probable&#39; &#39;preliminary&#39;
- &#39;anticipations&#39; &#39;unspecific&#39; &#39;unhedged&#39; &#39;apparently&#39;]
+[&#39;reconsider&#39; &#39;hidden&#39; &#39;speculatively&#39; &#39;inexactness&#39; &#39;random&#39; &#39;unforseen&#39;
+ &#39;presuming&#39; &#39;anomalous&#39; &#39;anticipate&#39; &#39;maybe&#39;]
 --------------------------------------------------
 Examples for the category: litigious
 --------------------------------------------------
-[&#39;attestation&#39; &#39;acquittances&#39; &#39;adjudicates&#39; &#39;contestability&#39; &#39;designator&#39;
- &#39;lawmakers&#39; &#39;litigation&#39; &#39;beneficial&#39; &#39;forwhich&#39; &#39;notarized&#39;]
+[&#39;recoupable&#39; &#39;indictments&#39; &#39;nullified&#39; &#39;countersuit&#39; &#39;prejudicial&#39;
+ &#39;transferors&#39; &#39;adjourns&#39; &#39;amendatory&#39; &#39;subleasehold&#39; &#39;forbade&#39;]
 --------------------------------------------------
 Examples for the category: strong_modal
 --------------------------------------------------
-[&#39;always&#39; &#39;lowest&#39; &#39;uncompromising&#39; &#39;undisputed&#39; &#39;unequivocally&#39; &#39;clearly&#39;
- &#39;never&#39; &#39;undoubtedly&#39; &#39;definitively&#39; &#39;definitely&#39;]
+[&#39;definitely&#39; &#39;highest&#39; &#39;clearly&#39; &#39;unequivocally&#39; &#39;undoubtedly&#39; &#39;never&#39;
+ &#39;must&#39; &#39;uncompromising&#39; &#39;strongly&#39; &#39;lowest&#39;]
 --------------------------------------------------
 Examples for the category: weak_modal
 --------------------------------------------------
-[&#39;maybe&#39; &#39;seldom&#39; &#39;could&#39; &#39;almost&#39; &#39;may&#39; &#39;possibly&#39; &#39;seldomly&#39; &#39;depended&#39;
- &#39;conceivable&#39; &#39;appears&#39;]
+[&#39;occasionally&#39; &#39;nearly&#39; &#39;almost&#39; &#39;somewhat&#39; &#39;seldomly&#39; &#39;might&#39; &#39;suggests&#39;
+ &#39;appeared&#39; &#39;conceivable&#39; &#39;depend&#39;]
 --------------------------------------------------
 Examples for the category: constraining
 --------------------------------------------------
-[&#39;bound&#39; &#39;depends&#39; &#39;prohibitory&#39; &#39;abiding&#39; &#39;unavailable&#39; &#39;necessitates&#39;
- &#39;encumbrance&#39; &#39;entail&#39; &#39;earmarked&#39; &#39;entails&#39;]
+[&#39;restrict&#39; &#39;stipulate&#39; &#39;insisting&#39; &#39;prevents&#39; &#39;unavailable&#39;
+ &#39;dependencies&#39; &#39;forbade&#39; &#39;oblige&#39; &#39;commitments&#39; &#39;dependance&#39;]
 --------------------------------------------------
 </pre></div>
 </div>
@@ -1052,7 +1057,7 @@ Examples for the category: constraining
 <p>Overall we see below that the dictionary mostly contains negative words. This may have different reasons, often company reports are supposed to report about potential issues with respect to the company’s business. Furthermore, the tone of financial reports traditionally has been quantified by the occurrences of negative words in documents.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> 
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">lmcd_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -1066,16 +1071,16 @@ Examples for the category: constraining
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/508d3779ace8de44ce9b2bb44b3891ead6ad853b9fe2608876d9ac0da723cfa2.png" src="_images/508d3779ace8de44ce9b2bb44b3891ead6ad853b9fe2608876d9ac0da723cfa2.png" />
+<img alt="_images/7a33af94dcb7e6a70b6960717b26642241d91f9a63cbc5d6d5731467dd80f239.png" src="_images/7a33af94dcb7e6a70b6960717b26642241d91f9a63cbc5d6d5731467dd80f239.png" />
 </div>
 </div>
 <p>Below you can examine the development of word category frequencies for Apple ‘s 10-K filings. We can observe how the number of negative and litigious words rise during the great financial crisis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="n">db_path</span> <span class="o">=</span> <span class="s2">&quot;/Users/ralf/Library/Mobile Documents/com~apple~CloudDocs/Kurse/DLTA/data/dlta_texts.db&quot;</span>
+<span class="n">db_path</span> <span class="o">=</span> <span class="s2">&quot;/Users/ralfkellner/Documents/Kurse/DLTA/data/dlta_texts.db&quot;</span>
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
 <span class="n">sql_query</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM filings;&quot;</span>
@@ -1102,13 +1107,13 @@ Examples for the category: constraining
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:03,868 : INFO : adding document #0 to Dictionary&lt;0 unique tokens: []&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:57,511 : INFO : adding document #0 to Dictionary&lt;0 unique tokens: []&gt;
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:06,524 : INFO : built Dictionary&lt;8179 unique tokens: [&#39;&quot;&#39;, &#39;#&#39;, &#39;$&#39;, &#39;%&#39;, &#39;&amp;&#39;]...&gt; from 21 documents (total 1288242 corpus positions)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:59,813 : INFO : built Dictionary&lt;8179 unique tokens: [&#39;&quot;&#39;, &#39;#&#39;, &#39;$&#39;, &#39;%&#39;, &#39;&amp;&#39;]...&gt; from 21 documents (total 1288242 corpus positions)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-20 17:04:06,524 : INFO : Dictionary lifecycle event {&#39;msg&#39;: &#39;built Dictionary&lt;8179 unique tokens: [\&#39;&quot;\&#39;, \&#39;#\&#39;, \&#39;$\&#39;, \&#39;%\&#39;, \&#39;&amp;\&#39;]...&gt; from 21 documents (total 1288242 corpus positions)&#39;, &#39;datetime&#39;: &#39;2025-01-20T17:04:06.524619&#39;, &#39;gensim&#39;: &#39;4.3.3&#39;, &#39;python&#39;: &#39;3.11.7 (main, Dec  4 2023, 18:10:11) [Clang 15.0.0 (clang-1500.1.0.2.5)]&#39;, &#39;platform&#39;: &#39;macOS-15.1.1-arm64-arm-64bit&#39;, &#39;event&#39;: &#39;created&#39;}
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-28 13:53:59,813 : INFO : Dictionary lifecycle event {&#39;msg&#39;: &#39;built Dictionary&lt;8179 unique tokens: [\&#39;&quot;\&#39;, \&#39;#\&#39;, \&#39;$\&#39;, \&#39;%\&#39;, \&#39;&amp;\&#39;]...&gt; from 21 documents (total 1288242 corpus positions)&#39;, &#39;datetime&#39;: &#39;2025-01-28T13:53:59.813716&#39;, &#39;gensim&#39;: &#39;4.3.3&#39;, &#39;python&#39;: &#39;3.12.8 (main, Dec  3 2024, 18:42:41) [Clang 16.0.0 (clang-1600.0.26.4)]&#39;, &#39;platform&#39;: &#39;macOS-15.1-arm64-arm-64bit&#39;, &#39;event&#39;: &#39;created&#39;}
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1394,7 +1399,7 @@ Examples for the category: constraining
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c7daddf8181b820526c33d17312d9ed84e7f7fa3f39dda45868317f7246153c9.png" src="_images/c7daddf8181b820526c33d17312d9ed84e7f7fa3f39dda45868317f7246153c9.png" />
+<img alt="_images/05b05b0fda498377f8b56a5c52e27da91434d8769a56233ef9316f87351ebac4.png" src="_images/05b05b0fda498377f8b56a5c52e27da91434d8769a56233ef9316f87351ebac4.png" />
 </div>
 </div>
 <p>Sometimes the occurrence of positive and negative words is translated into polarity. Polarity is the number of positive words minus the number of negative words divided by the overall number of positive and negative words.</p>
@@ -1422,8 +1427,8 @@ d_{cosine} (\boldsymbol{x}_i, \boldsymbol{x}_{k}) = \frac{\sum_{j = 1}^d  x_{ij}
 <p>Let us discuss both metrics by means of a simplified example. Let us assume we want to compare two documents which are represented by two term frequencies (e.g., number of the word “good” and number of the word “bad”). Take a look at the cell below. We can observe that the first document has more occurrences for the word “bad” in comparison to the word “good”. This is flipped for the second document. Furthermore, the second document overall uses both terms with higher frequencies, i.e, “good” plus “bad” is equal to 25 for document number one and 80 for document number two. The latter may occur if the documents have different lengths.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">35</span><span class="p">]])</span>
 <span class="n">tf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="s2">&quot;bad&quot;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;d1&quot;</span><span class="p">,</span> <span class="s2">&quot;d2&quot;</span><span class="p">])</span>
@@ -1547,9 +1552,9 @@ d_{euclidean}\left( || \boldsymbol{x}_1 ||, || \boldsymbol{x}_2 || \right) = \sq
 <p>As stated before, this is just a mathematical exercise here, however, it may have a larger impact once we use this measure to conduct multiple pairwise comparisons between different documents. The similarity calculations are visualized below. The left plot illustrates the raw term frequencies, while the right plot exhibits the situation for normalized vectors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="c1"># Define the vectors</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">35</span><span class="p">]])</span>
@@ -1627,13 +1632,13 @@ d_{euclidean}\left( || \boldsymbol{x}_1 ||, || \boldsymbol{x}_2 || \right) = \sq
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7bfdaa6928b3033bc22da4dfee50c00efc9e81931df2951c3c9cb39631512d61.png" src="_images/7bfdaa6928b3033bc22da4dfee50c00efc9e81931df2951c3c9cb39631512d61.png" />
+<img alt="_images/93bb6882781f90c5b14d9c0ee476d507c9c6c5532283529f5b8a20e5826d94c9.png" src="_images/93bb6882781f90c5b14d9c0ee476d507c9c6c5532283529f5b8a20e5826d94c9.png" />
 </div>
 </div>
 <p>To demonstrate the consequences of not normalizing term frequencies, we get back to the previous example with the three company descriptions of Apple, Microsoft and Morgan Stanley. First, we determine the euclidean distance using raw term frequencies. According to it, the description of Apple to Microsoft is more different to the descriptions of Apple and Morgan Stanley.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">euclidean_distances</span><span class="p">,</span> <span class="n">cosine_distances</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics.pairwise</span><span class="w"> </span><span class="kn">import</span> <span class="n">euclidean_distances</span><span class="p">,</span> <span class="n">cosine_distances</span>
 
 <span class="n">ec_raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">euclidean_distances</span><span class="p">(</span><span class="n">tfs</span><span class="p">),</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AAPL&quot;</span><span class="p">,</span> <span class="s2">&quot;MSFT&quot;</span><span class="p">,</span> <span class="s2">&quot;MS&quot;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AAPL&quot;</span><span class="p">,</span> <span class="s2">&quot;MSFT&quot;</span><span class="p">,</span> <span class="s2">&quot;MS&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">ec_raw</span>
@@ -1929,8 +1934,8 @@ By Prof. Dr. Ralf Kellner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
