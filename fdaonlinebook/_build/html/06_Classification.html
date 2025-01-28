@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,10 +27,10 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -188,9 +188,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -402,7 +407,7 @@ f_{\boldsymbol{ \beta }}(\boldsymbol{x}) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 +
 <p>This is a function that generates a real number based on <span class="math notranslate nohighlight">\(p\)</span> variables. Real numbers can take on any value, which is problematic when we are dealing with a dependent variable that can only take on two realizations. Most often, the binary dependent variable is transformed into a dummy encoding, where one category is assigned to the number <span class="math notranslate nohighlight">\(1\)</span> and the other category is assigned to the number <span class="math notranslate nohighlight">\(0\)</span>. For example, non-payment (default) can be assigned to the number <span class="math notranslate nohighlight">\(1\)</span> and customers with loan repayment are assigned the number <span class="math notranslate nohighlight">\(0\)</span>. The record in the next cell contains exactly this coding. This dataset is about credit card default, with a dummy variable (student) and two quantitative predictors (balance, income) as explanatory variables. Balance here refers to the credit card account balance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">default_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/Default.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">)</span>
 <span class="n">default_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;default&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">default_df</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="s2">&quot;Yes&quot;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
@@ -489,8 +494,8 @@ f_{\boldsymbol{ \beta }}(\boldsymbol{x}) = \frac{1}{1 + e^{- \boldsymbol{\beta}^
 <p>Besides the constraint <span class="math notranslate nohighlight">\(f_{\boldsymbol{ \beta }}(\boldsymbol{x}) \in [0, 1]\)</span>, the other requirements of the probability calculus must also be satisfied. This means that the sum of the discontinuous events adds up to <span class="math notranslate nohighlight">\(1\)</span>. Thus, for binary classification, it is sufficient to specifically model the probability for one category, since this indirectly models the probability for the other category. By common convention, <span class="math notranslate nohighlight">\(f_{\boldsymbol{ \beta }}(\boldsymbol{x}) = P\left(y = 1| \boldsymbol{x} \right)\)</span>, which follows that <span class="math notranslate nohighlight">\(P\left(y = 0| \boldsymbol{x} \right) = 1 - f_{\boldsymbol{ \beta }}(\boldsymbol{x})\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
 <span class="n">logistic</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -505,7 +510,7 @@ f_{\boldsymbol{ \beta }}(\boldsymbol{x}) = \frac{1}{1 + e^{- \boldsymbol{\beta}^
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/acf9cc3cdcf997142a05c0b71aac7dba543108739c0a8f0ae657149c2ce39802.png" src="_images/acf9cc3cdcf997142a05c0b71aac7dba543108739c0a8f0ae657149c2ce39802.png" />
+<img alt="_images/d9742c2e15faf254d6d59d1177fe095c18981f88454371377aeb513aab91d26b.png" src="_images/d9742c2e15faf254d6d59d1177fe095c18981f88454371377aeb513aab91d26b.png" />
 </div>
 </div>
 <p>To consider the influence of the parameters of the model, we restrict ourselves to the logistic regression model with one explanatory variable for the lower cell.</p>
@@ -515,8 +520,8 @@ f_{\boldsymbol{ \beta }}(x) = \frac{1}{1 + e^{- \left(\beta_0 + \beta_1 x\right)
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">beta_null</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">beta_one</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
@@ -545,7 +550,7 @@ f_{\boldsymbol{ \beta }}(x) = \frac{1}{1 + e^{- \left(\beta_0 + \beta_1 x\right)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eea8c40bde4545c886afab72e4f438bd5bc0210015f695fecb72d4f73d543669.png" src="_images/eea8c40bde4545c886afab72e4f438bd5bc0210015f695fecb72d4f73d543669.png" />
+<img alt="_images/d4206696d0ec0545bddd61b561dff73bff9b10b325bf9fe07505c32c1aff4a8d.png" src="_images/d4206696d0ec0545bddd61b561dff73bff9b10b325bf9fe07505c32c1aff4a8d.png" />
 </div>
 </div>
 <p>We can see that an increase of the constant <span class="math notranslate nohighlight">\(\beta_0\)</span> leads to a parallel shift of the S-curve, while <span class="math notranslate nohighlight">\(\beta_1\)</span> controls how steep and in which direction the S-curve runs. Since the output of the model is “only” probabilities, the user still needs to specify a rule at which probability forecast is assigned to each category. This limit is often called cut-off and is usually initially set to the value <span class="math notranslate nohighlight">\(c=0.5\)</span>. Thus, the following rule applies to the actual forecast:</p>
@@ -562,8 +567,8 @@ f_{\boldsymbol{ \beta }}(x) = \frac{1}{1 + e^{- \left(\beta_0 + \beta_1 x\right)
 <p>As in the case of the linear regression model, given data, the question is which parameters best explain the data. In the case of binary classification, this means that we consider a model to be particularly good and appropriate if high probability predictions are given for the actual respective category. Specifically, <span class="math notranslate nohighlight">\(f_{\boldsymbol{ \beta }}(\boldsymbol{x})\)</span> takes high values for <span class="math notranslate nohighlight">\(y = 1\)</span> and low values for <span class="math notranslate nohighlight">\(y = 0\)</span> in the best case. Analogous to the linear regression model, this can be measured over multiple data points by choosing an appropriate loss function. Without going into the derivation of this loss function in more detail, in the next cell we consider the relationship of values <span class="math notranslate nohighlight">\(p\)</span> in the interval <span class="math notranslate nohighlight">\([0, 1]\)</span> and the function: <span class="math notranslate nohighlight">\(-\log(p)\)</span> an. We can see that this function has exactly the desired property. Assuming <span class="math notranslate nohighlight">\(p\)</span> is the probability forecast for the actual category <span class="math notranslate nohighlight">\(y=1\)</span>, the higher the forecast for this category, the smaller the value <span class="math notranslate nohighlight">\(-\log(p)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -575,7 +580,7 @@ f_{\boldsymbol{ \beta }}(x) = \frac{1}{1 + e^{- \left(\beta_0 + \beta_1 x\right)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7318c54979a85300f57b9748d82509c772b57602d4c9f2705c8e2232568bd5c6.png" src="_images/7318c54979a85300f57b9748d82509c772b57602d4c9f2705c8e2232568bd5c6.png" />
+<img alt="_images/384a0afdd2c2bcca38b2a8324d3bfa13d7d94ff6640fda6086ff4dc67d4020ae.png" src="_images/384a0afdd2c2bcca38b2a8324d3bfa13d7d94ff6640fda6086ff4dc67d4020ae.png" />
 </div>
 </div>
 <p>For multiple data points with different categorical membership, we must always consider both cases for calculating the loss function. If the observation is the category <span class="math notranslate nohighlight">\(y = 1\)</span>, the value of the loss function is <span class="math notranslate nohighlight">\(-\log \left(f_{\boldsymbol{ \beta }}(\boldsymbol{x}) \right)\)</span>. If the observation is the category <span class="math notranslate nohighlight">\(y = 0\)</span>, the value of the loss function is <span class="math notranslate nohighlight">\(-\log \left(1 - f_{\boldsymbol{ \beta }}(\boldsymbol{x}) \right)\)</span>. Using the dummy coding of <span class="math notranslate nohighlight">\(y\)</span>, this can be expressed per observation by:</p>
@@ -613,8 +618,8 @@ L\left(\boldsymbol{\tilde{Y}},  f_{\boldsymbol{ \beta }}(\boldsymbol{x})\right) 
 <p>As an introductory example, we estimate the logistic regression model for the credit card default dataset. In the output we see the estimated parameters of the logistic regression model, where positive influences of the variables balance and income and a negative influence of the variable student become apparent. One should be careful here in interpreting the strength of influence, as the explanatory variables are not in comparable numerical range. While the variable student is dummy coded, the mean value of balance is approximately 835 and that of income 33517. In order to better compare the influence strength, we re-estimate the model with standardized forms of the variables balance and income in the cell below and can see in this way that the variable balance has the greatest influence on the repayment. This means that the higher the charge on the credit card, the higher the probability of default. In addition, students have a lower default rate. According to the p-value of the variable income, a statistically significant non-zero influence cannot be assumed. However, the interpretation would be analogous to the variable balance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 
 <span class="n">default_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/Default.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">)</span>
 <span class="n">default_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">default_df</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s2">&quot;int&quot;</span><span class="p">)</span>
@@ -641,8 +646,8 @@ L\left(\boldsymbol{\tilde{Y}},  f_{\boldsymbol{ \beta }}(\boldsymbol{x})\right) 
 Dep. Variable:                default   No. Observations:                10000
 Model:                          Logit   Df Residuals:                     9996
 Method:                           MLE   Df Model:                            3
-Date:                Mon, 20 Jan 2025   Pseudo R-squ.:                  0.4619
-Time:                        17:03:42   Log-Likelihood:                -785.77
+Date:                Tue, 28 Jan 2025   Pseudo R-squ.:                  0.4619
+Time:                        13:53:34   Log-Likelihood:                -785.77
 converged:                       True   LL-Null:                       -1460.3
 Covariance Type:            nonrobust   LLR p-value:                3.257e-292
 ==============================================================================
@@ -663,8 +668,8 @@ quasi-separation. In this case some parameters will not be identified.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 
 <span class="n">default_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/Default.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">)</span>
 <span class="n">default_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">default_df</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s2">&quot;int&quot;</span><span class="p">)</span>
@@ -690,8 +695,8 @@ quasi-separation. In this case some parameters will not be identified.
 Dep. Variable:                default   No. Observations:                10000
 Model:                          Logit   Df Residuals:                     9996
 Method:                           MLE   Df Model:                            3
-Date:                Mon, 20 Jan 2025   Pseudo R-squ.:                  0.4619
-Time:                        17:03:42   Log-Likelihood:                -785.77
+Date:                Tue, 28 Jan 2025   Pseudo R-squ.:                  0.4619
+Time:                        13:53:34   Log-Likelihood:                -785.77
 converged:                       True   LL-Null:                       -1460.3
 Covariance Type:            nonrobust   LLR p-value:                3.257e-292
 ==============================================================================
@@ -749,12 +754,12 @@ x_2 = - \frac{\beta_0}{\beta_2} - \frac{\beta_1}{\beta_2} x_2
 <p>The graph below illustrates the decision line, categories as well as the decision regions for a fictional example. This highlights the decision process behind the logistic model and shows that it still is a classifier which builds its rule upon a model that only captures linear relationships (because the decision line is restricted to a linear relationship between the feature variables).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
 
-<span class="k">def</span> <span class="nf">classifier_decision</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">x1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">classifier_decision</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">x1</span><span class="p">):</span>
     <span class="n">b0</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">beta</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">b0</span> <span class="o">/</span> <span class="n">b2</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">/</span> <span class="n">b2</span>
@@ -781,7 +786,7 @@ x_2 = - \frac{\beta_0}{\beta_2} - \frac{\beta_1}{\beta_2} x_2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f81d1b0a602bb1b7e95b128c5de15bfb75a34dcbc8066f7084ff39a59973f47f.png" src="_images/f81d1b0a602bb1b7e95b128c5de15bfb75a34dcbc8066f7084ff39a59973f47f.png" />
+<img alt="_images/71f23e945a330402dd230cf7aa94504ca599486f038e8f330eedae4b8ecbeba4.png" src="_images/71f23e945a330402dd230cf7aa94504ca599486f038e8f330eedae4b8ecbeba4.png" />
 </div>
 </div>
 </section>
@@ -804,7 +809,7 @@ AC = \frac{1}{n} \sum_{i = 1}^n acc_i
 <p>If we determine this for the default data set, we see a hit rate of <span class="math notranslate nohighlight">\(AC = 0.9732\)</span>, which seems very good at first glance. As with the linear regression model, however, one should always compare the model with a meaningful benchmark. For classifications, the frequency of the category with higher occurrence is always a good value for this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The accuracy rate for the default data set is equal to: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y_hat</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -848,9 +853,9 @@ F_1 = \frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{precision} + \te
 <p>In our example, both the values of the confusion matrix and the key figures just described show that the model has more problems with correctly forecasting actual failures than with making too many false positive forecasts. In general, it makes sense to interpret possible influences of independent variables only if the model is able to explain reality satisfactorily. However, the question of what is considered satisfactory can only be determined using econometric goals or expert knowledge. It should be noted that there are other metrics for assessing binary classification problems, which we refrain from presenting here. Moreover, the metrics presented here are also suitable for binary classification models other than logistic regression.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">ConfusionMatrixDisplay</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">f1_score</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">ConfusionMatrixDisplay</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">f1_score</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">)</span>
 <span class="n">disp</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">display_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;no default&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">])</span>
@@ -860,7 +865,7 @@ F_1 = \frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{precision} + \te
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/82755ba06cd5c14cffba4e057e577f4408eb0abfa2b6b31fba6f3c4b4acfebc8.png" src="_images/82755ba06cd5c14cffba4e057e577f4408eb0abfa2b6b31fba6f3c4b4acfebc8.png" />
+<img alt="_images/f7cfb98e4394b763f4da74a7177221cdcdf4436f6df1125338dee5121704c714.png" src="_images/f7cfb98e4394b763f4da74a7177221cdcdf4436f6df1125338dee5121704c714.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -885,8 +890,8 @@ The f1 score of the model is: 0.4393
 <p>Using the logistic function changes the interpretation of the influence of the independent variables. For this purpose, we consider in the lower cell the special case of a logistic regression model with one variable and the parameters <span class="math notranslate nohighlight">\(\beta_0 = 0\)</span> and <span class="math notranslate nohighlight">\(\beta_1 = 1\)</span>. In contrast to linear regression, the influence of the variable <span class="math notranslate nohighlight">\(x\)</span> on the probability forecast is non-linear. This means that depending on the current value of <span class="math notranslate nohighlight">\(x\)</span>, a change of this value by one unit leads to different changes in the probability forecast. For example, if <span class="math notranslate nohighlight">\(x\)</span> increases from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(1\)</span>, the probability forecast changes from <span class="math notranslate nohighlight">\(0.50\)</span> to <span class="math notranslate nohighlight">\(0.73\)</span>. However, if <span class="math notranslate nohighlight">\(x\)</span> increases from <span class="math notranslate nohighlight">\(2\)</span> to <span class="math notranslate nohighlight">\(3\)</span>, for example, the probability forecast only changes from <span class="math notranslate nohighlight">\(0.88\)</span> to <span class="math notranslate nohighlight">\(0.95\)</span>. This means that the effect of increasing <span class="math notranslate nohighlight">\(x\)</span> decreases when <span class="math notranslate nohighlight">\(x\)</span> already has a relatively high value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
 <span class="n">logistic</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -901,7 +906,7 @@ The f1 score of the model is: 0.4393
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/74b6289b0d3ce05d922bf9f6fc7a4bd808f549d916d762eecf18078a95147ff9.png" src="_images/74b6289b0d3ce05d922bf9f6fc7a4bd808f549d916d762eecf18078a95147ff9.png" />
+<img alt="_images/9c78c6b38f79af60c3512510fe5e88ab5a676e41a34cdf56e1104c308f6075f8.png" src="_images/9c78c6b38f79af60c3512510fe5e88ab5a676e41a34cdf56e1104c308f6075f8.png" />
 </div>
 </div>
 <p>Mathematically it can be shown that:</p>
@@ -1087,8 +1092,8 @@ By Prof. Dr. Ralf Kellner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

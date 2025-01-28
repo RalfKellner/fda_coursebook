@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,10 +27,10 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -188,9 +188,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -413,7 +418,7 @@
 <p>In the lower cell, for example, we see a dataset of students with a possible analysis between the relationship between exam performance (G3) and other characteristics. For example, the variable “sex” refers to gender and is categorical, here it is abbreviated by “F” for female and “M” as male. In order to be able to analyze the characteristics of this variable later, it is useful to transform the categories into numerical values. Nevertheless, even after coding, mathematical calculations like addition do not make sense in terms of content. “Fedu” and “Medu” are clearly ordinal according to the variable description. For example, the age “age” is metric.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="c1"># import original data</span>
 <span class="n">df_math</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/student/student-mat.csv&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
@@ -834,7 +839,7 @@ dtype: float64
 <p>In the lower cell, we see barplots for the categorical and ordinal characteristics. In the barplots, the characteristic expressions are plotted on the x-axis and the absolute frequencies are plotted on the y-axis. We can see from these plots that most of the distributions of the characteristic values are not symmetrical and that, especially in the case of “studytime” and “freetime”, one category occurs significantly more often than all other categories in the values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
 <span class="n">non_metric_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Medu&quot;</span><span class="p">,</span> <span class="s2">&quot;Fedu&quot;</span><span class="p">,</span> <span class="s2">&quot;studytime&quot;</span><span class="p">,</span> <span class="s2">&quot;freetime&quot;</span><span class="p">,</span> <span class="s2">&quot;num_sex&quot;</span><span class="p">]</span>
@@ -849,13 +854,13 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/dda52d7c627f54b4a1d737949f475d2a699cd8188e4522bc738a705d648089f0.png" src="_images/dda52d7c627f54b4a1d737949f475d2a699cd8188e4522bc738a705d648089f0.png" />
+<img alt="_images/b9c341bb4347326350315d9f2a97bfebb08440f4e0588d52bdc12414bde59ee8.png" src="_images/b9c341bb4347326350315d9f2a97bfebb08440f4e0588d52bdc12414bde59ee8.png" />
 </div>
 </div>
 <p>In the next cell we see the histograms of the metric variables. In a histogram, the frequencies of the expressions within defined intervals are counted. Instead of fixed interval limits, a number of internals (bins) is often specified, and the interval limits are determined accordingly over the range of all characteristic expressions. As an alternative to the absolute number of characteristic values within an interval, the empirical density values are sometimes plotted on the y-axis. In this case, the frequencies are normalized in such a way that the area below the histogram results in the value <span class="math notranslate nohighlight">\(1\)</span>. The latter is preferred especially when the empirical distribution is to be compared with density functions of theoretical distributions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
 <span class="n">metric_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;absences&quot;</span><span class="p">,</span> <span class="s2">&quot;G3&quot;</span><span class="p">]</span>
@@ -869,7 +874,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2862c8f204232bde2e226966f2193cba904743a8b9b385706ddba304c9cce828.png" src="_images/2862c8f204232bde2e226966f2193cba904743a8b9b385706ddba304c9cce828.png" />
+<img alt="_images/88f84dadc46b2fdb955ec9587cd15107379c99cae04b7ce7ee62db797c78ee2a.png" src="_images/88f84dadc46b2fdb955ec9587cd15107379c99cae04b7ce7ee62db797c78ee2a.png" />
 </div>
 </div>
 <p>Another way to get a graphical impression of the distributions is to use boxplots, which can be used for non-metric as well as for metric variables. Compared to barplots and histograms, boxplots are better suited to get an impression of extreme values and their accumulation. The next cell visualizes the boxplots of all features in the dataset. In the standard shown in the lower cell, the lower edge of the box corresponds to the 25% and the upper edge of the box corresponds to the 75% quantile, the dash in the middle symbolizes the median. The outer dashes are distances equal to <span class="math notranslate nohighlight">\(1.5\)</span> times the interquartile range. As more extreme expressions are represented by single dots. With the help of the boxplots in the example, it is easy to see, for example, that there are significantly more isolated high values for absence than for the other characteristics.</p>
@@ -881,7 +886,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e591554a5771372a0889344f047f22054ef427f0c700c5d892a91d58ed64bac6.png" src="_images/e591554a5771372a0889344f047f22054ef427f0c700c5d892a91d58ed64bac6.png" />
+<img alt="_images/605a784c7110d9f89e2ba20a18bf48da466367cf67d4d4b2fa6f5c368669dae0.png" src="_images/605a784c7110d9f89e2ba20a18bf48da466367cf67d4d4b2fa6f5c368669dae0.png" />
 </div>
 </div>
 </section>
@@ -890,7 +895,7 @@ dtype: float64
 <p>Very often, correlations between the characteristic values of individual variables are also of great importance for data analysis. In the first step, scatterplots can be used to visualize pairwise correlations between variables. However, these usually only provide insights in the case of continuous variables. For example, in the cell below we see a scatterplot between the absence and the final note. This seems to show a correlation. Next to it is a scatterplot between study time and free time. Since both variables are discrete in this data set, one can only see from this view which combinations of values occur, which is not very informative. As a small “workaround” for such cases, it would be possible to display the size of the points of the graph proportional to the frequency of the pairwise combinations. You can view this graph in the third plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
@@ -916,15 +921,15 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d5fde0d8a9ff3e1e36359f057e1bb282e527781aee08818c7c2c8bc10771a181.png" src="_images/d5fde0d8a9ff3e1e36359f057e1bb282e527781aee08818c7c2c8bc10771a181.png" />
+<img alt="_images/ee8e9f856cf86ccc1ccb4ea9b55486631f52db13abe3deb5f8f284692e2372aa.png" src="_images/ee8e9f856cf86ccc1ccb4ea9b55486631f52db13abe3deb5f8f284692e2372aa.png" />
 </div>
 </div>
 <p>The possibility to visualize all pairwise dependencies of a data set exists by using heatmaps of the correlation matrix of a data set. Again, when calculating the correlations, it is important to consider the scales of the features. As long as a characteristic is at least ordinally scaled, Spearman’s correlation coefficient (rank correlation) can be used. In our example, we therefore exclude the variable of gender. In a heatmap, colors and numbers make all pairwise dependencies clear relatively quickly. An example can be found in the following cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
 <span class="n">corr_mat</span> <span class="o">=</span> <span class="n">df_math</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;num_sex&quot;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;spearman&quot;</span><span class="p">)</span>
@@ -937,13 +942,13 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0866e6314026ea71d416964f259ec9a7d21ab5433469107b07f069ffb68ba472.png" src="_images/0866e6314026ea71d416964f259ec9a7d21ab5433469107b07f069ffb68ba472.png" />
+<img alt="_images/c4e036eb6e68014273694a283b8fdd9b345a2beb07314bbd2c4b6d615ceefd15.png" src="_images/c4e036eb6e68014273694a283b8fdd9b345a2beb07314bbd2c4b6d615ceefd15.png" />
 </div>
 </div>
 <p>Finally, we consider an example of correlation analysis when we are interested in a target variable and the possible influence of individual independent characteristics that are not continuously scaled. It is convenient here to generate histograms according to the categories of the independent variables. For example, in the graph in the next cell, we again see in histogram form the final exam scores, but this time separated by individuals with high and lower learning time. Such graphs can also be generated for characteristics with multiple expressions. If the histograms of the characteristic of interest are similar for different categories of another characteristic, it can be assumed rather less of an influence of the characteristic on the target variable. The more different the distributions in dependence of the category, the stronger is potentially the influence of the characteristic.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -957,7 +962,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7ae41ac7e2baacebab631f7060eacbae08245cbf7968fcf5e8d6cbc19c50aa35.png" src="_images/7ae41ac7e2baacebab631f7060eacbae08245cbf7968fcf5e8d6cbc19c50aa35.png" />
+<img alt="_images/f6c03f4092d2ae200eed8aa7518d027b889314e271eed753df89694cbc279877.png" src="_images/f6c03f4092d2ae200eed8aa7518d027b889314e271eed753df89694cbc279877.png" />
 </div>
 </div>
 <p>Here we end the excerpt from the possibilities of graphical description of data. At this point it should be noted that the generation of insightful graphs is a lifelong learning process, since good graphical visualizations strongly depend on the respective data set.</p>
@@ -999,8 +1004,8 @@ z_t(h) &amp; = \ln \left(1+ r_t(h)\right) = \\
 <p>In the cells below, we examine daily and monthly returns over the past five years for ten companies from the US and Germany. The descriptive statistics of daily data reveal a few common characteristics for daily returns. The average return of every company is close to zero and the excess kurtosis is greater than zero for all companies which indicates that returns distributions have heavy tails. The latter points to leptocurtic probability distributions that have higher probability masses in the tails of the distribution than a normal distribution. As a consequence, more extreme events occur more often than under a process sampled from a normal distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># import data</span>
 <span class="n">ticker_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/ten_stocks_US_GER.csv&quot;</span><span class="p">)</span>
@@ -1195,15 +1200,15 @@ z_t(h) &amp; = \ln \left(1+ r_t(h)\right) = \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cc18662029355a47ab7bd3b762b049f6f8d510f62c090baa626e7896b33f5d16.png" src="_images/cc18662029355a47ab7bd3b762b049f6f8d510f62c090baa626e7896b33f5d16.png" />
+<img alt="_images/50b553cacb2158477209690d0175b2ad4797b2333efd5dae9906dedc4d8cacc1.png" src="_images/50b553cacb2158477209690d0175b2ad4797b2333efd5dae9906dedc4d8cacc1.png" />
 </div>
 </div>
 <p>Another important characteristic of equity returns is their positive correlation. This is why we examine the heatmap of correlations below. Overall correlations are positive for each pair and within countries the highest correlation values can be measures. Note that we exhibit Spearman correlation which is a rank based correlation measure and more robust to outliers and non-linear relationships.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
 <span class="n">corr_mat_daily</span> <span class="o">=</span> <span class="n">discrete_daily_returns</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;spearman&quot;</span><span class="p">)</span>
@@ -1216,7 +1221,7 @@ z_t(h) &amp; = \ln \left(1+ r_t(h)\right) = \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d8f56efdce3e4aa2b58ddc6dbf8cb88d98374676e86c8ed912da2fdc3e1de1fa.png" src="_images/d8f56efdce3e4aa2b58ddc6dbf8cb88d98374676e86c8ed912da2fdc3e1de1fa.png" />
+<img alt="_images/37a93e413fa1c8ff4faf6db9110892b54aa84d85e5e716482e91ee7e15b5162b.png" src="_images/37a93e413fa1c8ff4faf6db9110892b54aa84d85e5e716482e91ee7e15b5162b.png" />
 </div>
 </div>
 <p>Revisiting these statistics and visualizations for monthly data reveals some differences. Taking a look at the descriptive statistics below, we observe estimated mean values which are different from zero and mostly positive. Excess kurtosis values are smaller and even negative for Apple. This indicates that less frequent returns which measure the price development over a longer period are less extreme.</p>
@@ -1404,15 +1409,15 @@ z_t(h) &amp; = \ln \left(1+ r_t(h)\right) = \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/68a1fd8c53563a2d1d5f1fe9797cf57c7c64611ba3bde7b4022faf7059f0e148.png" src="_images/68a1fd8c53563a2d1d5f1fe9797cf57c7c64611ba3bde7b4022faf7059f0e148.png" />
+<img alt="_images/a91f15cfa18d3acf3ec30a4f7a06b7e4553d1299bfe179aae2258e4c94c767aa.png" src="_images/a91f15cfa18d3acf3ec30a4f7a06b7e4553d1299bfe179aae2258e4c94c767aa.png" />
 </div>
 </div>
 <p>Correlation between monthly data remains at high levels. The only difference is that monthly correlations are also high between countries, e.g., Apple - Siemens or Apple - SAP.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
 <span class="n">corr_mat_monthly</span> <span class="o">=</span> <span class="n">discrete_monthly_returns</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;spearman&quot;</span><span class="p">)</span>
@@ -1425,7 +1430,7 @@ z_t(h) &amp; = \ln \left(1+ r_t(h)\right) = \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/86fbbe88a621ab8a3213800a279039dacb2e73dd2e95ab6c6226c7c84ca699cc.png" src="_images/86fbbe88a621ab8a3213800a279039dacb2e73dd2e95ab6c6226c7c84ca699cc.png" />
+<img alt="_images/584f23aff90fc40bd4dfd0b1091590e0f863e38784940e47eca43d6b81a53880.png" src="_images/584f23aff90fc40bd4dfd0b1091590e0f863e38784940e47eca43d6b81a53880.png" />
 </div>
 </div>
 <p>When analyzing financial market data, we often collect data over a series of time steps with sequentiel ordering - time series data. Questions often arise which relate to the development over time which is why descriptive analyes should include the time dimension as well. To examine the behavior for certain metrics such as the arithmetic mean or the empirical standard deviation over time, we may use the recent history of observations and update these estimates as soon as new data points are added. This can be achieved by means of a so called rolling window which always uses the past <span class="math notranslate nohighlight">\(n_w\)</span> data points to determine the metric of interest. Alternatively, one can use an exponentially weighted metric which gives more weight to more recent observations. For instance, estimation of the expected value <span class="math notranslate nohighlight">\(x\)</span> at <span class="math notranslate nohighlight">\(t\)</span> using the rolling window approach would be done by:</p>
@@ -1442,8 +1447,8 @@ z_t(h) &amp; = \ln \left(1+ r_t(h)\right) = \\
 <p><span class="math notranslate nohighlight">\(0 &lt; \alpha \leq 1 \)</span> is set by the user and needs to be specified by the user. The higher its value, the more sensible the estimate reacts towards recent observations. This idea can also be applied to the estimation of the variance or correlation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># import data</span>
 <span class="n">ticker_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/spy_dax.csv&quot;</span><span class="p">)</span>
@@ -1467,7 +1472,7 @@ z_t(h) &amp; = \ln \left(1+ r_t(h)\right) = \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ada5b71dd122a8c605929eb84e2c4c0e52bc0dccdb4446cc7567f846c3ce3e31.png" src="_images/ada5b71dd122a8c605929eb84e2c4c0e52bc0dccdb4446cc7567f846c3ce3e31.png" />
+<img alt="_images/229f9baa30acf0c6ac3386b72ea4ddeb984105494ab0ebc0def00f321da3f18f.png" src="_images/229f9baa30acf0c6ac3386b72ea4ddeb984105494ab0ebc0def00f321da3f18f.png" />
 </div>
 </div>
 <p>More persistent is the time-varying nature of variance and standard deviation of asset returns. The graph below shows two periods with higher volatilities for both ETFs in the past five years.</p>
@@ -1479,7 +1484,7 @@ z_t(h) &amp; = \ln \left(1+ r_t(h)\right) = \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c6551fcbbf2e325a500130bced9a79567cada8339dd934348c7a49f9fbf0b286.png" src="_images/c6551fcbbf2e325a500130bced9a79567cada8339dd934348c7a49f9fbf0b286.png" />
+<img alt="_images/fe79b019ca12353f7a7695af45648772b218ec6ba2268782bedb712a52db6b13.png" src="_images/fe79b019ca12353f7a7695af45648772b218ec6ba2268782bedb712a52db6b13.png" />
 </div>
 </div>
 <p>The observations from above indicate dependencies over time. This is often examined by auto-covariance and auto-correlation, respectively. Autocorrelation describes the linear relationship of successive values. The auto-covariance of a variable can be estimated by means of:</p>
@@ -1496,9 +1501,9 @@ z_t(h) &amp; = \ln \left(1+ r_t(h)\right) = \\
 <p>In the cells below, we observe the return series and absolute return series for the S&amp;P 500 and DAX ETF together with the estimated autocorrealations. We observe small auto-correlation between certain day lags for returns and larger values for absolute returns. The implication is that today’s price developments have little predictive power for future movements, however, volatile and more calm times seem to persist, once they started.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
 <span class="c1"># import data</span>
@@ -1522,12 +1527,12 @@ z_t(h) &amp; = \ln \left(1+ r_t(h)\right) = \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/890349dc629111864053f84fcb2740a9b56c78bb547328f26ddaa761140605a2.png" src="_images/890349dc629111864053f84fcb2740a9b56c78bb547328f26ddaa761140605a2.png" />
+<img alt="_images/5c8a5279940de50edc9787b897ee04b07d26b5aaadd048afbb5660bc6a92e8bf.png" src="_images/5c8a5279940de50edc9787b897ee04b07d26b5aaadd048afbb5660bc6a92e8bf.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.graphics.tsaplots</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_acf</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;SPY&quot;</span><span class="p">,</span> <span class="s2">&quot;DAX&quot;</span><span class="p">]):</span>
@@ -1547,7 +1552,7 @@ z_t(h) &amp; = \ln \left(1+ r_t(h)\right) = \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c1e54100333303e59130adcaa2c342dae8ec25251ec5daff2ade1f60bf4dfd58.png" src="_images/c1e54100333303e59130adcaa2c342dae8ec25251ec5daff2ade1f60bf4dfd58.png" />
+<img alt="_images/da9d8cee07414d343794866028a32edd3135b0980279fab72f034b3538893781.png" src="_images/da9d8cee07414d343794866028a32edd3135b0980279fab72f034b3538893781.png" />
 </div>
 </div>
 </section>
@@ -1567,9 +1572,9 @@ z = \frac{x - \min(x)}{\max(x) - \min(x)}
 <p>In the cells below, we generate a sample dataset with the characteristics “gender”, “assessment” and “score”. The <em>info</em> method of the pandas DataFrame shows us that the first two variables are categorical features, contained in text format in the dataset. This is signaled by pandas by the type “object”. The type “float64” describes a floating point number, which corresponds to a comma separator, so we can assume a numeric value. In the first step, the characteristic “gender” is analyzed for the number of different expressions and then one-hot-encoded. Subsequently, numbers are assigned to the categories of the variable “assessment” in ascending order. Finally, the variable “score” is standardized and min-max scaled. The effect of the different scaling can best be visualized by comparing the histograms or boxplots of these variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 <span class="n">gender</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;male&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">250</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;female&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">250</span>
 <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">gender</span><span class="p">)</span>
@@ -1623,33 +1628,33 @@ None
   <tbody>
     <tr>
       <th>0</th>
-      <td>female</td>
-      <td>neural</td>
-      <td>2.460972</td>
+      <td>male</td>
+      <td>good</td>
+      <td>3.001899</td>
     </tr>
     <tr>
       <th>1</th>
       <td>female</td>
-      <td>neural</td>
-      <td>1.271612</td>
+      <td>good</td>
+      <td>0.236182</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>female</td>
-      <td>bad</td>
-      <td>-1.790507</td>
+      <td>male</td>
+      <td>neural</td>
+      <td>2.965297</td>
     </tr>
     <tr>
       <th>3</th>
       <td>male</td>
-      <td>bad</td>
-      <td>1.304410</td>
+      <td>good</td>
+      <td>4.030003</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>female</td>
-      <td>good</td>
-      <td>3.088083</td>
+      <td>male</td>
+      <td>neural</td>
+      <td>6.147000</td>
     </tr>
   </tbody>
 </table>
@@ -1657,7 +1662,7 @@ None
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OneHotEncoder</span>
 
 
 <span class="n">one_hot_encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
@@ -1673,7 +1678,7 @@ None
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The variable gender has the following unique values:
-[&#39;female&#39; &#39;male&#39;]
+[&#39;male&#39; &#39;female&#39;]
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1703,38 +1708,38 @@ None
   <tbody>
     <tr>
       <th>0</th>
-      <td>neural</td>
-      <td>2.460972</td>
-      <td>1.0</td>
+      <td>good</td>
+      <td>3.001899</td>
       <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>neural</td>
-      <td>1.271612</td>
+      <td>good</td>
+      <td>0.236182</td>
       <td>1.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>bad</td>
-      <td>-1.790507</td>
-      <td>1.0</td>
+      <td>neural</td>
+      <td>2.965297</td>
       <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>bad</td>
-      <td>1.304410</td>
+      <td>good</td>
+      <td>4.030003</td>
       <td>0.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>good</td>
-      <td>3.088083</td>
-      <td>1.0</td>
+      <td>neural</td>
+      <td>6.147000</td>
       <td>0.0</td>
+      <td>1.0</td>
     </tr>
   </tbody>
 </table>
@@ -1753,7 +1758,7 @@ None
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The variable assessment has the following unique values:
-[&#39;neural&#39; &#39;bad&#39; &#39;good&#39;]
+[&#39;good&#39; &#39;neural&#39; &#39;bad&#39;]
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1783,38 +1788,38 @@ None
   <tbody>
     <tr>
       <th>0</th>
-      <td>2</td>
-      <td>2.460972</td>
-      <td>1.0</td>
+      <td>3</td>
+      <td>3.001899</td>
       <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2</td>
-      <td>1.271612</td>
+      <td>3</td>
+      <td>0.236182</td>
       <td>1.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1</td>
-      <td>-1.790507</td>
-      <td>1.0</td>
+      <td>2</td>
+      <td>2.965297</td>
       <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1</td>
-      <td>1.304410</td>
+      <td>3</td>
+      <td>4.030003</td>
       <td>0.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>3</td>
-      <td>3.088083</td>
-      <td>1.0</td>
+      <td>2</td>
+      <td>6.147000</td>
       <td>0.0</td>
+      <td>1.0</td>
     </tr>
   </tbody>
 </table>
@@ -1822,7 +1827,7 @@ None
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">MinMaxScaler</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">MinMaxScaler</span>
 
 <span class="n">standard_scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 <span class="n">minmax_scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
@@ -1863,48 +1868,48 @@ None
   <tbody>
     <tr>
       <th>0</th>
-      <td>2</td>
-      <td>2.460972</td>
-      <td>1.0</td>
+      <td>3</td>
+      <td>3.001899</td>
       <td>0.0</td>
-      <td>0.219363</td>
-      <td>0.525967</td>
+      <td>1.0</td>
+      <td>0.500467</td>
+      <td>0.600456</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2</td>
-      <td>1.271612</td>
+      <td>3</td>
+      <td>0.236182</td>
       <td>1.0</td>
       <td>0.0</td>
-      <td>-0.353899</td>
-      <td>0.424971</td>
+      <td>-0.939075</td>
+      <td>0.328010</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1</td>
-      <td>-1.790507</td>
-      <td>1.0</td>
+      <td>2</td>
+      <td>2.965297</td>
       <td>0.0</td>
-      <td>-1.829815</td>
-      <td>0.164946</td>
+      <td>1.0</td>
+      <td>0.481416</td>
+      <td>0.596850</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1</td>
-      <td>1.304410</td>
+      <td>3</td>
+      <td>4.030003</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>-0.338090</td>
-      <td>0.427756</td>
+      <td>1.035590</td>
+      <td>0.701732</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>3</td>
-      <td>3.088083</td>
-      <td>1.0</td>
+      <td>2</td>
+      <td>6.147000</td>
       <td>0.0</td>
-      <td>0.521626</td>
-      <td>0.579220</td>
+      <td>1.0</td>
+      <td>2.137477</td>
+      <td>0.910274</td>
     </tr>
   </tbody>
 </table>
@@ -1912,7 +1917,7 @@ None
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">score</span><span class="p">)</span>
@@ -1926,7 +1931,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2c250f5787dcc901a977d55e3a2e4038457157b9d383dc502e2655fa5279110d.png" src="_images/2c250f5787dcc901a977d55e3a2e4038457157b9d383dc502e2655fa5279110d.png" />
+<img alt="_images/e46c807167e075e32bd4babf8728b987c5302f003133f930dbb3dc45152d7f3f.png" src="_images/e46c807167e075e32bd4babf8728b987c5302f003133f930dbb3dc45152d7f3f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1937,7 +1942,7 @@ None
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9be8e4f701567a4d63ab1edfef85ba13870b15792e16acc3267ae7744d7efca7.png" src="_images/9be8e4f701567a4d63ab1edfef85ba13870b15792e16acc3267ae7744d7efca7.png" />
+<img alt="_images/9d044429a6cb76e9552c4afcb4bc2d50bbf32911a977b8c17c186e511fe623a4.png" src="_images/9d044429a6cb76e9552c4afcb4bc2d50bbf32911a977b8c17c186e511fe623a4.png" />
 </div>
 </div>
 </section>
@@ -2067,8 +2072,8 @@ By Prof. Dr. Ralf Kellner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

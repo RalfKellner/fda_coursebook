@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,10 +27,10 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -188,9 +188,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -407,8 +412,8 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_p x_p + \epsilon =  \bolds
 <p>The model is only complete with an assumption about the residuals <span class="math notranslate nohighlight">\(\epsilon\)</span>. Often, <span class="math notranslate nohighlight">\(\epsilon\)</span> is assumed to follow a normal distribution. Besides the statistical implications, the inclusion of <span class="math notranslate nohighlight">\(\epsilon\)</span> reveals the idea of the model how data is generated. Given, information by <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span> and a functional relationship between these variables <span class="math notranslate nohighlight">\(f\left(\boldsymbol{x}\right) = \boldsymbol{\beta}^T \boldsymbol{x}\)</span>, we expect a certain level for the value of <span class="math notranslate nohighlight">\(y\)</span>, i.e., <span class="math notranslate nohighlight">\(E(y | \mathbf{x}) = \boldsymbol{\beta}^T \boldsymbol{x}\)</span>. This is the deterministic part of the regression model. However, as real life observations usually do not fully a fully deterministic relationship, the deviation <span class="math notranslate nohighlight">\(\epsilon = y - \boldsymbol{\beta}^T \boldsymbol{x}\)</span> is ascribed to randomness.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">b0</span> <span class="o">=</span> <span class="mf">2.</span>
 <span class="n">b1</span> <span class="o">=</span> <span class="mf">1.</span>
@@ -438,14 +443,14 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_p x_p + \epsilon =  \bolds
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6ce40e432dbb469ea28f22d6d63fded5079a99047b9c4692d0414361c446c629.png" src="_images/6ce40e432dbb469ea28f22d6d63fded5079a99047b9c4692d0414361c446c629.png" />
+<img alt="_images/bcc79e065a81f226378715528bde6d8203ee10611c11f52eb9e4413b975236c8.png" src="_images/bcc79e065a81f226378715528bde6d8203ee10611c11f52eb9e4413b975236c8.png" />
 </div>
 </div>
 <p>It should be noted that the regression model can also be used to represent non-linear relationships if the variables are transformed in a non-linear way. For example, if we suspect a more quadratic relationship between the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, we can include <span class="math notranslate nohighlight">\(x^2\)</span> in the model. The effect on the functional form of the model can be observed in the next cell. This approach is the polynomial regression, where of course higher polynomials can be included as a function. Here, however, we already deviate from the traditional linear regression model. The polynomial regression is one of several alternatives to the linear regression model, which creates more flexibility by increasing the complexity of the model. However, this is also often associated with challenges that will be discussed later in the course.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">b0</span> <span class="o">=</span> <span class="mf">2.</span>
 <span class="n">b1</span> <span class="o">=</span> <span class="mf">1.</span>
@@ -464,7 +469,7 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_p x_p + \epsilon =  \bolds
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/860747c58fa617f237f63f269cb622ab297badab2ccdb900214f61ebbe66fadb.png" src="_images/860747c58fa617f237f63f269cb622ab297badab2ccdb900214f61ebbe66fadb.png" />
+<img alt="_images/bbcf1568310c8e4e305e9b7bfef43d012081485f4c8567163ded662da664f644.png" src="_images/bbcf1568310c8e4e305e9b7bfef43d012081485f4c8567163ded662da664f644.png" />
 </div>
 </div>
 <section id="training-the-linear-regression-model">
@@ -478,8 +483,8 @@ f(x) = \beta \cdot x
 <p>This is a straight line through the origin of the coordinate system whose slope can be influenced by the choice of <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 
 <span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
@@ -499,7 +504,7 @@ f(x) = \beta \cdot x
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/24fbbe17f43e3931c31805bf8b5019868d8348992cbc68234821690efdb05df4.png" src="_images/24fbbe17f43e3931c31805bf8b5019868d8348992cbc68234821690efdb05df4.png" />
+<img alt="_images/c9396da833c6e63b6198f9508499b8739d74430805291ca2147d81a1fcc9c646.png" src="_images/c9396da833c6e63b6198f9508499b8739d74430805291ca2147d81a1fcc9c646.png" />
 </div>
 </div>
 <p>In order to check how close the forecast is to the actual value, it makes sense to first determine the difference <span class="math notranslate nohighlight">\(y - f(x)\)</span>. However, since one is primarily interested in how much the deviation is rather than whether one is just underestimating or overestimating the actual value, the absolute value <span class="math notranslate nohighlight">\(|y - f(x)|\)</span> or the squared deviation <span class="math notranslate nohighlight">\(\left(y - f(x)\right)^2\)</span> is rather used to quantify how far apart the realization and estimation of the model are. The quadratic deviation if often used due to its useful mathematically properties. Since the estimate of the model depends on the parameter <span class="math notranslate nohighlight">\(\beta\)</span>, we want to define the cost or loss function:</p>
@@ -528,8 +533,8 @@ L\left(y, f_{\beta}(x) \right) = \left(3 - \beta \cdot 2\right)^2
 <p>We see that the solution <span class="math notranslate nohighlight">\(\beta = \frac{3}{2}\)</span> is a minimum. The corresponding line in our example goes directly through the point <span class="math notranslate nohighlight">\((2, 3)\)</span> which gives us an exact prediction for this one observation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 
 <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
@@ -557,7 +562,7 @@ L\left(y, f_{\beta}(x) \right) = \left(3 - \beta \cdot 2\right)^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/918efb879c2f0829e02959743d89d6a579d4bac8e672866854fe1b9913f65193.png" src="_images/918efb879c2f0829e02959743d89d6a579d4bac8e672866854fe1b9913f65193.png" />
+<img alt="_images/294b58f17537ea54e5a39759f768c7e80e84f1c1ca5c48656961065474f5cf2d.png" src="_images/294b58f17537ea54e5a39759f768c7e80e84f1c1ca5c48656961065474f5cf2d.png" />
 </div>
 </div>
 <p>In the realistic case with multiple data points, it is usually not possible to generate perfect predictions of the model, no matter how well the parameters of the model are chosen. However, the parameters of the model can be determined using the same logic as in the previous example. Let us add another data point <span class="math notranslate nohighlight">\((x_2 = 3, y_2 = 2)\)</span> to our sample next to the point <span class="math notranslate nohighlight">\((x_1 = 2, y_1 = 3)\)</span>. The loss function becomes:</p>
@@ -582,8 +587,8 @@ L\left(y, f_{\beta}(\boldsymbol{x}) \right) &amp; = \frac{1}{2} \left( \left(y_1
 <p>In our example, this results in the value <span class="math notranslate nohighlight">\(\beta = \frac{12}{13}\)</span>. The lower graph visualizes that in this way a straight line results, which runs between the two points. The model tries to be as close as possible to both points.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
@@ -612,7 +617,7 @@ L\left(y, f_{\beta}(\boldsymbol{x}) \right) &amp; = \frac{1}{2} \left( \left(y_1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9a7c1155ed409c73531167f22e457f015bd7b1e2308c519979e0c14123a05c11.png" src="_images/9a7c1155ed409c73531167f22e457f015bd7b1e2308c519979e0c14123a05c11.png" />
+<img alt="_images/93d4a9f1fb338bff64680c539736fd734ab15a192160e2069ff79724d71a33dc.png" src="_images/93d4a9f1fb338bff64680c539736fd734ab15a192160e2069ff79724d71a33dc.png" />
 </div>
 </div>
 <p>We note that the fitting of the model of the data is done by mathematical optimization. Here it is important to understand that the data points of the sample <span class="math notranslate nohighlight">\((x_1, y_1), ..., (x_n, y_n)\)</span> are invariant values and the fitting of the model is done by choosing the parameters. In the general case with multiple data points and a regression problem, the common loss function is:</p>
@@ -637,7 +642,7 @@ L\left(\boldsymbol{y}, f_{\boldsymbol{\beta}}(\boldsymbol{X}) \right) = \sum_{i=
 <p>Before we go into a specific example, let’s look a little more closely at the aspect of estimation uncertainty. In some cases, it may be theoretically possible to have access to the data of the entire population and thus determine the true value of a parameter. For example, it is theoretically possible to determine the average height of all adult citizens in a country. However, this often fails due to practical aspects of data collection and questions of economic benefit, as the collection of all data often involves high costs. Accordingly, as soon as one does not resort to all values of the population, but tries to determine the unknown value of the population through a random sample, the uncertainty in the estimated value arises due to the randomness of the sample collection. If a random sample is drawn more often, the random realizations and thus the estimated parameters per sample will differ. If we look at the highly simplified example in the bottom cell, we see that when random draws are made from a population and the expected value is estimated by the arithmetic mean, there will be varying values that always deviate from the true value. Such behavior always exists when the parameters of models are estimated from samples. The more the estimated parameters vary, the higher the statistical uncertainty and the associated inference. How much the parameters vary can be quantified by the standard errors. These are used to calculate important statistical ratios such as the confidence interval and the p-value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
 
@@ -680,9 +685,9 @@ P\left(x_u \leq x \leq x_u\right) = \int_{x_l}^{x_u} f(x) dx
 <p>This means the larger the area under the density curve over an interval, the higher the probability that a random realizaton falls within the interal. If we interpret probabilities as empirical frequencies, this means relatively often, we are going to observe realizations in intervals with large areas under the density function. For instance, the frequency of realizations in the interval <span class="math notranslate nohighlight">\([-1, 1]\)</span> are going to be higher than in the inveral <span class="math notranslate nohighlight">\([-4, -3]\)</span> for a standard normal distribution. If we simulate data from a standard normal distribution, frequencies of realizations in certain intervals will be close but not exactly equal to the corresponding probabilities.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -709,14 +714,14 @@ P\left(x_u \leq x \leq x_u\right) = \int_{x_l}^{x_u} f(x) dx
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6eed998306f8dcf4fbb1826420cd9ac73b604ac5ff8ae4bb65aa76366939a523.png" src="_images/6eed998306f8dcf4fbb1826420cd9ac73b604ac5ff8ae4bb65aa76366939a523.png" />
+<img alt="_images/16b63518c6b43444c95d2cd679a3e9963627f29c42e32f001b0508bc603388a5.png" src="_images/16b63518c6b43444c95d2cd679a3e9963627f29c42e32f001b0508bc603388a5.png" />
 </div>
 </div>
 <p>To simulate data according to a regression model, we need some fixed observations for the independent variables. We simulate them below, however, keep them fixed to replicate the real life behavior that originally all values for <span class="math notranslate nohighlight">\(X\)</span> are assumed to be fixed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 
@@ -808,8 +813,8 @@ P\left(x_u \leq x \leq x_u\right) = \int_{x_l}^{x_u} f(x) dx
 <p>For each observation, we calculate <span class="math notranslate nohighlight">\(\boldsymbol{\beta}^T \boldsymbol{x}\)</span>, draw a random standard normally distributed random number and add both values to simulate an obsevation for <span class="math notranslate nohighlight">\(y\)</span>. The cell below simulates data like this and creates a pairplot. The first line exhibits the pairwise realtion between the target variable <span class="math notranslate nohighlight">\(y\)</span> and the independent variables <span class="math notranslate nohighlight">\(x_1, x_2, x_3\)</span>. Note, that data changes every time you click the play button next to the cell as data is simulation is refreshed. Also take a look and execute the next cell as well. It estimates the parameters of the model for the simulated data. It is important to understand that these estimates differ from the true values (which in reality we never know). The reason for that is the random part of the data. As the random part is different for every data sample (because it is random), parameter estimates for every data sample will be different.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>  <span class="c1"># Normally distributed random noise</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">beta_0</span> <span class="o">+</span> <span class="n">X</span> <span class="o">@</span> <span class="n">beta</span> <span class="o">+</span> <span class="n">noise</span>
@@ -820,12 +825,12 @@ P\left(x_u \leq x \leq x_u\right) = \int_{x_l}^{x_u} f(x) dx
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ab5b8b1d877383c44c486d3cb1be6943194a6b4028a4dcf54fb0973d4e989a29.png" src="_images/ab5b8b1d877383c44c486d3cb1be6943194a6b4028a4dcf54fb0973d4e989a29.png" />
+<img alt="_images/b7783070a3f101556d97d8c62341225ef7e2f1f619ef9010fc04de1d87a51b69.png" src="_images/b7783070a3f101556d97d8c62341225ef7e2f1f619ef9010fc04de1d87a51b69.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 
 <span class="n">X_reg</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="s2">&quot;X2&quot;</span><span class="p">,</span> <span class="s2">&quot;X3&quot;</span><span class="p">]]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;y&quot;</span><span class="p">]</span>
@@ -843,8 +848,8 @@ P\left(x_u \leq x \leq x_u\right) = \int_{x_l}^{x_u} f(x) dx
 Dep. Variable:                      y   R-squared:                       0.961
 Model:                            OLS   Adj. R-squared:                  0.960
 Method:                 Least Squares   F-statistic:                     8088.
-Date:                Mon, 20 Jan 2025   Prob (F-statistic):               0.00
-Time:                        17:03:33   Log-Likelihood:                -1444.0
+Date:                Tue, 28 Jan 2025   Prob (F-statistic):               0.00
+Time:                        13:53:26   Log-Likelihood:                -1444.0
 No. Observations:                1000   AIC:                             2896.
 Df Residuals:                     996   BIC:                             2916.
 Df Model:                           3                                         
@@ -889,8 +894,8 @@ t = \frac{\hat{\beta}}{\sigma_{err}}
 <p>Thus, we may interpret the t statistic as a normalized version of the estimated parameter, the higher it is, the less the estimated parameter is in line with the null hypthesis. Very commonly, the standard null hypothesis in regression outputs is the parameter to be equal zero. If the null is rejected, we assume that <span class="math notranslate nohighlight">\(x_j\)</span> has an impact on <span class="math notranslate nohighlight">\(y\)</span> which is statistically significant different from zero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">iterations</span> <span class="o">=</span> <span class="mi">1000</span>
 
@@ -916,14 +921,14 @@ t = \frac{\hat{\beta}}{\sigma_{err}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c3fbfc92961bf5885955dcff0391bbc0f1f4eac550305ad1ed790239ff0b9a62.png" src="_images/c3fbfc92961bf5885955dcff0391bbc0f1f4eac550305ad1ed790239ff0b9a62.png" />
+<img alt="_images/2a76c2fb3a5ce24a43bab5f1ac2ef00a5e39ab7d0e08d7ef81bcaf7c16cb5db9.png" src="_images/2a76c2fb3a5ce24a43bab5f1ac2ef00a5e39ab7d0e08d7ef81bcaf7c16cb5db9.png" />
 </div>
 </div>
 <p>Finally, let us take a look at a real example where we want to analyze a possible influence of the advertising channel on sales. In the associated output, we see that a positive influence of television and rate advertising on sales is measurable. The sign of the news variable is negative, but we can see from the p-value that we cannot assume a zero different influence of this variable. This means that, at least from a statistical point of view, it does not make sense to interpret the negative sign as a negative influence of the variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">advertising_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/Advertising.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span> <span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">)</span>
 <span class="n">advertising_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -943,8 +948,8 @@ t = \frac{\hat{\beta}}{\sigma_{err}}
 Dep. Variable:                  sales   R-squared:                       0.897
 Model:                            OLS   Adj. R-squared:                  0.896
 Method:                 Least Squares   F-statistic:                     570.3
-Date:                Mon, 20 Jan 2025   Prob (F-statistic):           1.58e-96
-Time:                        17:03:34   Log-Likelihood:                -386.18
+Date:                Tue, 28 Jan 2025   Prob (F-statistic):           1.58e-96
+Time:                        13:53:27   Log-Likelihood:                -386.18
 No. Observations:                 200   AIC:                             780.4
 Df Residuals:                     196   BIC:                             793.6
 Df Model:                           3                                         
@@ -1002,9 +1007,9 @@ R_{\text{adj}}^2 = 1 - \left( \frac{(1 - R^2) \cdot (n - 1)}{n - p} \right)
 <p>In the bottom cell, we determine the ratio of the MSE for the linear regression model and <span class="math notranslate nohighlight">\(\bar{y}\)</span>. In addition, we look at the two graphs mentioned above. Overall, the model seems to explain the sales values relatively well and, more importantly, much better than the unconditional forecast <span class="math notranslate nohighlight">\(\bar{y}\)</span>. However, it seems that the model provides better forecasts for higher sales values than for smaller values and, in particular, sales values in the middle range are systematically overestimated. These findings suggest that the linear relationship between the independent variables and the dependent variable may not fully reflect reality and that a model that is able to represent non-linear relationships may be more appropriate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">advertising_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;TV&quot;</span><span class="p">,</span> <span class="s2">&quot;radio&quot;</span><span class="p">,</span> <span class="s2">&quot;newspaper&quot;</span><span class="p">]]</span>
@@ -1039,7 +1044,7 @@ R_{\text{adj}}^2 = 1 - \left( \frac{(1 - R^2) \cdot (n - 1)}{n - p} \right)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean squared error ratio of the linear regression model and the arithmetic mean of sales is: 0.1028
 </pre></div>
 </div>
-<img alt="_images/ac523b78348519f2c9fec541ae9ec2067b8008002d68dfcf56a480cb29fa994d.png" src="_images/ac523b78348519f2c9fec541ae9ec2067b8008002d68dfcf56a480cb29fa994d.png" />
+<img alt="_images/ef2a9831ad40b5520c373d48e9bfe1d4232a12044d7d58650262fa7f0a769acb.png" src="_images/ef2a9831ad40b5520c373d48e9bfe1d4232a12044d7d58650262fa7f0a769acb.png" />
 </div>
 </div>
 </section>
@@ -1132,8 +1137,8 @@ R_{\text{adj}}^2 = 1 - \left( \frac{(1 - R^2) \cdot (n - 1)}{n - p} \right)
 <p>In the bottom cell, we estimate the model again using standardized values of the independent variables. The estimated parameters are <span class="math notranslate nohighlight">\(\hat{\beta}_{\text{TV}} = 3.9193\)</span>, <span class="math notranslate nohighlight">\(\hat{\beta}_{\text{radio}} = 2.7921\)</span>, <span class="math notranslate nohighlight">\(\hat{\beta}_{\text{newspaper}} = -0.0225\)</span>. Using these values, we can identify the largest impact due to TV advertising, which brings a <span class="math notranslate nohighlight">\(3.9193\)</span> increase in sales when TV advertising spending is increased by one standard deviation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
 
 <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 
@@ -1155,8 +1160,8 @@ R_{\text{adj}}^2 = 1 - \left( \frac{(1 - R^2) \cdot (n - 1)}{n - p} \right)
 Dep. Variable:                  sales   R-squared:                       0.897
 Model:                            OLS   Adj. R-squared:                  0.896
 Method:                 Least Squares   F-statistic:                     570.3
-Date:                Mon, 20 Jan 2025   Prob (F-statistic):           1.58e-96
-Time:                        17:03:34   Log-Likelihood:                -386.18
+Date:                Tue, 28 Jan 2025   Prob (F-statistic):           1.58e-96
+Time:                        13:53:27   Log-Likelihood:                -386.18
 No. Observations:                 200   AIC:                             780.4
 Df Residuals:                     196   BIC:                             793.6
 Df Model:                           3                                         
@@ -1188,9 +1193,9 @@ Notes:
 <p>As an example, we consider the forward selection for the Advertising dataset. We use the <span class="math notranslate nohighlight">\(R^2\)</span> as a metric to quantify the goodness. In the first step, we select the TV variable. Next, we see an increase in <span class="math notranslate nohighlight">\(R^2\)</span> of <span class="math notranslate nohighlight">\(0.2853\)</span> when the radio variable is included in the model. Including the newspaper variable would not increase the <span class="math notranslate nohighlight">\(R^2\)</span> any further, so there is no need to include this variable in the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;TV&quot;</span><span class="p">,</span> <span class="s2">&quot;radio&quot;</span><span class="p">,</span> <span class="s2">&quot;newspaper&quot;</span><span class="p">]</span>
 
@@ -1282,8 +1287,8 @@ y = \beta_0 + \beta_1 x_{\text{TV}} + \left(\beta_2 + \beta_3 x_{\text{TV}} \rig
 <p>Depending on the variant of the model, it becomes apparent that the influence of TV advertising or radio advertising depends on the other type of advertising, and thus the original characteristic of additivity disappears. In the bottom cell, we estimate the model with the interaction term. We see from the output that the interaction term has a significantly non-zero positive impact. In addition, the coefficient of determination improves. The positive value can be interpreted that the positive influence of one advertising measure increases when the other advertising measure is increased.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">advertising_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;TV&quot;</span><span class="p">,</span> <span class="s2">&quot;radio&quot;</span><span class="p">]]</span>
@@ -1303,8 +1308,8 @@ y = \beta_0 + \beta_1 x_{\text{TV}} + \left(\beta_2 + \beta_3 x_{\text{TV}} \rig
 Dep. Variable:                  sales   R-squared:                       0.968
 Model:                            OLS   Adj. R-squared:                  0.967
 Method:                 Least Squares   F-statistic:                     1963.
-Date:                Mon, 20 Jan 2025   Prob (F-statistic):          6.68e-146
-Time:                        17:03:34   Log-Likelihood:                -270.14
+Date:                Tue, 28 Jan 2025   Prob (F-statistic):          6.68e-146
+Time:                        13:53:27   Log-Likelihood:                -270.14
 No. Observations:                 200   AIC:                             548.3
 Df Residuals:                     196   BIC:                             561.5
 Df Model:                           3                                         
@@ -1348,10 +1353,10 @@ y = \boldsymbol{\beta}^T \boldsymbol{x}
 <p>The property of homoscedasticity arises from the assumption that the variance of all residuals is equal <span class="math notranslate nohighlight">\(\epsilon \sim N(0; \sigma^2)\)</span>, if this is not true, individual observations <span class="math notranslate nohighlight">\(i\)</span> exhibit different variances <span class="math notranslate nohighlight">\(\sigma_i^2\)</span>. In the cell below, you can see an example of simulated data whose variance increases with the independent variable. The corresponding residual plot is particularly meaningful here, as it gives a good graphical indication that the variances of the predictions vary in different ways. The good news is that the estimated parameters of the regression line can be further trusted since they are consistently unbiased, but attention should be paid to statistical inference in the presence of heteroscedasticity. The standard errors of the estimators tend to be underestimated, which can lead to erroneous inferences. Options for dealing with heteroskedasticity include adjusting the standard errors or adjusted estimation procedures such as the weighted least squares approach. One may use different approaches to identify potential heteroskedasticity. A good way is to examine the residual plot. If you want you can add statistical tests like the Breusch-Pagan or White test. Given, heteroscedasticity, a difference in the standard errors will result.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 
 <span class="c1"># simulate data</span>
@@ -1388,14 +1393,14 @@ y = \boldsymbol{\beta}^T \boldsymbol{x}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/24f4ffe2aaff1ecd701d76ac5fc74d38e95d9e6c15a95708bbff1e81677f6f88.png" src="_images/24f4ffe2aaff1ecd701d76ac5fc74d38e95d9e6c15a95708bbff1e81677f6f88.png" />
+<img alt="_images/fe76994a24ab25f9c046438624e7989f5a4cd170a649937676e7cd9e9095dafa.png" src="_images/fe76994a24ab25f9c046438624e7989f5a4cd170a649937676e7cd9e9095dafa.png" />
 </div>
 </div>
 <p>First, take a look at the model output below, if we do not correct standard errors for heteroscedasticity. Especially, take a look at the standard error for <span class="math notranslate nohighlight">\(\hat{\beta}_1 = 0.014\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span>
     <span class="n">formula</span><span class="o">=</span><span class="s2">&quot;y ~ x&quot;</span><span class="p">,</span>
@@ -1413,8 +1418,8 @@ y = \boldsymbol{\beta}^T \boldsymbol{x}
 Dep. Variable:                      y   R-squared:                       0.152
 Model:                            OLS   Adj. R-squared:                  0.141
 Method:                 Least Squares   F-statistic:                     14.02
-Date:                Mon, 20 Jan 2025   Prob (F-statistic):           0.000344
-Time:                        17:03:34   Log-Likelihood:                 42.582
+Date:                Tue, 28 Jan 2025   Prob (F-statistic):           0.000344
+Time:                        13:53:27   Log-Likelihood:                 42.582
 No. Observations:                  80   AIC:                            -81.16
 Df Residuals:                      78   BIC:                            -76.40
 Df Model:                           1                                         
@@ -1440,8 +1445,8 @@ Notes:
 <p>Now, watch at the output and the same standard error, if we include a correction for heteroscedasticity. The standard error increases from <span class="math notranslate nohighlight">\(0.014\)</span> to <span class="math notranslate nohighlight">\(0.018\)</span>, this reduces the <span class="math notranslate nohighlight">\(t\)</span> statistic which increases the p-value. In the example, one still would infer a significant impact of the independent variable, however, in reality, correcting for heteroscedasticity can lead to different inferences on the data. Note, that we do not discuss, how corrections are made, however, the potential impact should be clear to you.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span>
     <span class="n">formula</span><span class="o">=</span><span class="s2">&quot;y ~ x&quot;</span><span class="p">,</span>
@@ -1458,8 +1463,8 @@ Notes:
 Dep. Variable:                      y   R-squared:                       0.152
 Model:                            OLS   Adj. R-squared:                  0.141
 Method:                 Least Squares   F-statistic:                     8.693
-Date:                Mon, 20 Jan 2025   Prob (F-statistic):            0.00421
-Time:                        17:03:34   Log-Likelihood:                 42.582
+Date:                Tue, 28 Jan 2025   Prob (F-statistic):            0.00421
+Time:                        13:53:27   Log-Likelihood:                 42.582
 No. Observations:                  80   AIC:                            -81.16
 Df Residuals:                      78   BIC:                            -76.40
 Df Model:                           1                                         
@@ -1614,10 +1619,10 @@ r_{t, j} = r_{t, f} + \beta_j \left(r_{t, m} - r_{t, f} \right) + \epsilon_{t, j
 <p>The cell below exhibits regression results for daily excess returns of Apple from the last two years. We use the market portfolio provided by <a class="reference external" href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Kenneth French’s data library</a>. The beta coefficient is higher than <span class="math notranslate nohighlight">\(1\)</span>, indicating a sensitive co-movement of Apple’s return and the market. The adjusted coefficient of determination is around <span class="math notranslate nohighlight">\(45\%\)</span>, thus, a significant part of the returns variability can be explained by its relation to the market.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;../data/sp_returns.sqlite&quot;</span><span class="p">)</span>
 <span class="n">ff_daily</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;Select * From ff_daily;&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
@@ -1646,8 +1651,8 @@ r_{t, j} = r_{t, f} + \beta_j \left(r_{t, m} - r_{t, f} \right) + \epsilon_{t, j
 Dep. Variable:                      y   R-squared:                       0.479
 Model:                            OLS   Adj. R-squared:                  0.478
 Method:                 Least Squares   F-statistic:                     421.1
-Date:                Mon, 20 Jan 2025   Prob (F-statistic):           7.69e-67
-Time:                        17:03:35   Log-Likelihood:                 1424.1
+Date:                Tue, 28 Jan 2025   Prob (F-statistic):           7.69e-67
+Time:                        13:53:28   Log-Likelihood:                 1424.1
 No. Observations:                 460   AIC:                            -2844.
 Df Residuals:                     458   BIC:                            -2836.
 Df Model:                           1                                         
@@ -1674,7 +1679,7 @@ Notes:
 <p>We observe variation of beta coefficients between sectors, e.g., companies from the Information Technology sector seems to have higher beta coefficients which higher systematic risk for this sector. Between indices, we examine higher beta levels for smaller companies (S&amp;P 600), however, the level of variation seems not to be as large as among sectors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">regression_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">df_returns</span><span class="o">.</span><span class="n">Symbol</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="s2">&quot;p_value_alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;R2_adj&quot;</span><span class="p">,</span> <span class="s2">&quot;Sector&quot;</span><span class="p">,</span> <span class="s2">&quot;Index&quot;</span><span class="p">])</span>
 <span class="k">for</span> <span class="n">ticker</span><span class="p">,</span> <span class="n">df_tmp</span> <span class="ow">in</span> <span class="n">df_returns</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Symbol&quot;</span><span class="p">):</span>
@@ -1700,13 +1705,13 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bcddeec4f7b43d938686636564bc4b424a16974c5664bf95f3ae4c696f1fa20e.png" src="_images/bcddeec4f7b43d938686636564bc4b424a16974c5664bf95f3ae4c696f1fa20e.png" />
+<img alt="_images/5c4976e3667cee515db1fb220fc0b9e7d14d47b3b2aae8c3f8e89b89baf40f1f.png" src="_images/5c4976e3667cee515db1fb220fc0b9e7d14d47b3b2aae8c3f8e89b89baf40f1f.png" />
 </div>
 </div>
 <p>The next cell exhibits levels for the adjusted <span class="math notranslate nohighlight">\(R^2\)</span>. Again, the variation among sectors seems to be higher in comparison to the indices (and thus firm sizes). While a few companies exist whose return’s variation can not be explained by the market at all, the average level is around <span class="math notranslate nohighlight">\(0.25\)</span> with individual values exceeding <span class="math notranslate nohighlight">\(0.50\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">regression_results</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span> <span class="o">=</span> <span class="s2">&quot;R2_adj&quot;</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s2">&quot;Sector&quot;</span><span class="p">,</span> <span class="n">rot</span> <span class="o">=</span> <span class="mi">75</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1719,7 +1724,7 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/69fd9e3856291bc94f53df2a8212e88b3a684f3edc56f9d1a5729d3f905a5c8a.png" src="_images/69fd9e3856291bc94f53df2a8212e88b3a684f3edc56f9d1a5729d3f905a5c8a.png" />
+<img alt="_images/21e7e6643ed72f9b34ef01116a48920faeec0727f6d1850f40fe32749fa74c0e.png" src="_images/21e7e6643ed72f9b34ef01116a48920faeec0727f6d1850f40fe32749fa74c0e.png" />
 </div>
 </div>
 <p>Empirical studies revealed that the market portfolio (often also called market factor in this context) seems not to be sufficient to explain asset premium and, thus, returns variation can be better explained when adding more factors to the equation which are build around variables that are fit to differentiate excess returns of companies. Two very prominent examples are the size and book-to-value factors, extending the original model to the Fama-French three factor model. Detailed explanations of the factor constructions can be found <a class="reference external" href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_factors.html">here</a>, but in short: the small minus big (SMB) factor is similar to a portfolio which invests into smaller companies (according to their market capitalization) and short sells large companies; the high minus low (HML) factor is a portfolio which invests into companies with high ratios of the book-to-market value and short sells companies with low book-to-market values. The book-to-market value compares the book value of a company derived by accounting standards to the market value which captures the investor’s belief about the (future) value of the company. Thus, companies with low book-to-market values can indicate high growth potential as the majority of investors seems to believe the value of the company should be higher than its current book value. The regression which is used to estimate the betas for these factors is given by:</p>
@@ -1744,7 +1749,7 @@ Notes:
     <span class="n">regression_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ticker</span><span class="p">,</span> <span class="s2">&quot;Sector&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s2">&quot;GICS Sector&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">regression_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ticker</span><span class="p">,</span> <span class="s2">&quot;Index&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 <span class="n">regression_results</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span> <span class="o">=</span> <span class="s2">&quot;beta_m&quot;</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s2">&quot;Sector&quot;</span><span class="p">,</span> <span class="n">rot</span> <span class="o">=</span> <span class="mi">75</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
@@ -1760,13 +1765,13 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fbd3e4eb187e2e4ed2404ef0df61ea81b27cfb5c12f86266b45260db7e7fb179.png" src="_images/fbd3e4eb187e2e4ed2404ef0df61ea81b27cfb5c12f86266b45260db7e7fb179.png" />
+<img alt="_images/b899824483ade5de788c60f14929f5e44e08f1e529ae99e876503a5f251ac228.png" src="_images/b899824483ade5de788c60f14929f5e44e08f1e529ae99e876503a5f251ac228.png" />
 </div>
 </div>
 <p>Taking a look at the adjusted <span class="math notranslate nohighlight">\(R^2\)</span> values, we observe that a larger level of the returns’ variation can be explained by including the size and value factors. This underlines empirical findings which speak against the CAPM and the existence of factors which impact the asset risk premium beyond the covariance to the market.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">regression_results</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span> <span class="o">=</span> <span class="s2">&quot;R2_adj&quot;</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s2">&quot;Sector&quot;</span><span class="p">,</span> <span class="n">rot</span> <span class="o">=</span> <span class="mi">75</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1779,7 +1784,7 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/30918ea43450c95f443bf4a73922babb94a61a6182572736d83c3e29d479d2d7.png" src="_images/30918ea43450c95f443bf4a73922babb94a61a6182572736d83c3e29d479d2d7.png" />
+<img alt="_images/6a76fdf3634a71568da3bcb6e3f099cdf60110e0729dc65d9426788d22634f6c.png" src="_images/6a76fdf3634a71568da3bcb6e3f099cdf60110e0729dc65d9426788d22634f6c.png" />
 </div>
 </div>
 </section>
@@ -1799,7 +1804,7 @@ Notes:
 <p>The data sample for our analysis includes US stock listed companies from major stock market indices. The sample includes monthly observations with the number of firm observations per month being approximately between <span class="math notranslate nohighlight">\(2,200\)</span> and <span class="math notranslate nohighlight">\(2,600\)</span>. Overall this data sample includes <span class="math notranslate nohighlight">\(619,110\)</span> observations in the time period between 2002 and 2024. The table below gives a descriptive overview of all observations over time after each variable has been winsorized at the <span class="math notranslate nohighlight">\(0.01\)</span> and <span class="math notranslate nohighlight">\(0.99\)</span> level.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">df_regression</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/fama_macbeth_cross_sectional_data.csv&quot;</span><span class="p">)</span>
 <span class="n">df_regression</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_regression</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">])</span>
@@ -1904,7 +1909,7 @@ Notes:
 <p>If we conduct the cross sectional regression in our data sample, the following results can be observed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
 
 <span class="n">dt</span><span class="p">,</span> <span class="n">df_tmp</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">df_regression</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="s2">&quot;Date&quot;</span><span class="p">)))</span>
 
@@ -1923,8 +1928,8 @@ Notes:
 Dep. Variable:          ex_rt_shifted   R-squared:                       0.005
 Model:                            OLS   Adj. R-squared:                  0.004
 Method:                 Least Squares   F-statistic:                     4.015
-Date:                Mon, 20 Jan 2025   Prob (F-statistic):            0.00733
-Time:                        17:03:39   Log-Likelihood:                 1370.8
+Date:                Tue, 28 Jan 2025   Prob (F-statistic):            0.00733
+Time:                        13:53:32   Log-Likelihood:                 1370.8
 No. Observations:                2300   AIC:                            -2734.
 Df Residuals:                    2296   BIC:                            -2711.
 Df Model:                           3                                         
@@ -1968,8 +1973,8 @@ t_{\hat{\beta^{f_i}}} = \frac{\hat{\beta}^{f_i}}{\sigma_{\hat{\beta}^{f_i}}}
 <p>Now, let us take a look at the results for our data set, below we observe estimated model parameters over time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
 <span class="n">risk_premiums</span> <span class="o">=</span> <span class="p">(</span>
@@ -1988,13 +1993,13 @@ t_{\hat{\beta^{f_i}}} = \frac{\hat{\beta}^{f_i}}{\sigma_{\hat{\beta}^{f_i}}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/801b83870950a3ae5e3aba9f9d13857a86c081802f42fbffde765c9680da9c07.png" src="_images/801b83870950a3ae5e3aba9f9d13857a86c081802f42fbffde765c9680da9c07.png" />
+<img alt="_images/f8c35f85e299244afdace259842dc54c4df93ec8c42fef9b01b6f6010871b83f.png" src="_images/f8c35f85e299244afdace259842dc54c4df93ec8c42fef9b01b6f6010871b83f.png" />
 </div>
 </div>
 <p>If we calculate t-statistics with and without the correction of heteroscedasticity and auto-correlation, the following results can be observed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">price_of_risk</span> <span class="o">=</span> <span class="p">(</span><span class="n">risk_premiums</span>
   <span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;factor&quot;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;estimate&quot;</span><span class="p">)</span>
@@ -2231,8 +2236,8 @@ By Prof. Dr. Ralf Kellner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

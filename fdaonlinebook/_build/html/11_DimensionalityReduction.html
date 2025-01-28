@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,10 +27,10 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -188,9 +188,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -414,8 +419,8 @@ PSS_j = \frac{SS_j}{TSS} = \frac{\sum_{i=1}^n z_{ij}^2}{\sum_{i = 1}^n \sum_{j =
 <p>Take a look in the scatter plot below which visualizes a data set with two variables. With PCA up to two principal components can be determined. We observe that the values of <span class="math notranslate nohighlight">\(x_1\)</span> vary more than the ones of <span class="math notranslate nohighlight">\(x_2\)</span>. Furthermore, a positive relation seems to exists between both variables. The two arrows represent the vectors of the principal components (scaled by the variance they capture, i.e., longer vector means more variation is captured by this component). You should be able to identify that the longer vector is along the axis of the highest level of variation. The second vector has a 90 degree angle to the first vector (this is due to their orthogonality) and heads into the other direction of variation in the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">mean</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="n">covariance</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mf">.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
@@ -444,7 +449,7 @@ PSS_j = \frac{SS_j}{TSS} = \frac{\sum_{i=1}^n z_{ij}^2}{\sum_{i = 1}^n \sum_{j =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/555b2c2f1682ca6cde4fcf879667596ba806a9d7b8769e31cc2c821a6ee7880c.png" src="_images/555b2c2f1682ca6cde4fcf879667596ba806a9d7b8769e31cc2c821a6ee7880c.png" />
+<img alt="_images/c443004969a715110613b93d510f0f01dc3134af8414b4b34a35fcd03e7810c9.png" src="_images/c443004969a715110613b93d510f0f01dc3134af8414b4b34a35fcd03e7810c9.png" />
 </div>
 </div>
 <p>Variation in the data stems from the individual variance of each variable and their relationship. Given the relationship is linear, its strength can be quantified by covariance. If we take a look at the covariance matrix from the data above:</p>
@@ -455,8 +460,8 @@ PSS_j = \frac{SS_j}{TSS} = \frac{\sum_{i=1}^n z_{ij}^2}{\sum_{i = 1}^n \sum_{j =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2.111  0.5157]
- [0.5157 0.9931]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.9607 0.4842]
+ [0.4842 1.0024]]
 </pre></div>
 </div>
 </div>
@@ -469,7 +474,7 @@ PSS_j = \frac{SS_j}{TSS} = \frac{\sum_{i=1}^n z_{ij}^2}{\sum_{i = 1}^n \sum_{j =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.9314 0.364 ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.9229 0.3851]
 </pre></div>
 </div>
 </div>
@@ -487,7 +492,7 @@ z_{i1} = x_{i1} w_{11} + x_{i2} w_{21} = 0.9166 x_{i1}  + 0.3998 x_{i2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.364   0.9314]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.3851  0.9229]
 </pre></div>
 </div>
 </div>
@@ -509,15 +514,15 @@ z_{i1} = x_{i1} w_{11} + x_{i2} w_{21} = 0.9166 x_{i1}  + 0.3998 x_{i2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/13863824e12744e542df1256c0f05f674c45f3ff5239298280d0dca2b5269231.png" src="_images/13863824e12744e542df1256c0f05f674c45f3ff5239298280d0dca2b5269231.png" />
+<img alt="_images/762355113a21b39deeff7febe770e1b6528c2955e4867ef038d884c8457c1045.png" src="_images/762355113a21b39deeff7febe770e1b6528c2955e4867ef038d884c8457c1045.png" />
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(PSS_1 = 0.75\)</span> which tells us that 75% from the overall variation in the data is captured by the first principal component. Furthermore, as both weights from the first principal component are positive, we know that if the score for the first principal component is positive, that the observations of <span class="math notranslate nohighlight">\(x_1, x_2\)</span> likely have the same sign. This can not said with certainty, however, the latter sentence highlights a characteristic of dimensionality reduction. From the lower representation, we can say something about the original data without knowing the original data. Not with certainty, however, on average we should be write with such an inference.</p>
 <p>Another characteristic for dimensionality techniques is that the characteristics in the lower dimension are as close as possible as in the original dimension. For instance, we can determine how (dis-)similar observations are in the two dimensional space. For our example, we quantify this by the euclidean distance. If we determine the distances between three random observations by pairs of <span class="math notranslate nohighlight">\((x_{i1}, x_{i2})\)</span> or <span class="math notranslate nohighlight">\(z_{i1}\)</span>, respectively, we observe below that the relationship of similarity remains the same. In this example, observations 1 and 20 are more similar to each other than 1 and 200. This is true if we determine the euclidean distance in two dimensions as well as in one dimension which is represented by the first principal component.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">euclidean_distances</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics.pairwise</span><span class="w"> </span><span class="kn">import</span> <span class="n">euclidean_distances</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">ecl_dist</span> <span class="o">=</span> <span class="n">euclidean_distances</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance between the first and 20th samples:&quot;</span><span class="p">)</span>
@@ -534,13 +539,13 @@ z_{i1} = x_{i1} w_{11} + x_{i2} w_{21} = 0.9166 x_{i1}  + 0.3998 x_{i2}
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distance between the first and 20th samples:
-1.48
+3.01
 Distance between the first and 200th samples:
-3.21
+2.05
 Distance between the first and 20th samples of the first principal component score:
-1.22
+2.88
 Distance between the first and 200th samples of the first principal component score:
-2.5
+1.82
 </pre></div>
 </div>
 </div>
@@ -551,8 +556,8 @@ Distance between the first and 200th samples of the first principal component sc
 <p>So far, we have taken a look at PCA in an abstract way. However, let us approach the topic with financial data and find out, that these concepts can become more intuitive than you might think right now. In the cell below, we import daily returns (in %) from the year 2024 for Apple (AAPL), Alphabet (GOOGL), JP Morgan (JPM), Morgan Stanley (MS) and Microsoft (MSFT).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">tickers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AAPL&quot;</span><span class="p">,</span> <span class="s2">&quot;MSFT&quot;</span><span class="p">,</span> <span class="s2">&quot;GOOGL&quot;</span><span class="p">,</span> <span class="s2">&quot;JPM&quot;</span><span class="p">,</span> <span class="s2">&quot;MS&quot;</span><span class="p">]</span>
 
@@ -650,7 +655,7 @@ Distance between the first and 200th samples of the first principal component sc
 <p>In the next cell, we take a look at the covariance matrix. Values on the diagonal are estimated variances for each company, the values in the lower and upper triangular matrix correspond to pairwise covariances. We observe that Alphabet has the highest variance after Morgan Stanley. Taking a look at off-diagonal values, we observe pairwise positive covariance for each pair of companies. The latter is typical for stock market returns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">PcaPortfolio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">PcaPortfolio</span>
 
 <span class="n">pca_portfolio</span> <span class="o">=</span> <span class="n">PcaPortfolio</span><span class="p">(</span><span class="n">r_t</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">pca_portfolio</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
@@ -659,7 +664,7 @@ Distance between the first and 200th samples of the first principal component sc
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eb8bc7be49617c73136154d8456ab87dc49cb4d20969c42e79275029f8e0a746.png" src="_images/eb8bc7be49617c73136154d8456ab87dc49cb4d20969c42e79275029f8e0a746.png" />
+<img alt="_images/46fafda1778cf307028130a4e48a944dabee6c6a64feca54a76eacb6ad7f8fb9.png" src="_images/46fafda1778cf307028130a4e48a944dabee6c6a64feca54a76eacb6ad7f8fb9.png" />
 </div>
 </div>
 <p>The next cell exhibits the principal components. Most important are the first components as they capture the vast majority of variation in the data. In this context, variation relates to variance which is one of the most important dimensions to measure risk on financial markets. From the visualization of the previous subchapter, we know that the each component represents a vector. The vector of the first component points in the direction of the highest level of variation in the data. The higher the weight of each company, the more the vector is oriented along the variation of the individual company. If the returns of all companies would be independent, the first component would be a vector of zeros except for the company with the highest variance. Given the positive relationship for all company pairs, the companies with the highest individual variance and highest covariances get the highest weights.</p>
@@ -1436,14 +1441,14 @@ z_{t1} = r_{t1} w_{11} + r_{t2} w_{21} + ... + r_{t5} w_{51}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3b804f1d104a0e69249ca09fda1e64786d48bc3726c7ad75bf15284112e2b143.png" src="_images/3b804f1d104a0e69249ca09fda1e64786d48bc3726c7ad75bf15284112e2b143.png" />
+<img alt="_images/e124f3107ca2b79432a05da913d9c37dcd92df128662ceff9e5b6573ea83e653.png" src="_images/e124f3107ca2b79432a05da913d9c37dcd92df128662ceff9e5b6573ea83e653.png" />
 </div>
 </div>
 <p>Now, let us examine the same type of analysis with a more realistic portfolio in terms of portfolio size. Below, we import data for all companies of the Euro Stoxx 50 which includes 50 large companies of the Euro zone.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
 
 <span class="n">eu50_tables</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s2">&quot;https://en.wikipedia.org/wiki/EURO_STOXX_50&quot;</span><span class="p">)</span>
 <span class="n">eu50_constituents</span> <span class="o">=</span> <span class="n">eu50_tables</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
@@ -1466,7 +1471,7 @@ z_{t1} = r_{t1} w_{11} + r_{t2} w_{21} + ... + r_{t5} w_{51}
 <p>Taking a look how much of the variation is captured by the principal components, we observe that only around 30% of the variation is captured by the first principal component. While this seems to be not that much, we will see below that this already captures most of the systematic movement of the companies on average.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">PcaPortfolio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">PcaPortfolio</span>
 
 <span class="n">pca_portfolio</span> <span class="o">=</span> <span class="n">PcaPortfolio</span><span class="p">(</span><span class="n">r_t</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">pca_portfolio</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
@@ -1475,7 +1480,7 @@ z_{t1} = r_{t1} w_{11} + r_{t2} w_{21} + ... + r_{t5} w_{51}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3459f6b11f8eef4e4092144e609de52e84a61107909deb7980f43e2647af5246.png" src="_images/3459f6b11f8eef4e4092144e609de52e84a61107909deb7980f43e2647af5246.png" />
+<img alt="_images/d6417cd85183985978d7f4d1ff509bb4b592451a88a1b916e86194d9e4a38b78.png" src="_images/d6417cd85183985978d7f4d1ff509bb4b592451a88a1b916e86194d9e4a38b78.png" />
 </div>
 </div>
 <p>To demonstrate this, we build a naive portfolio of the companies, calculate the scores for the first five principal components and determine the correlation between the scores and the portfolio returns. We can observe that the scores of the first principal component almost perfectly correlate with the portfolio returns, while even the second component scores almost do not correlate anymore. The naive portfolio return is the average market value development of all companies. According to the high correlation, the first principal component almost perfectly captures this average, systematic development.</p>
@@ -1585,7 +1590,7 @@ z_{t1} = r_{t1} w_{11} + r_{t2} w_{21} + ... + r_{t5} w_{51}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e088b7a5f9e23c4b7a60e241c34de94857f3c8f45177c4f54a62b27ed033df80.png" src="_images/e088b7a5f9e23c4b7a60e241c34de94857f3c8f45177c4f54a62b27ed033df80.png" />
+<img alt="_images/54727e32807b46d911a9d0a4e1f4587af2e9002e76f2e262a9c4cad5fff5670f.png" src="_images/54727e32807b46d911a9d0a4e1f4587af2e9002e76f2e262a9c4cad5fff5670f.png" />
 </div>
 </div>
 <p>However, principal components, and, especially the first component are capable to capture the systematic risk in a company universe. The cell below illustrates the rolling average of the past ten observations for the naive portfolio and the first principle components. This highlights that the first component captures the current trend in the market development.</p>
@@ -1597,15 +1602,15 @@ z_{t1} = r_{t1} w_{11} + r_{t2} w_{21} + ... + r_{t5} w_{51}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8f03f2b4cf8bd1057604b0ed37f5695037507959a2a247e1d061211712c1ac7c.png" src="_images/8f03f2b4cf8bd1057604b0ed37f5695037507959a2a247e1d061211712c1ac7c.png" />
+<img alt="_images/413313f9dd3f8f59ecadfde91e5fe73d78fba3d99c1e22c5c8f5f1b55576ab8a.png" src="_images/413313f9dd3f8f59ecadfde91e5fe73d78fba3d99c1e22c5c8f5f1b55576ab8a.png" />
 </div>
 </div>
 <p>Thus, using the principal components as risk factors is a useful application. In the end of the chapter about linear regression, we already seen risk factor models where the risk factors are constructed by forming portfolios based on firm attributes. These risk factors are hard to build and only publicly available for few countries. Risk factors by PCA can be build easy and flexbile. They only need return data which usually is freely available. Below, we regress each of the Stoxx 50 companies on the first three principal components and build a histogram for the <span class="math notranslate nohighlight">\(R^2\)</span> values of these regressions.</p>
 <p>As we can see, the average coefficient of determination is in the range between 40% and 50% which tells us that almost half of the variation over time of each return time series can be explained by the risk factors made of PCA.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">Z</span> <span class="o">=</span> <span class="n">pca_portfolio</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">r_t</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
@@ -1624,7 +1629,7 @@ z_{t1} = r_{t1} w_{11} + r_{t2} w_{21} + ... + r_{t5} w_{51}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bfc2420766dcbd0d6318621ac2136b181a2113a51467664fb353bd97e552b990.png" src="_images/bfc2420766dcbd0d6318621ac2136b181a2113a51467664fb353bd97e552b990.png" />
+<img alt="_images/01f79100031cd20c5370d18e542e07a234304226aedeecd61c17a24df1129d67.png" src="_images/01f79100031cd20c5370d18e542e07a234304226aedeecd61c17a24df1129d67.png" />
 </div>
 </div>
 <p>Note, that these results might be a little too optimistic, if we use the component weights out of sample and out of time. In a more realistic setting, we first estimate the component weights with historic data and use these weights on new and unseen data in the future. Furthermore, the goal is to build universal risk factors which are also good in explaining the variation of returns for companies that are not included in the process of component estimation.</p>
@@ -1633,8 +1638,8 @@ z_{t1} = r_{t1} w_{11} + r_{t2} w_{21} + ... + r_{t5} w_{51}
 <p>As an experiment, we collect data for Dax 40 companies and regress them on the first three components of the Stoxx 50. Even though, the average level for the coefficient of determination decreases, the results are sill promising w.r.t. the variation explained.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">tickers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s2">&quot;https://en.wikipedia.org/wiki/DAX#Components&quot;</span><span class="p">)[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">Ticker</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
 
@@ -1663,7 +1668,7 @@ z_{t1} = r_{t1} w_{11} + r_{t2} w_{21} + ... + r_{t5} w_{51}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0a5c3231a29fdc7ecb505c0c04a03bc3a347625cf172b584eb079e0c171e9fc9.png" src="_images/0a5c3231a29fdc7ecb505c0c04a03bc3a347625cf172b584eb079e0c171e9fc9.png" />
+<img alt="_images/6d23f8104a258f4161106ebe1169eb685433f9dea52aef933f3df6de655acf6c.png" src="_images/6d23f8104a258f4161106ebe1169eb685433f9dea52aef933f3df6de655acf6c.png" />
 </div>
 </div>
 </section>
@@ -1914,8 +1919,8 @@ By Prof. Dr. Ralf Kellner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,10 +27,10 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -186,9 +186,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -487,7 +492,7 @@ Der absoulte value of the number -2 is:
 
 print(*args, sep=&#39; &#39;, end=&#39;\n&#39;, file=None, flush=False)
     Prints the values to a stream, or to sys.stdout by default.
-    
+
     sep
       string inserted between values, default a space.
     end
@@ -558,7 +563,7 @@ The data type of the value True is:
 <p>Whenever errors occur during the execution of the code, the calculation is interrupted and an error message is generated. There are different error types for this, which should make it as easy as possible for the user to identify the source of the error. Below you can see an example for a NameError, which results from the fact that the variable d is not yet defined and therefore unknown.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;error_msg.jpg&#39;</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -669,15 +674,15 @@ The data type of the value True is:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a function without an argument</span>
-<span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
 
 <span class="c1"># a function with argument</span>
-<span class="k">def</span> <span class="nf">add_one</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_one</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
 
 <span class="c1"># a function with a list as an argument which returns the maximum and the index of its value</span>
-<span class="k">def</span> <span class="nf">find_maximum</span><span class="p">(</span><span class="n">a_list</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_maximum</span><span class="p">(</span><span class="n">a_list</span><span class="p">):</span>
     <span class="n">max_value</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
     <span class="n">max_index</span> <span class="o">=</span> <span class="n">a_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">max_value</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">max_value</span><span class="p">,</span> <span class="n">max_index</span>    
@@ -711,10 +716,10 @@ The data type of the value True is:
 <p>If it is convenient for a project to define multiple functions, they can be defined once in a separate file and imported for different analyses. For example, in my current folder I have stored a file named <em>my_module.py</em>, in which the following functions are defined:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_python_is_fun</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_python_is_fun</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python is fun to learn!&quot;</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_two</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">2</span>
 </pre></div>
 </div>
@@ -724,7 +729,7 @@ The data type of the value True is:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Either using the from ... import ... way</span>
-<span class="kn">from</span> <span class="nn">my_module</span> <span class="kn">import</span> <span class="n">print_python_is_fun</span><span class="p">,</span> <span class="n">add_two</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">my_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">print_python_is_fun</span><span class="p">,</span> <span class="n">add_two</span>
 
 <span class="n">print_python_is_fun</span><span class="p">()</span>
 <span class="n">add_two</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -743,7 +748,7 @@ The data type of the value True is:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can also import all functions using the * symbol, this is rather uncommon</span>
-<span class="kn">from</span> <span class="nn">my_module</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">my_module</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">print_python_is_fun</span><span class="p">()</span>
 <span class="n">add_two</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -762,7 +767,7 @@ The data type of the value True is:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># often modules are imported with an alias and methods are accessed combining the alias with the dot and the function name</span>
-<span class="kn">import</span> <span class="nn">my_module</span> <span class="k">as</span> <span class="nn">mm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">my_module</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mm</span>
 
 <span class="n">mm</span><span class="o">.</span><span class="n">print_python_is_fun</span><span class="p">()</span>
 <span class="n">mm</span><span class="o">.</span><span class="n">add_two</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -781,8 +786,8 @@ The data type of the value True is:
 <p>The file is called module and has the advantage that functions or also objects can be defined there, which can be used for several analyses after import again and again. If you go one step further and bundle several modules thematically in a folder, you get what is called a package in Python. This is one of the greatest strengths of Python. There are many packages written by developers and Python users that are freely available and cover a wide range of modern methods in computer science, mathematics, statistics and data analysis. As an example you can see in the code below how to import one function from each module of the package <em>my_package</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">my_package.your_module</span> <span class="kn">import</span> <span class="n">print_something_else</span>
-<span class="kn">from</span> <span class="nn">my_package.my_module</span> <span class="kn">import</span> <span class="n">print_python_is_fun</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">my_package.your_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">print_something_else</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">my_package.my_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">print_python_is_fun</span>
 
 <span class="n">print_python_is_fun</span><span class="p">()</span>
 <span class="n">print_something_else</span><span class="p">()</span>
@@ -1121,8 +1126,8 @@ By Prof. Dr. Ralf Kellner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,10 +27,10 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -188,9 +188,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -398,11 +403,11 @@
 <p>If we would use the evaluation results of multiple splits of the data into training and test data, we average performance metrics for the test data of every split. By this means, we overcome the problem of high variation of single split evaluation due to the variance reduction effect of averaging. Note that the performance metric is an estimator that is a random variable. Let us denote it by <span class="math notranslate nohighlight">\(x\)</span>, i.e. in our example <span class="math notranslate nohighlight">\(x\)</span> is the mean squared error of the test data. The random variable has standard deviation <span class="math notranslate nohighlight">\(\sigma_x\)</span>. If observations in the data are independent and identically distributed so is <span class="math notranslate nohighlight">\(x\)</span> and it can be shown that the average mean squared error <span class="math notranslate nohighlight">\(\bar{x}\)</span> has standard deviation <span class="math notranslate nohighlight">\(\sigma_{\bar{x}} = \frac{\sigma_x}{\sqrt{m}}\)</span> with <span class="math notranslate nohighlight">\(m\)</span> being the number of time we split the data into training and test data. Thus, the variation of the performance metric <span class="math notranslate nohighlight">\(x\)</span> is reduced by a factor of <span class="math notranslate nohighlight">\(\sqrt{m}\)</span>. This variance reduction may not be as large if the observations in the data set are not independent from each other, however, usually remain to a certain extent.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 
 <span class="n">advertising_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/Advertising.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span> <span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">)</span>
@@ -440,7 +445,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1cac6a74d1aa516f9b6ab863c174599399417428d85a12babb2b22491bb51bc1.png" src="_images/1cac6a74d1aa516f9b6ab863c174599399417428d85a12babb2b22491bb51bc1.png" />
+<img alt="_images/cb147fc37d483f7daf6ce05b9a0fc530995011f44be1f080c7509a1f8fdc5472.png" src="_images/cb147fc37d483f7daf6ce05b9a0fc530995011f44be1f080c7509a1f8fdc5472.png" />
 </div>
 </div>
 </section>
@@ -454,10 +459,10 @@
 <p>A popular approach to conduct validation by multiple splits of the data and still keep the number of splits at a reasonable level is K-fold cross validation. In K-fold cross validation, the data set is split into <span class="math notranslate nohighlight">\(k\)</span> equal parts. Then, one of the parts is used as a test data set at a time, while the remaining data is used to train the model. This process is performed <span class="math notranslate nohighlight">\(k\)</span> times by iterating over all the parts (folds). The graph below visualizes this form of data partitioning. It is also possible to mix the data before splitting it into equal parts, however, K-fold cross validation usually uses test data splits that are non-overlapping over different splits.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">KFold</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">cmap_cv</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span>
 <span class="n">n_splits</span> <span class="o">=</span> <span class="mi">5</span>
@@ -501,7 +506,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2e554f274c1875a641dc051bf948e354fad54f798825ce04ffd501b23e076f01.png" src="_images/2e554f274c1875a641dc051bf948e354fad54f798825ce04ffd501b23e076f01.png" />
+<img alt="_images/fd5b2928e0b85a6fe05624a56d9b34d0aaf8af45c40dba6a67223d88a6be1be9.png" src="_images/fd5b2928e0b85a6fe05624a56d9b34d0aaf8af45c40dba6a67223d88a6be1be9.png" />
 </div>
 </div>
 <p>After each iteration we have an estimator of a test error, for example for a regression problem the <span class="math notranslate nohighlight">\(MSE_k = \frac{1}{n_k} \sum_{i \in k_{\text{fold}}} \left(y_i - \hat{y}_i\right)^2 \)</span>. As a final estimator of the test error, we can use the average test error over all k-folds:</p>
@@ -512,12 +517,12 @@ CV_{(k)} = \frac{1}{k} \sum_k MSE_k
 <p>In the next cell, K-fold cross-validation is performed for the Advertising data set with <span class="math notranslate nohighlight">\(k=5\)</span>. Since the number of observations of the test data is smaller than in the upper sampling method, the individual estimates <span class="math notranslate nohighlight">\(MSE_k\)</span> of the test data vary more. However, we see that the actual estimator <span class="math notranslate nohighlight">\(CV_{(k)}\)</span> takes a very similar value as in the upper example. In addition, more data can be used to train the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">KFold</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span>
 
 
 <span class="n">advertising_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/Advertising.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span> <span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">)</span>
@@ -554,19 +559,19 @@ CV_{(k)} = \frac{1}{k} \sum_k MSE_k
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3ccff85290b4b3169ad6665614da3dfeac6d12d83f6e4c0adae22f1b4189512b.png" src="_images/3ccff85290b4b3169ad6665614da3dfeac6d12d83f6e4c0adae22f1b4189512b.png" />
+<img alt="_images/3883d7fe3bf7e4eaacd958b4677d338686db25bf905070ffd7609053eb590273.png" src="_images/3883d7fe3bf7e4eaacd958b4677d338686db25bf905070ffd7609053eb590273.png" />
 </div>
 </div>
 <p>Furthermore, one should be careful when interpreting the histograms in the cell above. It is precisely the advantage of cross-validation that we would not evaluate the model on the basis of the individual test errors, but on their average. If we were to perform this procedure multiple times, the variation in the estimated values for <span class="math notranslate nohighlight">\(CV_{(k)}\)</span> would be much smaller than with the method of simply splitting the data. To demonstrate this, we forgo for a moment the reproducibility of the value for <span class="math notranslate nohighlight">\(CV_{(k)}\)</span> and perform the cross-validation with <span class="math notranslate nohighlight">\(k=5\)</span> multiple times by randomly splitting the parts of the data after all. We then consider the histogram for all realizations of <span class="math notranslate nohighlight">\(CV_{(k)}\)</span> over all K-fold runs. Here it becomes clear that the assessment of a model based on K-fold validation varies significantly less with different (random) splits of training and test data. This is exactly the advantage, since the evaluation of the generalization ability of a model is more stable with respect to the drawing of random training and test data.</p>
 <p>In the type of cross-validation presented here, it is assumed that the observations of the data have no dependencies on each other. This assumption is violated if observations have geographic, temporal, or other types of dependencies. For example, for time series data, it can be problematic if future data can be used to forecast past data because of the way the fold is formed. This can result in systematic misestimates of model quality, so such relationships are adjusted as needed. However, this must be done specifically depending on the problem.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">KFold</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span>
 
 
 <span class="n">advertising_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/Advertising.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span> <span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">)</span>
@@ -608,7 +613,7 @@ CV_{(k)} = \frac{1}{k} \sum_k MSE_k
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f823d7a50be4023b32132594711b541e0f9d7d65fbb41bb3cdfe5c3b5d080a76.png" src="_images/f823d7a50be4023b32132594711b541e0f9d7d65fbb41bb3cdfe5c3b5d080a76.png" />
+<img alt="_images/b42929eb2dacb407aa6ce5528535c9bee6c90c7369111554b134ca25675581d2.png" src="_images/b42929eb2dacb407aa6ce5528535c9bee6c90c7369111554b134ca25675581d2.png" />
 </div>
 </div>
 </section>
@@ -617,8 +622,8 @@ CV_{(k)} = \frac{1}{k} \sum_k MSE_k
 <p>A popular toy dataset is the California Housing dataset which can be download using the sklearn package. Among with other feature variables, it contains median house values in geographic regions of California. The data is imported below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_california_housing</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span>
@@ -729,17 +734,17 @@ CV_{(k)} = \frac{1}{k} \sum_k MSE_k
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5e36e23adf61f9a2a0c0a96cd465ed6bbc7a540983f60679c920436cf45b5d6d.png" src="_images/5e36e23adf61f9a2a0c0a96cd465ed6bbc7a540983f60679c920436cf45b5d6d.png" />
+<img alt="_images/4f9fbf9fad96157c8118c4909a187afbcf76edeb4bec49e04ebbe057272604a3.png" src="_images/4f9fbf9fad96157c8118c4909a187afbcf76edeb4bec49e04ebbe057272604a3.png" />
 </div>
 </div>
 <p>Let us take a look what happens if we use a 5-fold split of the data, estimate a linear regression model and evaluate its performance by using the coefficient of determination <span class="math notranslate nohighlight">\(R^2\)</span> for the test data. Two things can be observed from the output below. First, values of <span class="math notranslate nohighlight">\(R^2\)</span> vary a lot regarding the performance for each split. Together with the plots for each split, we may identify the reason for this behavior. Without mixing the data, the training and test samples are note well spread over California, but rather are centered in certain regions. Due to the impact of the geographic region on house prices, this may prevent the model from learning to predict reasonable house prices for all geographic regions. Still, given this drawback, the average value of <span class="math notranslate nohighlight">\(R^2\)</span> gives a more realistic assessment regarding the models performance in comparison for split 2 (too bad) or split 5 (too good).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">KFold</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">n_splits</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">cv</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span> <span class="o">=</span> <span class="n">n_splits</span><span class="p">)</span>
@@ -777,22 +782,20 @@ R2 score for split number 4:
 0.537
 R2 score for split number 5:
 0.6605
+Average R2 score over all splits: 0.553
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average R2 score over all splits: 0.553
-</pre></div>
-</div>
-<img alt="_images/0d634753d4f081a2c48bd8da0d5ce05a047d13378c00f128bbd949f59454331c.png" src="_images/0d634753d4f081a2c48bd8da0d5ce05a047d13378c00f128bbd949f59454331c.png" />
+<img alt="_images/568a5246b26a50e8779ff1134192efc02169ce47c12d6cacac7c25002aea2cca.png" src="_images/568a5246b26a50e8779ff1134192efc02169ce47c12d6cacac7c25002aea2cca.png" />
 </div>
 </div>
 <p>The observations from above highlight a situation in which it might be advantageous to mix the data before splitting it. By mixing it, we break the spatial dependence and give the model to learn to predict house prices in any geographic region. Thus, mixing the data should increase the average performance and reduce variation between the splits.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">KFold</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">n_splits</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">cv</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span> <span class="o">=</span> <span class="n">n_splits</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span>
@@ -833,7 +836,7 @@ R2 score for split number 5:
 Average R2 score over all splits: 0.6014
 </pre></div>
 </div>
-<img alt="_images/ba5e6cce68805769aaaaacdabe1d6aa4f4cf625174ec9c7c9c7d2320b567952d.png" src="_images/ba5e6cce68805769aaaaacdabe1d6aa4f4cf625174ec9c7c9c7d2320b567952d.png" />
+<img alt="_images/9823a67f138f20d0ca5d9cd88fa5d3d8da42888955353486b1a90e6130120bb8.png" src="_images/9823a67f138f20d0ca5d9cd88fa5d3d8da42888955353486b1a90e6130120bb8.png" />
 </div>
 </div>
 </section>
@@ -956,8 +959,8 @@ By Prof. Dr. Ralf Kellner
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -9,3 +9,4 @@ tex/*
 !tex/fda.pdf
 fdaonlinebook/__pycache__/*
 fdaonlinebook/utils.py
+exam/*
